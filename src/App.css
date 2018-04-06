@@ -4,7 +4,7 @@ body {
    * or Tango colorscheme. May just come up with colors
    * manually.*/
   background-color: #18181c;
-  color:#fafacc;
+  color:#fafada;
 }
 
 .App {
@@ -24,4 +24,9 @@ body {
 
 .App-title {
   font-size: 2.4em;
+}
+
+.terminal {
+  padding:25px;
+  font-size: 1.8em;
 }

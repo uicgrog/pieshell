@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function terminal(props){
-  return <div className="terminal">props.response</div>;
+function Terminal(props){
+  return <div className="terminal">{props.response}</div>;
 }
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
         <header className="App-header">
             <h1 className="App-title"> Welcome to PieShell.</h1>
         </header>
-        <terminal response="Ready to begin? Select a TTY instance to get started." />
+        <Terminal response="Ready to begin? Select a TTY instance to get started." />
       </div>
     );
   }
