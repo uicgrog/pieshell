@@ -10,11 +10,7 @@ const url = require('url')
     win = new BrowserWindow({width: 800, height: 600})
     
     // Load from our React instance
-    const startURL = process.env.ELECTRON_START_URL || url.format({
-          pathname: path.join(__dirname, 'App.js'),
-          protocol: 'file:',
-          slashes: true
-        });
+    const startURL = "http://localhost:3000";
     win.loadURL(startURL);
 
     // Open dev tools
