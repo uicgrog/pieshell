@@ -2,7 +2,7 @@
 //https://github.com/levrik/mdi-react
 
 import React, { Component } from 'react';
-import './PieShell.css';
+import './stylesheets/css/PieShell.css';
 import PropTypes from 'prop-types';
 import ArrowLeft from 'mdi-react/ArrowLeftIcon.js';
 

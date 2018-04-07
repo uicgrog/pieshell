@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './stylesheets/css/App.css';
 
 function Terminal(props){
   return <div className="terminal">{props.response}</div>;
