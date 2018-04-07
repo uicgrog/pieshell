@@ -9,13 +9,14 @@
     "react-dom": "^16.3.1",
     "react-scripts": "1.1.4"
   },
-  "main": "src/electron-start.js",
+  "main": "src/babel/electron-start.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "electron": "electron ."
+    "electron": "electron .",
+    "sass": "sass --watch src/stylesheets/sass:src/stylesheets/css"
   },
   "devDependencies": {
     "electron": "^1.8.4"
