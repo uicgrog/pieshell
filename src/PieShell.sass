@@ -1,0 +1,106 @@
+// Variable:
+$size: 256px
+$debug: true
+
+// ==============
+// Do not change:
+$sizeThird: $size/3
+$fontSize: $size/16
+
+body
+	font:
+		size: $fontSize
+		weight: bold
+		family: 'Hack'
+	padding: 0
+	margin: 0
+	
+button
+	color: white
+	border-radius: $fontSize
+	background:
+		color: rgba(0,0,0,0)
+		
+
+.Pie, 
+.PieSliceTop, 
+.PieSliceRight, 
+.PieSliceBottom, 
+.PieSliceLeft, 
+.PieCenter
+	background:
+		repeat: no-repeat
+		size: contain
+	position: fixed
+	width: $size
+	height: $size
+	top: 0
+	left: 0
+	color: black
+
+.Pie
+	background-image: url("images/PieBackground.png")
+
+.PieSliceTop
+	background-image: url("images/PieSliceTop.png")
+	.Option
+		top: $sizeThird/6
+		left: $sizeThird
+
+.PieSliceRight
+	background-image: url("images/PieSliceRight.png")
+	.Option
+		top: $size/2 - $sizeThird/4
+		left: $sizeThird*2
+
+.PieSliceBottom
+	background-image: url("images/PieSliceBottom.png")
+	.Option
+		top: $sizeThird/6 + $sizeThird*2
+		left: $sizeThird
+
+.PieSliceLeft
+	background-image: url("images/PieSliceLeft.png")
+	.Option
+		top: $size/2 - $sizeThird/4
+		left: 0
+
+.PieCenter
+	background-image: url("images/PieCenter.png")
+	color: white
+
+.Category
+	@if ($debug)
+		background-color: rgba(255,0,0,0.6)
+	width: $sizeThird
+	position: fixed
+	top: $sizeThird + 0.5
+	left: $sizeThird + 0.5
+	text-align: center
+	margin: ($sizeThird/2 - $fontSize/4*3) 0
+
+.Option
+	@if ($debug)
+		background-color: rgba(0,0,255,0.6)
+	width: $sizeThird
+	height: $sizeThird/2
+	position: fixed
+	top: 256px
+	left: 256px
+	text-align: center
+	//margin: ($sizeThird/2 - $fontsize/4*3) 0
+	margin: 0
+	
+.BackButton
+	position: fixed
+	top: $sizeThird
+	left: $sizeThird + 14px
+	margin: 53px 0
+	padding: 0 4px
+	svg
+		position: relative
+		left: -3px
+	div
+		position: relative
+		display: inline
+		top: -2.5px
