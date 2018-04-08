@@ -10,7 +10,7 @@
   left: 65px;
 }
 
-#FourWedgeRight {
+#FourWedgeLeft {
   position: fixed;
   z-index: 99999;
   background-color: rgba(0, 0, 255, 0.0);
@@ -22,7 +22,7 @@
   left: -25px;
 }
 
-#FourWedgeLeft {
+#FourWedgeRight {
   position: fixed;
   z-index: 99999;
   background-color: rgba(0, 0, 255, 0.0);
