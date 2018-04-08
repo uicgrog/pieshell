@@ -8,7 +8,7 @@ const url = require('url')
   function createWindow () {
     // Create the browser window.
 	// Note: win size will effect the drop down menus!
-    win = new BrowserWindow({width: 800, height: 600, transparent: true, frame: false})
+    win = new BrowserWindow({width: 800, height: 600, transparent: true, frame: false, maximizable: false})
     
     // Load from our React instance
     const startURL = "http://localhost:3000";

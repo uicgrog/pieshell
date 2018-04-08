@@ -6,12 +6,20 @@ $debug: true
 // Do not change:
 $fontSize: $size/16
 
+@font-face
+	font-family: 'Hack'
+	src: url('Hack/Hack-Bold.ttf')
+	
+@font-face
+	font-family: 'Theinhardt'
+	src: url('Theinhardt/Theinhardt-Medium.otf')
+
 body
 	background: rgba(0,0,0,0)
 	font:
 		size: $fontSize
-		weight: bold
-		family: 'Hack'
+		weight: normal
+		family: 'Theinhardt'
 	padding: 0
 	margin: 0
 	
@@ -43,55 +51,75 @@ button
 	color: black
 
 .Pie
-	background-image: url("../../images/PieBackground.png")
+	background:
+		image: url("../../images/PieBackground.png")
+		color: rgba(0,0,0,0)
+	border:
+		radius: 100%
 
 .PieSliceTop
 	background-image: url("../../images/PieSliceTop.png")
 	.Option
+		width: $size/3 + 10px
 		top: $size/18
-		left: $size/3
+		left: $size/3 - 5px
 
 .PieSliceRight
 	background-image: url("../../images/PieSliceRight.png")
 	.Option
+		width: $size/3 - 5px
 		top: $size/2 - $size/12
 		left: $size/3*2
 
 .PieSliceBottom
 	background-image: url("../../images/PieSliceBottom.png")
 	.Option
+		width: $size/3 + 10px
 		top: $size/18 + $size/3*2
-		left: $size/3
+		left: $size/3 - 5px
 
 .PieSliceLeft
 	background-image: url("../../images/PieSliceLeft.png")
 	.Option
+		width: $size/3 - 5px
 		top: $size/2 - $size/12
-		left: 0
+		left: 0 + 5px
 		
 .PieSliceThirdsRight
 	background-image: url("../../images/PieSliceThirdsRight.png")
 	.Option
+		width: $size/3 + 10px
 		top: $size/5
 		left: $size - $size/11 - $size/3
 
 .PieSliceThirdsBottom
 	background-image: url("../../images/PieSliceThirdsBottom.png")
 	.Option
+		width: $size/3 + 10px
 		top: $size/18 + $size/3*2
-		left: $size/3
+		left: $size/3 - 5px
 
 .PieSliceThirdsLeft
 	background-image: url("../../images/PieSliceThirdsLeft.png")
 	.Option
+		width: $size/3 + 10px
 		top: $size/5
 		left: $size/11
 
 .PieCenter
-	-webkit-app-region: drag
 	background-image: url("../../images/PieCenter.png")
 	color: white
 
+.Draggable
+	-webkit-app-region: drag
+	background-color: rgba(0,0,0,0)
+	border-radius: 100%
+	position: fixed
+	width: $size/3
+	height: $size/3
+	top: $size/3
+	left: $size/3
+	
 .Category
 	@if ($debug)
 		background-color: rgba(255,0,0,0.6)
@@ -106,8 +134,6 @@ button
 .Option
 	@if ($debug)
 		background-color: rgba(0,0,255,0.6)
-	width: $size/3
-	height: $size/6
 	position: fixed
 	top: $size
 	left: $size
@@ -116,15 +142,17 @@ button
 	margin: 0
 	
 .BackButton
+	font-size: $fontSize - 4px	//update expression to be relative to size
 	position: fixed
-	top: $size/3 + 53px
-	left: $size/3 + 14px	//update expression to be relative to size
-	//margin: 53px 0			//update expression to be relative to size
+	top: $size/3 + 60px		//update expression to be relative to size
+	left: $size/3 + 18px	//update expression to be relative to size
+	//margin: 53px 0		//update expression to be relative to size
 	padding: 0 4px			//update expression to be relative to size
 	svg
 		position: relative
+		top: 2px			//update expression to be relative to size
 		left: -3px			//update expression to be relative to size
 	div
 		position: relative
 		display: inline
-		top: -2.5px			//update expression to be relative to size
+		top: -1.5px			//update expression to be relative to size
