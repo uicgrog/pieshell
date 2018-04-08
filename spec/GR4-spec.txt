@@ -1,0 +1,75 @@
+WEDGE LOCATIONS
+---------------
+wedges' angles of constraint, where 0° points rightwards along positive x-axis:
+
+N: north  ( 45° to 135°)
+E: east   (315° to  45°)
+S: south  (225° to 315°)
+W: west   (135° to 225°)
+
+L: left   ( 90° to 210°)
+R: right  (330° to  90°)
+B: bottom (210° to 330°)
+
+===
+
+MENU HIERARCHY
+--------------
+
+πsh              [4 wedges]
+N: history       [disabled indefinitely]
+E: commands      [disabled until connected]
+S: settings
+W: connect
+
+> commands         [4 wedges]
+  N: file perms.
+  E: sysadmin
+  S: compilers
+  W: scheduler
+
+> > file perms.      [3 wedges]
+    L: change owner
+    R: change group
+    B: change perms. (abridged modal below)
+
+> > scheduler        [3 wedges]
+    L: submit job (abridged modal below)
+    R: delete job
+    B: job status
+
+> settings         [? wedges]
+  ?: we need to figure out what the wedge-based settings menu looks like now
+
+> connect          [3 wedges for sake of demo]
+  L: new screen session
+  R: new tmux session
+  B: screen session <pid>.<pty>.<hostname>
+
+===
+
+COMMAND MODALS
+--------------
+
+chmod: change perms.
+[man page available at https://linux.die.net/man/1/chmod]
+
+abridged options used in pieshell prototype:
+
+path of file or directory      : <path>
+apply recursively              : -R
+permissions (+/-/=) (u/g/o)    : <u|g|o><+|-|=><r|w|x>
+setuid (u/g)                   : <u|g><+|-><s>
+sticky bit                     : <+|-><t>
+
+---
+
+qsub: submit job
+[man page available at https://linux.die.net/man/1/qsub-torque]
+
+abridged options used in pieshell prototype:
+
+interactive session             : -I
+# processors required = <np>    : -l procs=<np>
+maximum run time = <H>:<M>:<S>  : -l walltime=<H>:<M>:<S>
+submit to queue <queue_name>    : -q <queue_name>
