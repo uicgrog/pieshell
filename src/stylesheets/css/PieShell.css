@@ -1,4 +1,5 @@
 body {
+  background: transparent;
   font-size: 16px;
   font-weight: bold;
   font-family: "Hack";
@@ -6,15 +7,19 @@ body {
   margin: 0; }
 
 button {
+  -webkit-app-region: no-drag;
   color: white;
   border-radius: 16px;
-  background-color: rgba(0, 0, 0, 0); }
+  background-color: transparent; }
 
 .Pie,
 .PieSliceTop,
 .PieSliceRight,
 .PieSliceBottom,
 .PieSliceLeft,
+.PieSliceThirdsRight,
+.PieSliceThirdsBottom,
+.PieSliceThirdsLeft,
 .PieCenter {
   background-repeat: no-repeat;
   background-size: contain;
@@ -31,44 +36,63 @@ button {
 .PieSliceTop {
   background-image: url("../../images/PieSliceTop.png"); }
   .PieSliceTop .Option {
-    top: 14.2222222222px;
-    left: 85.3333333333px; }
+    top: 14.22222px;
+    left: 85.33333px; }
 
 .PieSliceRight {
   background-image: url("../../images/PieSliceRight.png"); }
   .PieSliceRight .Option {
-    top: 106.6666666667px;
-    left: 170.6666666667px; }
+    top: 106.66667px;
+    left: 170.66667px; }
 
 .PieSliceBottom {
   background-image: url("../../images/PieSliceBottom.png"); }
   .PieSliceBottom .Option {
-    top: 184.8888888889px;
-    left: 85.3333333333px; }
+    top: 184.88889px;
+    left: 85.33333px; }
 
 .PieSliceLeft {
   background-image: url("../../images/PieSliceLeft.png"); }
   .PieSliceLeft .Option {
-    top: 106.6666666667px;
+    top: 106.66667px;
     left: 0; }
 
+.PieSliceThirdsRight {
+  background-image: url("../../images/PieSliceThirdsRight.png"); }
+  .PieSliceThirdsRight .Option {
+    top: 51.2px;
+    left: 147.39394px; }
+
+.PieSliceThirdsBottom {
+  background-image: url("../../images/PieSliceThirdsBottom.png"); }
+  .PieSliceThirdsBottom .Option {
+    top: 184.88889px;
+    left: 85.33333px; }
+
+.PieSliceThirdsLeft {
+  background-image: url("../../images/PieSliceThirdsLeft.png"); }
+  .PieSliceThirdsLeft .Option {
+    top: 51.2px;
+    left: 23.27273px; }
+
 .PieCenter {
+  -webkit-app-region: drag;
   background-image: url("../../images/PieCenter.png");
   color: white; }
 
 .Category {
   background-color: rgba(255, 0, 0, 0.6);
-  width: 85.3333333333px;
+  -webkit-user-select: none;
+  width: 85.33333px;
   position: fixed;
-  top: 85.8333333333px;
-  left: 85.8333333333px;
-  text-align: center;
-  margin: 30.6666666667px 0; }
+  top: 116.5px;
+  left: 85.83333px;
+  text-align: center; }
 
 .Option {
   background-color: rgba(0, 0, 255, 0.6);
-  width: 85.3333333333px;
-  height: 42.6666666667px;
+  width: 85.33333px;
+  height: 42.66667px;
   position: fixed;
   top: 256px;
   left: 256px;
@@ -77,9 +101,8 @@ button {
 
 .BackButton {
   position: fixed;
-  top: 85.3333333333px;
-  left: 99.3333333333px;
-  margin: 53px 0;
+  top: 138.33333px;
+  left: 99.33333px;
   padding: 0 4px; }
   .BackButton svg {
     position: relative;
@@ -88,5 +111,3 @@ button {
     position: relative;
     display: inline;
     top: -2.5px; }
-
-/*# sourceMappingURL=PieShell.css.map */

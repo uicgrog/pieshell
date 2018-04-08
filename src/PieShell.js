@@ -6,36 +6,38 @@ import './stylesheets/css/PieShell.css';
 import PropTypes from 'prop-types';
 import ArrowLeft from 'mdi-react/ArrowLeftIcon.js';
 
-const slices = ["Top", "Right", "Bottom", "Left"];
+const sliceQuarters = ["Top", "Right", "Bottom", "Left"];
+const sliceThirds = ["ThirdsRight", "ThirdsBottom", "ThirdsLeft"];
+
 
 function PieBuild(props) {
-  let category = props.category;
-  let fourSlices = props.fourSlices;
-  let options = props.options;
+	let category = props.category;
+	let options = props.options;
+	
+	//if (props.numSlices === 4)
+	let slices = sliceQuarters;
+	//else (props.numSlices === 3)
+	slices = sliceThirds;
+	
 
-  /*if (fourSlices) {*/
-  return (
-    <div className="Pie">
-      <div>abc</div>
-      {slices.map(function(slice, i) {
-        return (
-          <div className={"PieSlice" + slice}>
-            <div className="Option">{options[i]}</div>
-          </div>
-        );
-      })}
-      <div className="PieCenter">
-        <div className="Category">{category}</div>
-		<button className="BackButton"><ArrowLeft color="#fff" size="16"/><div>Back</div></button>
-      </div>
-    </div>
-  );
-  /*
-  } else if (!fourSlices) {
-    return <div>abc4</div>;
-  } else {
-    return <div>abc3</div>;
-  }*/
+	return (
+		<div className="Pie">
+			{slices.map(function(slice, i) {
+				return (
+					<div className={"PieSlice" + slice}>
+						<div className="Option">{options[i]}</div>
+					</div>
+				);
+			})}
+			<div className="PieCenter">
+			<div className="Category">{category}</div>
+				<button className="BackButton">
+					<ArrowLeft color="#fff" size="16"/>
+					<div>Back</div>
+				</button>
+			</div>
+		</div>
+	);
 }
 
 class Pie extends Component {

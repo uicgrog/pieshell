@@ -7,13 +7,15 @@ const url = require('url')
 //  get it kicked off.
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+	// Note: win size will effect the drop down menus!
+    win = new BrowserWindow({width: 800, height: 600, transparent: true, frame: false})
     
     // Load from our React instance
     const startURL = "http://localhost:3000";
     win.loadURL(startURL);
 
     // Open dev tools
+	// Comment out dev tools to see transparent window
     win.webContents.openDevTools();
   }
 

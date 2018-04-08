@@ -9,7 +9,7 @@
     "react-dom": "^16.3.1",
     "react-scripts": "1.1.4"
   },
-  "main": "src/babel/electron-start.js",
+  "main": "src/electron-start.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

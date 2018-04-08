@@ -4,10 +4,10 @@ $debug: true
 
 // ==============
 // Do not change:
-$sizeThird: $size/3
 $fontSize: $size/16
 
 body
+	background: rgba(0,0,0,0)
 	font:
 		size: $fontSize
 		weight: bold
@@ -16,6 +16,7 @@ body
 	margin: 0
 	
 button
+	-webkit-app-region: no-drag
 	color: white
 	border-radius: $fontSize
 	background:
@@ -27,6 +28,9 @@ button
 .PieSliceRight, 
 .PieSliceBottom, 
 .PieSliceLeft, 
+.PieSliceThirdsRight, 
+.PieSliceThirdsBottom, 
+.PieSliceThirdsLeft, 
 .PieCenter
 	background:
 		repeat: no-repeat
@@ -44,63 +48,83 @@ button
 .PieSliceTop
 	background-image: url("../../images/PieSliceTop.png")
 	.Option
-		top: $sizeThird/6
-		left: $sizeThird
+		top: $size/18
+		left: $size/3
 
 .PieSliceRight
 	background-image: url("../../images/PieSliceRight.png")
 	.Option
-		top: $size/2 - $sizeThird/4
-		left: $sizeThird*2
+		top: $size/2 - $size/12
+		left: $size/3*2
 
 .PieSliceBottom
 	background-image: url("../../images/PieSliceBottom.png")
 	.Option
-		top: $sizeThird/6 + $sizeThird*2
-		left: $sizeThird
+		top: $size/18 + $size/3*2
+		left: $size/3
 
 .PieSliceLeft
 	background-image: url("../../images/PieSliceLeft.png")
 	.Option
-		top: $size/2 - $sizeThird/4
+		top: $size/2 - $size/12
 		left: 0
+		
+.PieSliceThirdsRight
+	background-image: url("../../images/PieSliceThirdsRight.png")
+	.Option
+		top: $size/5
+		left: $size - $size/11 - $size/3
+
+.PieSliceThirdsBottom
+	background-image: url("../../images/PieSliceThirdsBottom.png")
+	.Option
+		top: $size/18 + $size/3*2
+		left: $size/3
+
+.PieSliceThirdsLeft
+	background-image: url("../../images/PieSliceThirdsLeft.png")
+	.Option
+		top: $size/5
+		left: $size/11
 
 .PieCenter
+	-webkit-app-region: drag
 	background-image: url("../../images/PieCenter.png")
 	color: white
 
 .Category
 	@if ($debug)
 		background-color: rgba(255,0,0,0.6)
-	width: $sizeThird
+	-webkit-user-select: none
+	width: $size/3
 	position: fixed
-	top: $sizeThird + 0.5
-	left: $sizeThird + 0.5
+	top: $size/3 + 0.5 + ($size/6 - $fontSize/4*3)
+	left: $size/3 + 0.5
 	text-align: center
-	margin: ($sizeThird/2 - $fontSize/4*3) 0
+	//margin: ($size/6 - $fontSize/4*3) 0
 
 .Option
 	@if ($debug)
 		background-color: rgba(0,0,255,0.6)
-	width: $sizeThird
-	height: $sizeThird/2
+	width: $size/3
+	height: $size/6
 	position: fixed
-	top: 256px
-	left: 256px
+	top: $size
+	left: $size
 	text-align: center
-	//margin: ($sizeThird/2 - $fontsize/4*3) 0
+	//margin: ($size/6 - $fontsize/4*3) 0
 	margin: 0
 	
 .BackButton
 	position: fixed
-	top: $sizeThird
-	left: $sizeThird + 14px
-	margin: 53px 0
-	padding: 0 4px
+	top: $size/3 + 53px
+	left: $size/3 + 14px	//update expression to be relative to size
+	//margin: 53px 0			//update expression to be relative to size
+	padding: 0 4px			//update expression to be relative to size
 	svg
 		position: relative
-		left: -3px
+		left: -3px			//update expression to be relative to size
 	div
 		position: relative
 		display: inline
-		top: -2.5px
+		top: -2.5px			//update expression to be relative to size
