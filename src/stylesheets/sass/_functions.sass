@@ -1,0 +1,21 @@
+//http://thesassway.com/intermediate/if-for-each-while
+
+$suffixList: Background, Center
+$list4: Top, Right, Bottom, Left
+$list3: Right, Bottom, Left
+
+//define function
+=BGImagesFunction
+	@each $suffix in $suffixList
+		.Pie#{$suffix}
+			background-image: url("../../images/Pie#{$suffix}.png")
+	@each $suffix in $list4
+		.PieSlice#{$suffix}
+			background-image: url("../../images/PieSlice#{$suffix}.png")
+		.PieSlice#{$suffix}:disabled
+			background-image: url("../../images/PieSlice#{$suffix}Disabled.png")
+	@each $suffix in $list3
+		.PieSliceThirds#{$suffix}
+			background-image: url("../../images/PieSliceThirds#{$suffix}.png")
+		.PieSliceThirds#{$suffix}:disabled
+			background-image: url("../../images/PieSliceThirds#{$suffix}Disabled.png")

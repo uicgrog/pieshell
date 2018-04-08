@@ -1,3 +1,28 @@
+//testing styles:
+
+#FourWedgeTop
+	position: fixed
+	z-index: 99999
+	background-color: rgba(0,0,255,0.7)
+	border-top-left-radius: 512px
+	width: 128px
+	height: 128px
+	transform: rotate(45deg)
+	top: -25px
+	left: 65px
+	
+#FourWedgeBottom
+	position: fixed
+	z-index: 99999
+	background-color: rgba(0,0,255,0.7)
+	border-top-left-radius: 512px
+	width: 128px
+	height: 128px
+	transform: rotate(225deg)
+	top: 155px
+	left: 65px
+
+
 // Variable:
 $size: 256px
 $debug: true
@@ -6,6 +31,9 @@ $debug: true
 // Do not change:
 $fontSize: $size/16
 
+
+@import _functions.sass
+
 @font-face
 	font-family: 'Hack'
 	src: url('fonts/Hack/Hack-Bold.ttf')
@@ -13,6 +41,13 @@ $fontSize: $size/16
 @font-face
 	font-family: 'Theinhardt'
 	src: url('fonts/Theinhardt/Theinhardt-Medium.otf')
+	
+.test
+	position: relative
+	color: black
+	margin: 0
+	padding: 0
+	top: 256px
 
 body
 	background: rgba(0,0,0,0)
@@ -26,23 +61,40 @@ body
 button
 	-webkit-app-region: no-drag
 	color: white
-	border-radius: $fontSize
+	font:
+		family: 'Theinhardt'
+	border:
+		radius: $fontSize
 	background:
 		color: rgba(0,0,0,0)
-		
 
-.Pie, 
-.PieSliceTop, 
-.PieSliceRight, 
-.PieSliceBottom, 
-.PieSliceLeft, 
-.PieSliceThirdsRight, 
-.PieSliceThirdsBottom, 
-.PieSliceThirdsLeft, 
-.PieCenter
+/*Execute Background Images Function*/
++BGImagesFunction
+/*End*/
+
+.Pie
+.PieBackground,
+.PieCenter,
+.PieSliceTop,
+.PieSliceRight,
+.PieSliceBottom,
+.PieSliceLeft,
+.PieSliceThirdsRight,
+.PieSliceThirdsBottom,
+.PieSliceThirdsLeft,
+.PieSliceTop:disabled,
+.PieSliceRight:disabled,
+.PieSliceBottom:disabled,
+.PieSliceLeft:disabled,
+.PieSliceThirdsRight:disabled,
+.PieSliceThirdsBottom:disabled,
+.PieSliceThirdsLeft:disabled
 	background:
+		color: rgba(0,0,0,0)
 		repeat: no-repeat
 		size: contain
+	border:
+		radius: 100%
 	position: fixed
 	width: $size
 	height: $size
@@ -50,89 +102,56 @@ button
 	left: 0
 	color: black
 
-.Pie
-	background:
-		image: url("../../images/PieBackground.png")
-		color: rgba(0,0,0,0)
-	border:
-		radius: 100%
-
-.PieSliceTop
-	background-image: url("../../images/PieSliceTop.png")
-	&:Disabled
-		background-image: url("../../images/PieSliceTopDisabled.png")
-	.Option
-		width: $size/3 + 10px
-		top: $size/18
-		left: $size/3 - 5px
-
-.PieSliceRight
-	background-image: url("../../images/PieSliceRight.png")
-	&:Disabled
-		background-image: url("../../images/PieSliceRightDisabled.png")
-	.Option
-		width: $size/3 - 5px
-		top: $size/2 - $size/12
-		left: $size/3*2
-
-.PieSliceBottom
-	background-image: url("../../images/PieSliceBottom.png")
-	&:Disabled
-		background-image: url("../../images/PieSliceBottomDisabled.png")
-	.Option
-		width: $size/3 + 10px
-		top: $size/18 + $size/3*2
-		left: $size/3 - 5px
-
-.PieSliceLeft
-	background-image: url("../../images/PieSliceLeft.png")
-	&:Disabled
-		background-image: url("../../images/PieSliceLeftDisabled.png")
-	.Option
-		width: $size/3 - 5px
-		top: $size/2 - $size/12
-		left: 0 + 5px
-		
-.PieSliceThirdsRight
-	background-image: url("../../images/PieSliceThirdsRight.png")
-	&:Disabled
-		background-image: url("../../images/PieSliceThirdsRightDisabled.png")
-	.Option
-		width: $size/3 + 10px
-		top: $size/5
-		left: $size - $size/11 - $size/3
-
-.PieSliceThirdsBottom
-	background-image: url("../../images/PieSliceThirdsBottom.png")
-	&:Disabled
-		background-image: url("../../images/PieSliceThirdsBottomDisabled.png")
-	.Option
-		width: $size/3 + 10px
-		top: $size/18 + $size/3*2
-		left: $size/3 - 5px
-
-.PieSliceThirdsLeft
-	background-image: url("../../images/PieSliceThirdsLeft.png")
-	&:Disabled
-		background-image: url("../../images/PieSliceThirdsLeftDisabled.png")
-	.Option
-		width: $size/3 + 10px
-		top: $size/5
-		left: $size/11
-
 .PieCenter
-	background-image: url("../../images/PieCenter.png")
 	color: white
+	
+.PieSliceTop .Option
+	width: $size/3 + 10px
+	top: $size/18
+	left: $size/3 - 5px
+
+.PieSliceRight .Option
+	width: $size/3 - 5px
+	top: $size/2 - $size/12
+	left: $size/3*2
+
+.PieSliceBottom .Option
+	width: $size/3 + 10px
+	top: $size/18 + $size/3*2
+	left: $size/3 - 5px
+
+.PieSliceLeft .Option
+	width: $size/3 - 5px
+	top: $size/2 - $size/12
+	left: 0 + 5px
+		
+.PieSliceThirdsRight .Option
+	width: $size/3 + 10px
+	top: $size/5
+	left: $size - $size/11 - $size/3
+
+.PieSliceThirdsBottom .Option
+	width: $size/3 + 10px
+	top: $size/18 + $size/3*2
+	left: $size/3 - 5px
+
+.PieSliceThirdsLeft .Option
+	width: $size/3 + 10px
+	top: $size/5
+	left: $size/11
 
 .Draggable
 	-webkit-app-region: drag
-	background-color: rgba(0,0,0,0)
-	border-radius: 100%
+	background:
+		color: rgba(0,0,0,0)
+	border:
+		radius: 100%
 	position: fixed
 	width: $size/3
 	height: $size/3
 	top: $size/3
 	left: $size/3
+	z-index: 9
 	
 .Category
 	@if ($debug)
@@ -149,13 +168,12 @@ button
 	@if ($debug)
 		background-color: rgba(0,0,255,0.6)
 	position: fixed
-	top: $size
-	left: $size
 	text-align: center
 	//margin: ($size/6 - $fontsize/4*3) 0
 	margin: 0
 	
 .BackButton
+	z-index: 10
 	font-size: $fontSize - 4px	//update expression to be relative to size
 	position: fixed
 	top: $size/3 + 60px		//update expression to be relative to size

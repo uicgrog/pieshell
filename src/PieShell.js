@@ -6,33 +6,34 @@ import './stylesheets/css/PieShell.css';
 import PropTypes from 'prop-types';
 import ArrowLeft from 'mdi-react/ArrowLeftIcon.js';
 
-
 const sliceQuarters = ["Top", "Right", "Bottom", "Left"];
-const sliceThirds = ["ThirdsRight", "ThirdsBottom", "ThirdsLeft"];
+const sliceThirds = ["Right", "Bottom", "Left"];
 
 function PieBuild(props) {
 	let category = props.category;
 	let options = props.options;
-	
-	//if (props.numSlices === 4)
-	let slices = sliceQuarters;
-	//else (props.numSlices === 3)
-	//slices = sliceThirds;
-	
+	let numSlices = props.numSlices;
 
 	return (
-		<div className="Pie">
-			{slices.map(function(slice, i) {
+		<div className="PieBackground">
+			{numSlices === 4 && sliceQuarters.map(function(slice, index) {
 				return (
-					<div className={"PieSlice" + slice}>
-						<div className="Option">{options[i]}</div>
+					<div className={"PieSlice" + slice} key={index}>
+						<div className="Option">{options[index]}</div>
+					</div>
+				);
+			})}
+			{numSlices === 3 && sliceThirds.map(function(slice, index) {
+				return (
+					<div className={"PieSliceThirds" + slice} key={index}>
+						<div className="Option">{options[index]}</div>
 					</div>
 				);
 			})}
 			<div className="PieCenter">
 			<div className="Draggable" />
 			<div className="Category">{category}</div>
-				<button className="BackButton">
+				<button className="BackButton" id="BackButton">
 					<ArrowLeft color="#fff" size="12"/>
 					<div>Back</div>
 				</button>
@@ -40,6 +41,28 @@ function PieBuild(props) {
 		</div>
 	);
 }
+
+function script(props) {
+	return(
+		<script></script>
+	);
+}
+/*
+function Test(props)  {
+	const numSlices = props.numSlices;
+	return(
+		<div>
+			{numSlices === 4 &&
+				<div className="test">abc{numSlices}</div>
+			}
+			{numSlices === 3 && 
+				<div className="test">got three{numSlices}</div>
+			}
+		</div>
+	);
+	
+}
+*/
 
 class Pie extends Component {
 	constructor(props) {
@@ -50,40 +73,29 @@ class Pie extends Component {
 	}
 	propTypes = {
 		category: PropTypes.string,
-		numSlices: PropTypes.number,
+		numSlices: PropTypes.array,
 		options: PropTypes.arrayOf(PropTypes.string)
 	};
 	defaultProps = {
 		numSlices: true
 	};
+	
+	//const qwee = <Test numSlices={this.numSlices}/>;
 	render() {
-    //return PieSlices(category= {this.prop.category})
-    /*{
-      PieSlices(category={this.prop.category})
-    }*/
-    /*return (
-      <PieBuild
-        category={this.category}
-        numSlices={this.numSlices}
-        options={this.options}
-      />
-    );*/
 		return (
 			<div className="Pie">
+				<script type="text/javascript" src="/test.js" />
 				<PieBuild
 					category={this.category}
-					fourSlices={this.numSlices}
+					numSlices={this.numSlices}
 					options={this.options}
 				/>
-				{/*<Test t={this.category} />*/}
-				{/*<div>{this.props.category}</div>
-				<div>{this.props.numSlices}</div>
-				<div>{this.props.options[0]}</div>
-				<div>{this.props.options[1]}</div>
-				<div>{this.props.options[2]}</div>*/}
+				{/*testing div as a quartered circle, just the top + bottom wedge*/}
+				<div id="FourWedgeTop" />
+				<div id="FourWedgeBottom" />
 			</div>
 		);
-	//return null;
+	
 	}
 }
 

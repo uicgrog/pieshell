@@ -1,24 +1,128 @@
+#FourWedgeTop {
+  position: fixed;
+  z-index: 99999;
+  background-color: rgba(0, 0, 255, 0.7);
+  border-top-left-radius: 512px;
+  width: 128px;
+  height: 128px;
+  transform: rotate(45deg);
+  top: -25px;
+  left: 65px;
+}
+
+#FourWedgeBottom {
+  position: fixed;
+  z-index: 99999;
+  background-color: rgba(0, 0, 255, 0.7);
+  border-top-left-radius: 512px;
+  width: 128px;
+  height: 128px;
+  transform: rotate(225deg);
+  top: 155px;
+  left: 65px;
+}
+
 @font-face {
   font-family: "Hack";
-  src: url("fonts/Hack/Hack-Bold.ttf"); }
+  src: url("fonts/Hack/Hack-Bold.ttf");
+}
 @font-face {
   font-family: "Theinhardt";
-  src: url("fonts/Theinhardt/Theinhardt-Medium.otf"); }
+  src: url("fonts/Theinhardt/Theinhardt-Medium.otf");
+}
+.test {
+  position: relative;
+  color: black;
+  margin: 0;
+  padding: 0;
+  top: 256px;
+}
+
 body {
   background: transparent;
   font-size: 16px;
   font-weight: normal;
   font-family: "Theinhardt";
   padding: 0;
-  margin: 0; }
+  margin: 0;
+}
 
 button {
   -webkit-app-region: no-drag;
   color: white;
+  font-family: "Theinhardt";
   border-radius: 16px;
-  background-color: transparent; }
+  background-color: transparent;
+}
 
-.Pie,
+/*Execute Background Images Function */
+.PieBackground {
+  background-image: url("../../images/PieBackground.png");
+}
+
+.PieCenter {
+  background-image: url("../../images/PieCenter.png");
+}
+
+.PieSliceTop {
+  background-image: url("../../images/PieSliceTop.png");
+}
+
+.PieSliceTop:disabled {
+  background-image: url("../../images/PieSliceTopDisabled.png");
+}
+
+.PieSliceRight {
+  background-image: url("../../images/PieSliceRight.png");
+}
+
+.PieSliceRight:disabled {
+  background-image: url("../../images/PieSliceRightDisabled.png");
+}
+
+.PieSliceBottom {
+  background-image: url("../../images/PieSliceBottom.png");
+}
+
+.PieSliceBottom:disabled {
+  background-image: url("../../images/PieSliceBottomDisabled.png");
+}
+
+.PieSliceLeft {
+  background-image: url("../../images/PieSliceLeft.png");
+}
+
+.PieSliceLeft:disabled {
+  background-image: url("../../images/PieSliceLeftDisabled.png");
+}
+
+.PieSliceThirdsRight {
+  background-image: url("../../images/PieSliceThirdsRight.png");
+}
+
+.PieSliceThirdsRight:disabled {
+  background-image: url("../../images/PieSliceThirdsRightDisabled.png");
+}
+
+.PieSliceThirdsBottom {
+  background-image: url("../../images/PieSliceThirdsBottom.png");
+}
+
+.PieSliceThirdsBottom:disabled {
+  background-image: url("../../images/PieSliceThirdsBottomDisabled.png");
+}
+
+.PieSliceThirdsLeft {
+  background-image: url("../../images/PieSliceThirdsLeft.png");
+}
+
+.PieSliceThirdsLeft:disabled {
+  background-image: url("../../images/PieSliceThirdsLeftDisabled.png");
+}
+
+/*End */
+.PieBackground,
+.PieCenter,
 .PieSliceTop,
 .PieSliceRight,
 .PieSliceBottom,
@@ -26,87 +130,70 @@ button {
 .PieSliceThirdsRight,
 .PieSliceThirdsBottom,
 .PieSliceThirdsLeft,
-.PieCenter {
+.PieSliceTop:disabled,
+.PieSliceRight:disabled,
+.PieSliceBottom:disabled,
+.PieSliceLeft:disabled,
+.PieSliceThirdsRight:disabled,
+.PieSliceThirdsBottom:disabled,
+.PieSliceThirdsLeft:disabled {
+  background-color: transparent;
   background-repeat: no-repeat;
   background-size: contain;
+  border-radius: 100%;
   position: fixed;
   width: 256px;
   height: 256px;
   top: 0;
   left: 0;
-  color: black; }
-
-.Pie {
-  background-image: url("../../images/PieBackground.png");
-  background-color: transparent;
-  border-radius: 100%; }
-
-.PieSliceTop {
-  background-image: url("../../images/PieSliceTop.png"); }
-  .PieSliceTop:Disabled {
-    background-image: url("../../images/PieSliceTopDisabled.png"); }
-  .PieSliceTop .Option {
-    width: 95.33333px;
-    top: 14.22222px;
-    left: 80.33333px; }
-
-.PieSliceRight {
-  background-image: url("../../images/PieSliceRight.png"); }
-  .PieSliceRight:Disabled {
-    background-image: url("../../images/PieSliceRightDisabled.png"); }
-  .PieSliceRight .Option {
-    width: 80.33333px;
-    top: 106.66667px;
-    left: 170.66667px; }
-
-.PieSliceBottom {
-  background-image: url("../../images/PieSliceBottom.png"); }
-  .PieSliceBottom:Disabled {
-    background-image: url("../../images/PieSliceBottomDisabled.png"); }
-  .PieSliceBottom .Option {
-    width: 95.33333px;
-    top: 184.88889px;
-    left: 80.33333px; }
-
-.PieSliceLeft {
-  background-image: url("../../images/PieSliceLeft.png"); }
-  .PieSliceLeft:Disabled {
-    background-image: url("../../images/PieSliceLeftDisabled.png"); }
-  .PieSliceLeft .Option {
-    width: 80.33333px;
-    top: 106.66667px;
-    left: 5px; }
-
-.PieSliceThirdsRight {
-  background-image: url("../../images/PieSliceThirdsRight.png"); }
-  .PieSliceThirdsRight:Disabled {
-    background-image: url("../../images/PieSliceThirdsRightDisabled.png"); }
-  .PieSliceThirdsRight .Option {
-    width: 95.33333px;
-    top: 51.2px;
-    left: 147.39394px; }
-
-.PieSliceThirdsBottom {
-  background-image: url("../../images/PieSliceThirdsBottom.png"); }
-  .PieSliceThirdsBottom:Disabled {
-    background-image: url("../../images/PieSliceThirdsBottomDisabled.png"); }
-  .PieSliceThirdsBottom .Option {
-    width: 95.33333px;
-    top: 184.88889px;
-    left: 80.33333px; }
-
-.PieSliceThirdsLeft {
-  background-image: url("../../images/PieSliceThirdsLeft.png"); }
-  .PieSliceThirdsLeft:Disabled {
-    background-image: url("../../images/PieSliceThirdsLeftDisabled.png"); }
-  .PieSliceThirdsLeft .Option {
-    width: 95.33333px;
-    top: 51.2px;
-    left: 23.27273px; }
+  color: black;
+}
 
 .PieCenter {
-  background-image: url("../../images/PieCenter.png");
-  color: white; }
+  color: white;
+}
+
+.PieSliceTop .Option {
+  width: 95.33333px;
+  top: 14.22222px;
+  left: 80.33333px;
+}
+
+.PieSliceRight .Option {
+  width: 80.33333px;
+  top: 106.66667px;
+  left: 170.66667px;
+}
+
+.PieSliceBottom .Option {
+  width: 95.33333px;
+  top: 184.88889px;
+  left: 80.33333px;
+}
+
+.PieSliceLeft .Option {
+  width: 80.33333px;
+  top: 106.66667px;
+  left: 5px;
+}
+
+.PieSliceThirdsRight .Option {
+  width: 95.33333px;
+  top: 51.2px;
+  left: 147.39394px;
+}
+
+.PieSliceThirdsBottom .Option {
+  width: 95.33333px;
+  top: 184.88889px;
+  left: 80.33333px;
+}
+
+.PieSliceThirdsLeft .Option {
+  width: 95.33333px;
+  top: 51.2px;
+  left: 23.27273px;
+}
 
 .Draggable {
   -webkit-app-region: drag;
@@ -116,7 +203,9 @@ button {
   width: 85.33333px;
   height: 85.33333px;
   top: 85.33333px;
-  left: 85.33333px; }
+  left: 85.33333px;
+  z-index: 9;
+}
 
 .Category {
   background-color: rgba(255, 0, 0, 0.6);
@@ -125,27 +214,31 @@ button {
   position: fixed;
   top: 116.5px;
   left: 85.83333px;
-  text-align: center; }
+  text-align: center;
+}
 
 .Option {
   background-color: rgba(0, 0, 255, 0.6);
   position: fixed;
-  top: 256px;
-  left: 256px;
   text-align: center;
-  margin: 0; }
+  margin: 0;
+}
 
 .BackButton {
+  z-index: 10;
   font-size: 12px;
   position: fixed;
   top: 145.33333px;
   left: 103.33333px;
-  padding: 0 4px; }
-  .BackButton svg {
-    position: relative;
-    top: 2px;
-    left: -3px; }
-  .BackButton div {
-    position: relative;
-    display: inline;
-    top: -1.5px; }
+  padding: 0 4px;
+}
+.BackButton svg {
+  position: relative;
+  top: 2px;
+  left: -3px;
+}
+.BackButton div {
+  position: relative;
+  display: inline;
+  top: -1.5px;
+}
