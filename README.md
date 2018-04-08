@@ -17,6 +17,17 @@ Speaking of recompiling, run ```npm run sass``` in another process to automatica
 
 **Note:** Don't forget to run ```npm install``` to download the packages listed in the ```package.json``` before trying to get it running.
 
+**Note:** Comment out dev tools in electron-start.js for transparent window.
+
 *More to come soon.*
 
-**Note:** comment out dev tools in electron-start.js for transparent window.
+## To Do's
+
+- drop down buttons
+- abridged window
+- event listeners
+- json file of names of menu, commands, etc.
+- sending qsub cmd through connected session
+- click through transparent window allowing what's behind to be selected
+- 3 wedge listeners
+- disabled wedges
