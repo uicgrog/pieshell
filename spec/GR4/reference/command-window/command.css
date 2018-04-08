@@ -1,0 +1,95 @@
+.command-box {
+  font-family: "Hack";
+  color: black;
+}
+
+
+@font-face {
+  font-family: "Hack";
+  src: url("fonts/Hack-Bold.ttf");
+}
+
+.command-window {
+  color: white;
+  width: 400px;
+  background-color: black;
+  font-family: "Theinhardt-Black";
+  src: url("fonts/Theinhard-Black.ttf");
+  padding: 4px;
+  margin: 0px;
+}
+
+.command-box {
+  background-color: #202020;
+  margin: 0px;
+  padding-top:    12px;
+  padding-bottom: 12px;
+  padding-left:    6px;
+  padding-right:   6px;
+}
+
+.command-buttons {
+  color: black;
+  background-color: white;
+  padding: 8px;
+  margin: 0px;
+}
+
+.command-button {
+  width: 300px;
+  display: inline;
+  padding: 4px;
+  margin: 8px;
+  border-radius: 16px;
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+  font-family: "Theinhardt-Medium";
+  src: url("fonts/Theinhard-Medium.ttf");
+  box-shadow: 0 0 0 3px #D9D9D9, 
+}
+
+#execute {
+  color: red;
+}
+
+#disabled {
+  background-color: #D6D6D6;
+  color: #696969;
+  border: 2px solid #696969;
+
+}
+
+.command-base {
+  display: inline;
+  background-color: #d0d0d0;
+  padding: 6px;
+  margin: 0px;
+  border-radius: 4px;
+  border: 1px solid white;
+}
+
+.command-arg {
+  display: inline;
+  padding: 2px;
+  margin: 0px;
+  border-radius: 4px;
+  border: 1px solid white;
+}
+
+.remove {
+  display: inline;
+  opacity: 0.25;
+}
+
+#recursive {
+  background-color: #a0c0c0;
+}
+
+#permissions {
+  background-color: #a0c0a0;
+}
+
+#path {
+  background-color: #c0c0a0;
+}
