@@ -34,17 +34,17 @@ W: connect
     B: change perms. (abridged modal below)
 
 > > scheduler        [3 wedges]
-    L: submit job (abridged modal below)
     R: delete job
     B: job status
+    L: submit job (abridged modal below)
 
 > settings         [? wedges]
   ?: we need to figure out what the wedge-based settings menu looks like now
 
 > connect          [3 wedges for sake of demo]
-  L: new screen session
   R: new tmux session
   B: screen session <pid>.<pty>.<hostname>
+  L: new screen session
 
 ===
 

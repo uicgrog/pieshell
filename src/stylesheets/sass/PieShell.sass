@@ -8,11 +8,11 @@ $fontSize: $size/16
 
 @font-face
 	font-family: 'Hack'
-	src: url('Hack/Hack-Bold.ttf')
+	src: url('fonts/Hack/Hack-Bold.ttf')
 	
 @font-face
 	font-family: 'Theinhardt'
-	src: url('Theinhardt/Theinhardt-Medium.otf')
+	src: url('fonts/Theinhardt/Theinhardt-Medium.otf')
 
 body
 	background: rgba(0,0,0,0)
@@ -59,6 +59,8 @@ button
 
 .PieSliceTop
 	background-image: url("../../images/PieSliceTop.png")
+	&:Disabled
+		background-image: url("../../images/PieSliceTopDisabled.png")
 	.Option
 		width: $size/3 + 10px
 		top: $size/18
@@ -66,6 +68,8 @@ button
 
 .PieSliceRight
 	background-image: url("../../images/PieSliceRight.png")
+	&:Disabled
+		background-image: url("../../images/PieSliceRightDisabled.png")
 	.Option
 		width: $size/3 - 5px
 		top: $size/2 - $size/12
@@ -73,6 +77,8 @@ button
 
 .PieSliceBottom
 	background-image: url("../../images/PieSliceBottom.png")
+	&:Disabled
+		background-image: url("../../images/PieSliceBottomDisabled.png")
 	.Option
 		width: $size/3 + 10px
 		top: $size/18 + $size/3*2
@@ -80,6 +86,8 @@ button
 
 .PieSliceLeft
 	background-image: url("../../images/PieSliceLeft.png")
+	&:Disabled
+		background-image: url("../../images/PieSliceLeftDisabled.png")
 	.Option
 		width: $size/3 - 5px
 		top: $size/2 - $size/12
@@ -87,6 +95,8 @@ button
 		
 .PieSliceThirdsRight
 	background-image: url("../../images/PieSliceThirdsRight.png")
+	&:Disabled
+		background-image: url("../../images/PieSliceThirdsRightDisabled.png")
 	.Option
 		width: $size/3 + 10px
 		top: $size/5
@@ -94,6 +104,8 @@ button
 
 .PieSliceThirdsBottom
 	background-image: url("../../images/PieSliceThirdsBottom.png")
+	&:Disabled
+		background-image: url("../../images/PieSliceThirdsBottomDisabled.png")
 	.Option
 		width: $size/3 + 10px
 		top: $size/18 + $size/3*2
@@ -101,6 +113,8 @@ button
 
 .PieSliceThirdsLeft
 	background-image: url("../../images/PieSliceThirdsLeft.png")
+	&:Disabled
+		background-image: url("../../images/PieSliceThirdsLeftDisabled.png")
 	.Option
 		width: $size/3 + 10px
 		top: $size/5

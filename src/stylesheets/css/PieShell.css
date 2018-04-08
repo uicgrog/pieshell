@@ -1,9 +1,9 @@
 @font-face {
   font-family: "Hack";
-  src: url("Hack/Hack-Bold.ttf"); }
+  src: url("fonts/Hack/Hack-Bold.ttf"); }
 @font-face {
   font-family: "Theinhardt";
-  src: url("Theinhardt/Theinhardt-Medium.otf"); }
+  src: url("fonts/Theinhardt/Theinhardt-Medium.otf"); }
 body {
   background: transparent;
   font-size: 16px;
@@ -43,6 +43,8 @@ button {
 
 .PieSliceTop {
   background-image: url("../../images/PieSliceTop.png"); }
+  .PieSliceTop:Disabled {
+    background-image: url("../../images/PieSliceTopDisabled.png"); }
   .PieSliceTop .Option {
     width: 95.33333px;
     top: 14.22222px;
@@ -50,6 +52,8 @@ button {
 
 .PieSliceRight {
   background-image: url("../../images/PieSliceRight.png"); }
+  .PieSliceRight:Disabled {
+    background-image: url("../../images/PieSliceRightDisabled.png"); }
   .PieSliceRight .Option {
     width: 80.33333px;
     top: 106.66667px;
@@ -57,6 +61,8 @@ button {
 
 .PieSliceBottom {
   background-image: url("../../images/PieSliceBottom.png"); }
+  .PieSliceBottom:Disabled {
+    background-image: url("../../images/PieSliceBottomDisabled.png"); }
   .PieSliceBottom .Option {
     width: 95.33333px;
     top: 184.88889px;
@@ -64,6 +70,8 @@ button {
 
 .PieSliceLeft {
   background-image: url("../../images/PieSliceLeft.png"); }
+  .PieSliceLeft:Disabled {
+    background-image: url("../../images/PieSliceLeftDisabled.png"); }
   .PieSliceLeft .Option {
     width: 80.33333px;
     top: 106.66667px;
@@ -71,6 +79,8 @@ button {
 
 .PieSliceThirdsRight {
   background-image: url("../../images/PieSliceThirdsRight.png"); }
+  .PieSliceThirdsRight:Disabled {
+    background-image: url("../../images/PieSliceThirdsRightDisabled.png"); }
   .PieSliceThirdsRight .Option {
     width: 95.33333px;
     top: 51.2px;
@@ -78,6 +88,8 @@ button {
 
 .PieSliceThirdsBottom {
   background-image: url("../../images/PieSliceThirdsBottom.png"); }
+  .PieSliceThirdsBottom:Disabled {
+    background-image: url("../../images/PieSliceThirdsBottomDisabled.png"); }
   .PieSliceThirdsBottom .Option {
     width: 95.33333px;
     top: 184.88889px;
@@ -85,6 +97,8 @@ button {
 
 .PieSliceThirdsLeft {
   background-image: url("../../images/PieSliceThirdsLeft.png"); }
+  .PieSliceThirdsLeft:Disabled {
+    background-image: url("../../images/PieSliceThirdsLeftDisabled.png"); }
   .PieSliceThirdsLeft .Option {
     width: 95.33333px;
     top: 51.2px;

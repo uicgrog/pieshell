@@ -18,3 +18,5 @@ Speaking of recompiling, run ```npm run sass``` in another process to automatica
 **Note:** Don't forget to run ```npm install``` to download the packages listed in the ```package.json``` before trying to get it running.
 
 *More to come soon.*
+
+**Note:** comment out dev tools in electron-start.js for transparent window.
