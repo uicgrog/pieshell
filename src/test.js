@@ -34,19 +34,47 @@ export default function debug() {
 	FourWedgeTop.addEventListener('click', () => {
 		console.log(">>> Top wedge (4)");
 	});
+    FourWedgeTop.addEventListener('mouseover', () => {
+        FourWedgeTop.style.backgroundColor = 'blue';
+        FourWedgeTop.style.opacity = '.4';
+    });
+    FourWedgeTop.addEventListener('mouseleave', () => {
+        FourWedgeTop.style.opacity = '0.0';
+    });
 	
     var FourWedgeRight = document.getElementById('FourWedgeRight');
 	FourWedgeRight.addEventListener('click', () => {
 		console.log(">>> Right wedge");
 	});
+    FourWedgeRight.addEventListener('mouseover', () => {
+        FourWedgeRight.style.backgroundColor = 'blue';
+        FourWedgeRight.style.opacity = '.4';
+    });
+    FourWedgeRight.addEventListener('mouseleave', () => {
+        FourWedgeRight.style.opacity = '0.0';
+    });
 
     var FourWedgeLeft = document.getElementById('FourWedgeLeft');
 	FourWedgeLeft.addEventListener('click', () => {
 		console.log(">>> Left wedge");
 	});
+    FourWedgeLeft.addEventListener('mouseover', () => {
+        FourWedgeLeft.style.backgroundColor = 'blue';
+        FourWedgeLeft.style.opacity = '.4';
+    });
+    FourWedgeLeft.addEventListener('mouseleave', () => {
+        FourWedgeLeft.style.opacity = '0.0';
+    });
 
     var FourWedgeBottom = document.getElementById('FourWedgeBottom');
 	FourWedgeBottom.addEventListener('click', () => {
 		console.log(">>> Bottom wedge");
 	});
+    FourWedgeBottom.addEventListener('mouseover', () => {
+        FourWedgeBottom.style.backgroundColor = 'blue';
+        FourWedgeBottom.style.opacity = '.4';
+    });
+    FourWedgeBottom.addEventListener('mouseleave', () => {
+        FourWedgeBottom.style.opacity = '0.0';
+    });
 }
