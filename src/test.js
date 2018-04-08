@@ -35,4 +35,18 @@ export default function debug() {
 		console.log(">>> Top wedge (4)");
 	});
 	
+    var FourWedgeRight = document.getElementById('FourWedgeRight');
+	FourWedgeRight.addEventListener('click', () => {
+		console.log(">>> Right wedge");
+	});
+
+    var FourWedgeLeft = document.getElementById('FourWedgeLeft');
+	FourWedgeLeft.addEventListener('click', () => {
+		console.log(">>> Left wedge");
+	});
+
+    var FourWedgeBottom = document.getElementById('FourWedgeBottom');
+	FourWedgeBottom.addEventListener('click', () => {
+		console.log(">>> Bottom wedge");
+	});
 }

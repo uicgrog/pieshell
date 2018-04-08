@@ -91,8 +91,10 @@ class Pie extends Component {
 					options={this.options}
 				/>
 				{/*testing div as a quartered circle, just the top + bottom wedge*/}
-				<div id="FourWedgeTop" />
-				<div id="FourWedgeBottom" />
+                <div id="FourWedgeTop"/>
+                <div id="FourWedgeRight"/>
+                <div id="FourWedgeLeft"/>
+                <div id="FourWedgeBottom"/>
 			</div>
 		);
 	
