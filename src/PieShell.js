@@ -18,7 +18,7 @@ function PieBuild(props) {
 		<div className="PieBackground">
 			{numSlices === 4 && sliceQuarters.map(function(slice, index) {
 				return (
-					<div className={"PieSlice" + slice} key={index}>
+					<div className={["PieSlice" + slice, "PieSlice"].join(' ')} key={index}>
 						<div className="Option">{options[index]}</div>
 					</div>
 				);
