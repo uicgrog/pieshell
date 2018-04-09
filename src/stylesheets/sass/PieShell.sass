@@ -1,5 +1,8 @@
 //testing styles:
 
+%wedge-transition
+	transition: background-color 0.5s ease-in-out
+
 #FourWedgeTop
 	position: fixed
 	z-index: 99999
@@ -10,6 +13,7 @@
 	transform: rotate(45deg)
 	top: -25px
 	left: 65px
+	@extend %wedge-transition
 
 #FourWedgeLeft
 	position: fixed
@@ -21,6 +25,7 @@
 	transform: rotate(315deg)
 	top: 65px
 	left: -25px
+	@extend %wedge-transition
 
 #FourWedgeRight
 	position: fixed
@@ -32,6 +37,7 @@
 	transform: rotate(90deg)
 	top: 65px
 	left: 155px
+	@extend %wedge-transition
 	
 #FourWedgeBottom
 	position: fixed
@@ -43,6 +49,7 @@
 	transform: rotate(225deg)
 	top: 155px
 	left: 65px
+	@extend %wedge-transition
 
 
 // Variable:
