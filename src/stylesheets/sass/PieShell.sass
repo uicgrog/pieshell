@@ -1,10 +1,12 @@
 //testing styles:
 
+$pieBlue: rgba(10,25,225,0.3)
+
 %wedge-transition
 	transition: background-color 0.25s ease-in-out
 
 %wedge-hover
-	background-color: rgba(10,25,225,0.3)
+	background-color: $pieBlue
 
 #FourWedgeTop
 	position: fixed
@@ -139,9 +141,12 @@ button
 	left: 0
 	color: black
 
+.PieBackground
+	box-shadow:	rgba(70,70,70,0.50) 0px 5px 8px
+
 .PieCenter
-	color: white
-	
+	color:	white
+
 .PieSliceTop .Option
 	width: $size/3 + 10px
 	top: $size/18

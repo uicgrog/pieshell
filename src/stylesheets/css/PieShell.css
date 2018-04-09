@@ -1,5 +1,11 @@
 #FourWedgeTop, #FourWedgeLeft, #FourWedgeRight, #FourWedgeBottom {
-  transition: background-color 0.5s ease-in-out; }
+  transition: background-color 0.25s ease-in-out; }
+
+#FourWedgeTop:hover,
+#FourWedgeBottom:hover,
+#FourWedgeLeft:hover,
+#FourWedgeRight:hover {
+  background-color: rgba(10, 25, 225, 0.3); }
 
 #FourWedgeTop {
   position: fixed;
@@ -30,7 +36,7 @@
   border-top-left-radius: 512px;
   width: 128px;
   height: 128px;
-  transform: rotate(90deg);
+  transform: rotate(135deg);
   top: 65px;
   left: 155px; }
 
@@ -149,6 +155,9 @@ button {
   top: 0;
   left: 0;
   color: black; }
+
+.PieBackground {
+  box-shadow: rgba(70, 70, 70, 0.5) 0px 5px 8px; }
 
 .PieCenter {
   color: white; }
