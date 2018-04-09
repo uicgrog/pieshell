@@ -1,7 +1,10 @@
 //testing styles:
 
 %wedge-transition
-	transition: background-color 0.5s ease-in-out
+	transition: background-color 0.25s ease-in-out
+
+%wedge-hover
+	background-color: rgba(10,25,225,0.3)
 
 #FourWedgeTop
 	position: fixed
@@ -51,6 +54,11 @@
 	left: 65px
 	@extend %wedge-transition
 
+#FourWedgeTop:hover,
+#FourWedgeBottom:hover,
+#FourWedgeLeft:hover,
+#FourWedgeRight:hover
+	@extend %wedge-hover
 
 // Variable:
 $size: 256px
