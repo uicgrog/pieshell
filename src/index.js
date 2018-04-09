@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import Pie from './PieShell';
 import debug from './test.js';
+import AbridgedModal from './AbridgedModal';
+import CommandWindow from './CommandWindow';
 
 /*
 === Temporary notes ===
@@ -44,6 +46,20 @@ ReactDOM.render(<Pie
 	options={optionList0}
   />, document.getElementById('root'));
 
-  
+
+const componentsList = [
+{type:"CheckBox", id:"AMTest1", label:"interactive", color:"#a0c0c0"},
+{type:"Path", id:"AMTest2", label:"path to submit script", color:"#c0c0a0"},
+{type:"Text", id:"AMTest3", label:"destination queue", color:"red"},
+{type:"Number", id:"AMTest4", label:"# processors", color:"#c0c0a0"},
+{type:"Time", id:"AMTest5", label:"max run time", color:"#a0c0a0"}];
+
+ReactDOM.render(<AbridgedModal
+	name="submit job"
+  />, document.getElementById('root'));
+
+
+ReactDOM.render(<CommandWindow />, document.getElementById('root'));
+
 registerServiceWorker();
-debug();
+//debug();
