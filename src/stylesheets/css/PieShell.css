@@ -12,6 +12,7 @@
   z-index: 99999;
   background-color: rgba(0, 0, 255, 0);
   border-top-left-radius: 512px;
+  border-bottom-right-radius: 300px;
   width: 128px;
   height: 128px;
   transform: rotate(45deg);
@@ -23,6 +24,7 @@
   z-index: 99999;
   background-color: rgba(0, 0, 255, 0);
   border-top-left-radius: 512px;
+  border-bottom-right-radius: 300px;
   width: 128px;
   height: 128px;
   transform: rotate(315deg);
@@ -34,6 +36,7 @@
   z-index: 99999;
   background-color: rgba(0, 0, 255, 0);
   border-top-left-radius: 512px;
+  border-bottom-right-radius: 300px;
   width: 128px;
   height: 128px;
   transform: rotate(135deg);
@@ -45,6 +48,7 @@
   z-index: 99999;
   background-color: rgba(0, 0, 255, 0);
   border-top-left-radius: 512px;
+  border-bottom-right-radius: 320px;
   width: 128px;
   height: 128px;
   transform: rotate(225deg);
