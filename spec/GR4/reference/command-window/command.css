@@ -11,7 +11,7 @@
 
 .command-window {
   color: white;
-  width: 400px;
+  width: 500px;
   background-color: black;
   font-family: "Theinhardt-Black";
   src: url("fonts/Theinhardt-Black.ttf");
@@ -86,10 +86,22 @@
   background-color: #a0c0c0;
 }
 
+#interactive {
+  background-color: #a0c0c0;
+}
+
 #permissions {
   background-color: #a0c0a0;
 }
 
+#walltime {
+  background-color: #a0c0a0;
+}
+
 #path {
+  background-color: #c0c0a0;
+}
+
+#procs {
   background-color: #c0c0a0;
 }
