@@ -5,6 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Pie from './PieShell';
 import debug from './test.js';
 import AbridgedModal from './AbridgedModal';
+import CommandWindow from './CommandWindow';
 
 /*
 === Temporary notes ===
@@ -57,6 +58,8 @@ ReactDOM.render(<AbridgedModal
 	name="submit job"
   />, document.getElementById('root'));
 
-  
+
+ReactDOM.render(<CommandWindow />, document.getElementById('root'));
+
 registerServiceWorker();
 //debug();
