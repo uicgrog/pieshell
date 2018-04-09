@@ -1,3 +1,17 @@
+/*
+Abridged modal event handling notes:
+
+- Check Boxes: if div element with class "CheckBox" is clicked, get child svg element and change the css display rule to block. relevant stuff: ".CheckBox" & ".CheckBox svg"
+
+- Path Input: we verifying input?
+
+- Destination Input: we verifying input?
+
+- # Processor: limit input to numbers only. already limited to 2 characters. valid inputs are 1-16 for now
+
+- Max run time: limit inputs to 00-60. already limited to 2 characters as well.
+*/
+
 import React, { Component } from 'react';
 import './stylesheets/css/AbridgedModal.css';
 import PropTypes from 'prop-types';
@@ -40,7 +54,9 @@ function CheckBoxDiv(props){
 	return (
 		<div className="CheckBoxDiv" id={id} style={{backgroundColor: color}}>
 			<div className="Label">{label}:</div>
-			<div className="CheckBox" />
+			<div className="CheckBox">
+				<Close size="22"/>
+			</div>
 		</div>
 	);
 }
@@ -55,7 +71,9 @@ function NumberDiv(props){
 	
 	return (
 		<div className="NumberDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" />
+			<div className="CheckBox">
+				<Close size="22"/>
+			</div>
 			<div className="Label">{label}:</div>
 			<input type="text" className="NumberInput" />
 		</div>
@@ -70,7 +88,9 @@ function TimeDiv(props){
 	
 	return (
 		<div className="TimeDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" />
+			<div className="CheckBox">
+				<Close size="22" />
+			</div>
 			<div className="Label">{label}:</div>
 			<input type="text" className="TimeInput-Hours" maxLength="2" />:
 			<input type="text" className="TimeInput-Minutes" maxLength="2" />:
