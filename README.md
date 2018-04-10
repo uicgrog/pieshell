@@ -24,8 +24,6 @@ Speaking of recompiling, run ```npm run sass``` in another process to automatica
 ## To Do's
 
 - drop down buttons
-- abridged window
-- command window
 - event listeners
 - json file of names of menu, commands, etc.
 - sending qsub cmd through connected session
