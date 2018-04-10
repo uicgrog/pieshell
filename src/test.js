@@ -6,9 +6,6 @@ export default function debug() {
 	document.addEventListener('Ready', () => {
 		console.log("?? ready no show");
 	});
-	document.addEventListener('click', () => {
-		console.log("oh ma lord. finally.");
-	});
 	
 	document.addEventListener('click', (e) => {
 		console.log(e.target);
