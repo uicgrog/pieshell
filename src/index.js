@@ -54,12 +54,28 @@ const componentsList = [
 {type:"Number", id:"AMTest4", label:"# processors", color:"#c0c0a0"},
 {type:"Time", id:"AMTest5", label:"max run time", color:"#a0c0a0"}];
 
-ReactDOM.render(<AbridgedModal
+/*ReactDOM.render(<AbridgedModal
 	name="submit job"
   />, document.getElementById('root'));
 
 
-ReactDOM.render(<CommandWindow />, document.getElementById('root'));
+ReactDOM.render(<CommandWindow />, document.getElementById('root'));*/
+
+
+var FourWedgeRight = document.getElementById('FourWedgeRight');
+FourWedgeRight.addEventListener('click', () => {
+
+    var commandWindow = document.createElement("CommandWindow");
+    commandWindow.id ="CommandWindow";
+
+    ReactDOM.render(<CommandWindow />, document.getElementById('root').appendChild(commandWindow));
+
+    document.getElementById("Execute").addEventListener('click',function (){
+        commandWindow = document.getElementById("CommandWindow");
+        commandWindow.parentNode.removeChild(commandWindow);
+    });
+
+});
 
 registerServiceWorker();
 //debug();
