@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 //import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Pie from './PieShell';
-import debug from './test.js';
+import listeners from './listeners.js';
 import AbridgedModal from './AbridgedModal';
 import CommandWindow from './CommandWindow';
 
@@ -63,4 +63,4 @@ ReactDOM.render(<AbridgedModal
 ReactDOM.render(<CommandWindow />, document.getElementById('root'));
 */
 registerServiceWorker();
-debug();
+listeners();

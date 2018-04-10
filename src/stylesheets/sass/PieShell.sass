@@ -1,44 +1,5 @@
 //testing styles:
 
-$pieBlue: rgba(10,25,225,0.3)
-
-%wedge-transition
-	transition: background-color 0.25s ease-in-out
-
-%wedge-hover
-	background-color: $pieBlue
-
-#FourWedge
-	&Top, &Right, &Bottom, &Left
-		&:hover
-			@extend %wedge-hover
-		position: fixed
-		z-index: 8
-		background-color: rgba(0,0,255,0.0)
-		border-top-left-radius: 512px
-		width: 128px
-		height: 128px
-		@extend %wedge-transition
-
-#FourWedgeTop
-	transform: rotate(45deg)
-	top: -25px
-	left: 65px		
-
-#FourWedgeRight
-	transform: rotate(135deg)
-	top: 64px
-	left: 155px
-	
-#FourWedgeBottom
-	transform: rotate(225deg)
-	top: 155px
-	left: 65px
-
-#FourWedgeLeft
-	transform: rotate(315deg)
-	top: 65px
-	left: -25px
 
 // Variable:
 $size: 256px
@@ -47,7 +8,6 @@ $debug: true
 // ==============
 // Do not change:
 $fontSize: $size/16
-
 
 @import _functions.sass
 
@@ -89,6 +49,46 @@ button
 +BGImagesFunction
 /*End*/
 
+%wedge-transition
+	transition: background-color 0.25s ease-in-out
+
+%wedge-hover
+	background-color: rgba(0,0,0,0.3)
+	@if ($debug)
+		background-color: rgba(10,25,225,0.3)
+
+#FourWedge
+	&Top, &Right, &Bottom, &Left
+		&:hover
+			@extend %wedge-hover
+		position: fixed
+		z-index: 8
+		background-color: rgba(0,0,255,0.0)
+		border-top-left-radius: 512px
+		width: 128px
+		height: 128px
+		@extend %wedge-transition
+
+#FourWedgeTop
+	transform: rotate(45deg)
+	top: -25px
+	left: 65px		
+
+#FourWedgeRight
+	transform: rotate(135deg)
+	top: 64px
+	left: 155px
+	
+#FourWedgeBottom
+	transform: rotate(225deg)
+	top: 155px
+	left: 65px
+
+#FourWedgeLeft
+	transform: rotate(315deg)
+	top: 65px
+	left: -25px
+
 .Pie
 .PieBackground,
 .PieCenter,
@@ -123,6 +123,7 @@ button
 	box-shadow:	rgba(70,70,70,0.50) 0px 5px 8px
 
 .PieCenter
+	color: white
 	position: fixed
 	background-color: black
 	border-radius: 100%

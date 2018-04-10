@@ -91,7 +91,6 @@ class Pie extends Component {
 	render() {
 		return (
 			<div className="Pie">
-				<script type="text/javascript" src="/test.js" />
 				<PieBuild
 					category={this.category}
 					numSlices={this.numSlices}

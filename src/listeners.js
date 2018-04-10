@@ -1,4 +1,4 @@
-export default function debug() {
+export default function listeners() {
 	/*https://appendto.com/2017/01/react-events-101/*/
 	document.addEventListener('load', () => {
 		console.log("?? load no show");
