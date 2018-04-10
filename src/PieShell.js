@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import './stylesheets/css/PieShell.css';
 import PropTypes from 'prop-types';
 import ArrowLeft from 'mdi-react/ArrowLeftIcon.js';
+import AbridgedModal from './AbridgedModal';
+import CommandWindow from './CommandWindow';
 
 const sliceQuarters = ["Top", "Right", "Bottom", "Left"];
 const sliceThirds = ["Right", "Bottom", "Left"];
@@ -30,6 +32,11 @@ function PieBuild(props) {
 					</div>
 				);
 			})}
+			{/*testing div as a quartered circle, just the top + bottom wedge*/}
+			<div id="FourWedgeTop"/>
+			<div id="FourWedgeRight"/>
+			<div id="FourWedgeLeft"/>
+			<div id="FourWedgeBottom"/>
 			<div className="PieCenter">
 			<div className="Draggable" />
 			<div className="Category">{category}</div>
@@ -90,11 +97,8 @@ class Pie extends Component {
 					numSlices={this.numSlices}
 					options={this.options}
 				/>
-				{/*testing div as a quartered circle, just the top + bottom wedge*/}
-                <div id="FourWedgeTop"/>
-                <div id="FourWedgeRight"/>
-                <div id="FourWedgeLeft"/>
-                <div id="FourWedgeBottom"/>
+				<AbridgedModal name="submit job" />
+				<CommandWindow />
 			</div>
 		);
 	

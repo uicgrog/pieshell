@@ -1,7 +1,7 @@
 .CommandWindow {
   border: 5px solid black;
   position: fixed;
-  top: 50px;
+  top: 400px;
   left: 50px;
   background-color: black;
   color: white;

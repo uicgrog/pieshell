@@ -4,7 +4,7 @@
   color: white;
   width: 100px;
   height: 50px;
-  top: 100px;
+  top: 256px;
   left: 100px;
   word-wrap: wrap;
   margin: 0;
@@ -18,7 +18,8 @@
 .AbridgedComponents {
   position: fixed;
   border: 5px solid black;
-  top: 150px;
+  background-color: white;
+  top: 306px;
   left: 100px;
   margin: 0;
 }

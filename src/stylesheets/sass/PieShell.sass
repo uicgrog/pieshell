@@ -8,63 +8,37 @@ $pieBlue: rgba(10,25,225,0.3)
 %wedge-hover
 	background-color: $pieBlue
 
+#FourWedge
+	&Top, &Right, &Bottom, &Left
+		&:hover
+			@extend %wedge-hover
+		position: fixed
+		z-index: 8
+		background-color: rgba(0,0,255,0.0)
+		border-top-left-radius: 512px
+		width: 128px
+		height: 128px
+		@extend %wedge-transition
+
 #FourWedgeTop
-	position: fixed
-	z-index: 99999
-	background-color: rgba(0,0,255,0.0)
-	border-top-left-radius: 512px
-	border-bottom-right-radius: 300px
-	width: 128px
-	height: 128px
 	transform: rotate(45deg)
 	top: -25px
-	left: 65px
-	@extend %wedge-transition
-
-#FourWedgeLeft
-	position: fixed
-	z-index: 99999
-	background-color: rgba(0,0,255,0.0)
-	border-top-left-radius: 512px
-	border-bottom-right-radius: 300px
-	width: 128px
-	height: 128px
-	transform: rotate(315deg)
-	top: 65px
-	left: -25px
-	@extend %wedge-transition
+	left: 65px		
 
 #FourWedgeRight
-	position: fixed
-	z-index: 99999
-	background-color: rgba(0,0,255,0.0)
-	border-top-left-radius: 512px
-	border-bottom-right-radius: 300px
-	width: 128px
-	height: 128px
 	transform: rotate(135deg)
-	top: 65px
+	top: 64px
 	left: 155px
-	@extend %wedge-transition
 	
 #FourWedgeBottom
-	position: fixed
-	z-index: 99999
-	background-color: rgba(0,0,255,0.0)
-	border-top-left-radius: 512px
-	border-bottom-right-radius: 320px
-	width: 128px
-	height: 128px
 	transform: rotate(225deg)
 	top: 155px
 	left: 65px
-	@extend %wedge-transition
 
-#FourWedgeTop:hover,
-#FourWedgeBottom:hover,
-#FourWedgeLeft:hover,
-#FourWedgeRight:hover
-	@extend %wedge-hover
+#FourWedgeLeft
+	transform: rotate(315deg)
+	top: 65px
+	left: -25px
 
 // Variable:
 $size: 256px
@@ -149,8 +123,15 @@ button
 	box-shadow:	rgba(70,70,70,0.50) 0px 5px 8px
 
 .PieCenter
-	color:	white
-
+	position: fixed
+	background-color: black
+	border-radius: 100%
+	width: $size/3
+	height: $size/3
+	top: $size/2 - $size/6
+	left: $size/2 - $size/6
+	z-index: 10
+	
 .PieSliceTop .Option
 	width: $size/3 + 10px
 	top: $size/18
@@ -197,7 +178,7 @@ button
 	height: $size/3
 	top: $size/3
 	left: $size/3
-	z-index: 9
+	z-index: 11
 	
 .Category
 	@if ($debug)
@@ -208,6 +189,7 @@ button
 	top: $size/3 + 0.5 + ($size/6 - $fontSize/4*3)
 	left: $size/3 + 0.5
 	text-align: center
+	z-index: 10
 	//margin: ($size/6 - $fontSize/4*3) 0
 
 .Option
@@ -219,7 +201,7 @@ button
 	margin: 0
 	
 .BackButton
-	z-index: 10
+	z-index: 12
 	font-size: $fontSize - 4px	//update expression to be relative to size
 	position: fixed
 	top: $size/3 + 60px		//update expression to be relative to size
