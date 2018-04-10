@@ -11,6 +11,7 @@ import CommandWindow from './CommandWindow';
 const sliceQuarters = ["Top", "Right", "Bottom", "Left"];
 const sliceThirds = ["Right", "Bottom", "Left"];
 
+
 function PieBuild(props) {
 	let category = props.category;
 	let options = props.options;

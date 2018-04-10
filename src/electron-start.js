@@ -16,7 +16,7 @@ const url = require('url')
 
     // Open dev tools
 	// Comment out dev tools to see transparent window
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
   }
 
   app.on('ready', createWindow)

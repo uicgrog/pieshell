@@ -3,7 +3,7 @@ export default function listeners() {
 	document.addEventListener('load', () => {
 		console.log("?? load no show");
 	});
-	document.addEventListener('Ready', () => {
+	document.addEventListener('ready', () => {
 		console.log("?? ready no show");
 	});
 	document.addEventListener('click', () => {
@@ -22,7 +22,11 @@ export default function listeners() {
 		if (e.target.className === "Draggable"){
 			console.log(">>> draggable");
 		}
+		if (e.target.className === "CheckBox"){
+			// handled in AbridgedModal.js
+		}
 	});
+
 	
 	var BackButton = document.getElementById('BackButton');
 	BackButton.addEventListener('click', () => {
@@ -48,5 +52,39 @@ export default function listeners() {
     var FourWedgeBottom = document.getElementById('FourWedgeBottom');
 	FourWedgeBottom.addEventListener('click', () => {
 		console.log(">>> Bottom wedge");
+		
+		// toggle show abridge modal on bottom wedge click
+		ToggleAbridgedModal();
+	});
+	
+	// toggle show abridge modal on abridge modal title click
+	var AbridgedModalTitle = document.getElementsByClassName('AbridgedModalTitle')[0];
+	AbridgedModalTitle.addEventListener('click', () => {
+		ToggleAbridgedModal();
 	});
 }
+
+
+
+
+function ToggleDisplay(object){
+	var displayRule = object.style.display;
+	
+	if (displayRule === "" || displayRule === "none"){
+		object.style.display = "block";
+	}
+	else if (displayRule === "block"){
+		object.style.display = "none";
+	}
+}
+
+function ToggleAbridgedModal(){
+	var PieSliceBottomOption = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+	
+	if (PieSliceBottomOption.textContent === "submit job"){
+		var AbridgedModal = document.getElementsByClassName('AbridgedModal')[0];
+		ToggleDisplay(AbridgedModal);
+	}
+}
+
+

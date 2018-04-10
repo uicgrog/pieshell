@@ -1,8 +1,6 @@
 /*
 Abridged modal event handling notes:
 
-- Check Boxes: if div element with class "CheckBox" is clicked, get child svg element and change the css display rule to block. relevant stuff: ".CheckBox" & ".CheckBox svg"
-
 - Path Input: we verifying input?
 
 - Destination Input: we verifying input?
@@ -16,11 +14,25 @@ import React, { Component } from 'react';
 import './stylesheets/css/AbridgedModal.css';
 import PropTypes from 'prop-types';
 import Plus from 'mdi-react/PlusIcon.js';
-import Close from 'mdi-react/CloseIcon.js';
-import CloseCircleOutline from 'mdi-react/CloseCircleOutlineIcon.js';
-import CloseOutline from 'mdi-react/CloseOutlineIcon.js';
-import AlertOutline from 'mdi-react/AlertOutlineIcon.js';
 
+
+function Check(e){
+	if (e.target.className === "CheckBox"){
+		var CommandBase = document.getElementsByClassName("CommandBase")[0];
+		CommandBase.style.display = "inline-block";
+		
+		e.target.className = "CheckBox-Checked";
+		var argDivID = e.target.parentElement.id + "Arg";
+		var argDiv = document.getElementById(argDivID);
+		argDiv.style.display = "inline-block";
+	}
+	else{
+		e.target.className = "CheckBox";
+		var argDivID = e.target.parentElement.id + "Arg";
+		var argDiv = document.getElementById(argDivID);
+		argDiv.style.display = "none";
+	}
+}
 
 function LongInputDiv(props) {
 	let id = props.id;
@@ -54,9 +66,7 @@ function CheckBoxDiv(props){
 	return (
 		<div className="CheckBoxDiv" id={id} style={{backgroundColor: color}}>
 			<div className="Label">{label}:</div>
-			<div className="CheckBox">
-				<Close size="22"/>
-			</div>
+			<div className="CheckBox" onClick={Check}/>
 		</div>
 	);
 }
@@ -71,9 +81,7 @@ function NumberDiv(props){
 	
 	return (
 		<div className="NumberDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox">
-				<Close size="22"/>
-			</div>
+			<div className="CheckBox" onClick={Check}/>
 			<div className="Label">{label}:</div>
 			<input type="text" className="NumberInput" />
 		</div>
@@ -88,9 +96,7 @@ function TimeDiv(props){
 	
 	return (
 		<div className="TimeDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox">
-				<Close size="22" />
-			</div>
+			<div className="CheckBox" onClick={Check}/>
 			<div className="Label">{label}:</div>
 			<input type="text" className="TimeInput-Hours" maxLength="2" />:
 			<input type="text" className="TimeInput-Minutes" maxLength="2" />:

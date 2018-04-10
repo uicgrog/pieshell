@@ -1,7 +1,7 @@
 // need to do font family
 
-$top: 400px
-$left: 50px
+$top: 30px
+$left: 275px
 
 .CommandWindow
 	border: 5px solid black
@@ -18,30 +18,44 @@ $left: 50px
 
 .CloseOutline
 	height: 24px
-	background-color: white
+	width: 24px
+	background:
+		color: white
+		repeat: no-repeat
+		size: contain
+		image: url("../../images/close-outline.png")
+		
 
 .CommandBox
 	background-color: #353535
 	padding: 6px 12px
+	height: 58px
 
 .Close
+	width: 16px
 	height: 16px
 	margin: 5px
+	background:
+		repeat: no-repeat
+		size: contain
+		image: url("../../images/close-circle-outline-gray.png")
 	
 .Command
 	&Label
 		margin: 0 6px 0 0
 		color: black
 	&Base
-		padding: 0 3px 0 0
+		padding: 6px
 	&Base, &Argument
+		margin: 0 5px 0 0
 		border-radius: 10px
-		margin: 6px 3px
 		& div
-			display: inline-block
 			text-align: center
 			vertical-align: middle
+		& .Close, & .CommandLabel
+			display: inline-block
 	&Argument
+		display: none
 		border: 1px solid white
 		& div
 			margin: 5px

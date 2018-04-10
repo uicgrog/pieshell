@@ -1,8 +1,8 @@
 .CommandWindow {
   border: 5px solid black;
   position: fixed;
-  top: 400px;
-  left: 50px;
+  top: 30px;
+  left: 275px;
   background-color: black;
   color: white;
 }
@@ -15,17 +15,26 @@
 
 .CloseOutline {
   height: 24px;
+  width: 24px;
   background-color: white;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../../images/close-outline.png");
 }
 
 .CommandBox {
   background-color: #353535;
   padding: 6px 12px;
+  height: 58px;
 }
 
 .Close {
+  width: 16px;
   height: 16px;
   margin: 5px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../../images/close-circle-outline-gray.png");
 }
 
 .CommandLabel {
@@ -33,18 +42,21 @@
   color: black;
 }
 .CommandBase {
-  padding: 0 3px 0 0;
+  padding: 6px;
 }
 .CommandBase, .CommandArgument {
+  margin: 0 5px 0 0;
   border-radius: 10px;
-  margin: 6px 3px;
 }
 .CommandBase div, .CommandArgument div {
-  display: inline-block;
   text-align: center;
   vertical-align: middle;
 }
+.CommandBase .Close, .CommandBase .CommandLabel, .CommandArgument .Close, .CommandArgument .CommandLabel {
+  display: inline-block;
+}
 .CommandArgument {
+  display: none;
   border: 1px solid white;
 }
 .CommandArgument div {
