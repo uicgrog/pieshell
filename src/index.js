@@ -61,21 +61,35 @@ const componentsList = [
 
 ReactDOM.render(<CommandWindow />, document.getElementById('root'));*/
 
-
 var FourWedgeRight = document.getElementById('FourWedgeRight');
-FourWedgeRight.addEventListener('click', () => {
+var FourWedgeLeft = document.getElementById('FourWedgeLeft');
+var FourWedgeTop = document.getElementById('FourWedgeTop');
+var FourWedgeBottom = document.getElementById('FourWedgeBottom');
+
+FourWedgeRight.addEventListener('click', commandWindowEnter);
+
+function commandWindowEnter(event){
+    FourWedgeRight.style.opacity = 0;
+    FourWedgeLeft.style.opacity = 0;
+    FourWedgeTop.style.opacity = 0;
+    FourWedgeBottom.style.opacity = 0;
+    FourWedgeRight.removeEventListener('click', commandWindowEnter);
 
     var commandWindow = document.createElement("CommandWindow");
     commandWindow.id ="CommandWindow";
 
     ReactDOM.render(<CommandWindow />, document.getElementById('root').appendChild(commandWindow));
-
     document.getElementById("Execute").addEventListener('click',function (){
         commandWindow = document.getElementById("CommandWindow");
         commandWindow.parentNode.removeChild(commandWindow);
-    });
+        FourWedgeRight.addEventListener('click', commandWindowEnter);
 
-});
+        FourWedgeRight.style.opacity = 1;
+        FourWedgeLeft.style.opacity = 1;
+        FourWedgeTop.style.opacity = 1;
+        FourWedgeBottom.style.opacity = 1;
+    });
+}
 
 registerServiceWorker();
 //debug();
