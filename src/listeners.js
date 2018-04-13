@@ -27,6 +27,10 @@ export default function listeners() {
 		}
 	});
 
+    var ExecuteButton = document.getElementById('Execute');
+    ExecuteButton.addEventListener('click', () => {
+        ToggleAbridgedModal();
+    });
 	
 	var BackButton = document.getElementById('BackButton');
 	BackButton.addEventListener('click', () => {
@@ -83,7 +87,9 @@ function ToggleAbridgedModal(){
 	
 	if (PieSliceBottomOption.textContent === "submit job"){
 		var AbridgedModal = document.getElementsByClassName('AbridgedModal')[0];
+        var CommandWindow = document.getElementsByClassName('CommandWindow')[0];
 		ToggleDisplay(AbridgedModal);
+        ToggleDisplay(CommandWindow);
 	}
 }
 
