@@ -50,7 +50,7 @@ ReactDOM.render(<Pie
 const componentsList = [
 {type:"CheckBox", id:"AMTest1", label:"interactive", color:"#a0c0c0"},
 {type:"Path", id:"AMTest2", label:"path to submit script", color:"#c0c0a0"},
-{type:"Text", id:"AMTest3", label:"destination queue", color:"red"},
+{type:"Queue", id:"AMTest3", label:"queue", color:"#c0a0a0"},
 {type:"Number", id:"AMTest4", label:"# processors", color:"#c0c0a0"},
 {type:"Time", id:"AMTest5", label:"max run time", color:"#a0c0a0"}];
 

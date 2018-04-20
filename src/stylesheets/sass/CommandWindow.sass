@@ -4,7 +4,6 @@ $top: 30px
 $left: 275px
 
 .CommandWindow
-	display: none
 	border: 5px solid black
 	position: fixed
 	top: $top
@@ -47,9 +46,12 @@ $left: 275px
 		color: black
 	&Base
 		padding: 6px
+		display: none
 	&Base, &Argument
 		margin: 0 5px 0 0
 		border-radius: 10px
+		font-family: 'Hack'
+		font-weight: bold
 		& div
 			text-align: center
 			vertical-align: middle

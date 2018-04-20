@@ -77,7 +77,6 @@ button {
   transition: background-color 0.25s ease-in-out; }
 
 #FourWedgeTop:hover, #FourWedgeRight:hover, #FourWedgeBottom:hover, #FourWedgeLeft:hover {
-  background-color: rgba(0, 0, 0, 0.3);
   background-color: rgba(10, 25, 225, 0.3); }
 
 #FourWedgeTop, #FourWedgeRight, #FourWedgeBottom, #FourWedgeLeft {
@@ -106,7 +105,8 @@ button {
 #FourWedgeLeft {
   transform: rotate(315deg);
   top: 65px;
-  left: -25px; }
+  left: -25px;
+  background-color: rgba(0, 0, 0, 0.3); }
 
 .PieBackground,
 .PieCenter,
@@ -196,7 +196,6 @@ button {
   z-index: 11; }
 
 .Category {
-  background-color: rgba(255, 0, 0, 0.6);
   -webkit-user-select: none;
   width: 85.3333333333px;
   position: fixed;
@@ -206,7 +205,6 @@ button {
   z-index: 10; }
 
 .Option {
-  background-color: rgba(0, 0, 255, 0.6);
   position: fixed;
   text-align: center;
   margin: 0; }

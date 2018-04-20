@@ -101,7 +101,6 @@ class Pie extends Component {
 				<CommandWindow />
 			</div>
 		);
-	
 	}
 }
 

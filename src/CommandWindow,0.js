@@ -16,9 +16,6 @@ function CloseCommandArgument(e){
 }
 
 function Clear(){
-	var AbridgedModal = document.getElementsByClassName('AbridgedModal')[0];
-	AbridgedModal.style.display = "none";	
-
 	var CommandBase = document.getElementsByClassName("CommandBase")[0];
 	CommandBase.style.display = "none";	
 	
@@ -30,9 +27,6 @@ function Clear(){
 	
 	var time = document.getElementById("timeArg");
 	time.style.display = "none";
-	
-	var queue = document.getElementById("queueArg");
-	queue.style.display = "none";
 	
 	var CheckedBoxes = document.getElementsByClassName("CheckBox-Checked");
 	if(CheckedBoxes[0] != undefined){
@@ -70,15 +64,14 @@ function CommandBase(props){
 		<div className="CommandBase" style={{backgroundColor: color}}>
 			<div className="Close" onClick={CloseCommandArgument}/>
 			<div className="CommandLabel">{command}</div>
-			<CommandArgument color="#a0a0c0" id="interactiveArg" command="-I" />
-			<CommandArgument color="#d0b0b0" id="queueArg" command="-q queue=batch" />
+			<CommandArgument color="#a4c2d1" id="interactiveArg" command="-I" />
 			<CommandArgument color="#d2d2c0" id="numberArg" command="-l procs=1" />
 			<CommandArgument color="#a8bfb0" id="timeArg" command="-l walltime=48:00:00" />
 		</div>
 	);
 }
 
-const qsubArgumentList = ["sample", "-I", "-q batch", "-l procs=1", "-l walltime=48:00:00"];
+const qsubArgumentList = ["sample", "-I", "-l procs=1", "-l walltime=48:00:00"];
 
 class CommandWindow extends Component {
 	constructor(props) {

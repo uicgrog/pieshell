@@ -39,34 +39,51 @@ function LongInputDiv(props) {
 	let name = props.name;
 	let label =  props.label;
 	let color = props.color;
+	let disabled = props.disabled;
 	return(
 		<div className={name + "Div"} id={id} style={{backgroundColor: color}}>
 			<div className="Label">{label}:</div>
-			<input type="text" className={name + "Input"} />
+			<input type="text" className={name + "Input"} disabled={disabled}/>
 		</div>
 	);
 }
+
+function CheckBoxDiv(props) {
+	let id = props.id;
+	let name = props.name;
+	let label =  props.label;
+	let color = props.color;
+	let disabled = props.disabled;
+	return(
+		<div className="CheckBoxDiv" id={id} style={{backgroundColor: color}}>
+			<div className="CheckBox" onClick={Check}/>
+			<div className="Label">{label}</div>
+		</div>
+	);
+}
+
 
 {/*
 function PathDiv(props) {
 	return <LongInputDiv name="Path" id={props.id} label={props.label} color={props.color} />;
 };
 
-function TextDiv(props) {
-	return <LongInputDiv name="Text" id={props.id} label={props.label} color={props.color} />;
+function QueueDiv(props) {
+	return <CheckBoxInputDiv name="Queue" id={props.id} label={props.label} color={props.color} />;
 }
 */}
 
-function CheckBoxDiv(props){
+function QueueDiv(props){
 	let id = props.id;
 	let label =  props.label;
 	let color = props.color;
 	let initialState = props.initialState;
 	
 	return (
-		<div className="CheckBoxDiv" id={id} style={{backgroundColor: color}}>
-			<div className="Label">{label}:</div>
+		<div className="QueueDiv" id={id} style={{backgroundColor: color}}>
 			<div className="CheckBox" onClick={Check}/>
+			<div className="Label">{label}:</div>
+			<input type="text" className="Queue" />
 		</div>
 	);
 }
@@ -98,9 +115,9 @@ function TimeDiv(props){
 		<div className="TimeDiv" id={id} style={{backgroundColor: color}}>
 			<div className="CheckBox" onClick={Check}/>
 			<div className="Label">{label}:</div>
-			<input type="text" className="TimeInput-Hours" maxLength="2" />:
-			<input type="text" className="TimeInput-Minutes" maxLength="2" />:
-			<input type="text" className="TimeInput-Seconds" maxLength="2" />
+			<input type="text" className="TimeInput-Hours" maxLength="2"/>:
+			<input type="text" className="TimeInput-Minutes" maxLength="2"/>:
+			<input type="text" className="TimeInput-Seconds" maxLength="2"/>
 		</div>
 	);
 }
@@ -117,11 +134,11 @@ class AbridgedModal extends Component {
 			<div className="AbridgedModal">
 				<div className="AbridgedModalTitle"><div>{this.name}</div></div>
 				<div className="AbridgedComponents">
-					<CheckBoxDiv id="interactive" label="interactive" color="#a4c2d1" initialState={false} />
-					<LongInputDiv name="Path" id="path" label="path to submit script" color="#d3b2d3" />
-					<LongInputDiv name="Text" id="destination" label="destination queue" color="#fbd2c0" />
-					<NumberDiv id="number" label="# processors" color="#d2d2c0" initialState={false} numberRangeStart={1} numberRangeEnd={16} />
-					<TimeDiv id="time" label="max run time" color="#a8bfb0" initialState={false} />
+					<CheckBoxDiv id="interactive" label="interactive" color="#a0a0c0" initialState={false} />
+					<LongInputDiv name="Path" id="path" label="path to submit script" color="#c0a0c0" disabled />
+					<QueueDiv id="queue" label="queue" color="#c0a0a0" initialState={false}/>
+					<NumberDiv id="number" label="# processors" color="#c0c0a0" initialState={false} numberRangeStart={1} numberRangeEnd={16}/>
+					<TimeDiv id="time" label="max run time" color="#a0c0a0" initialState={false} />
 				</div>
 			</div>
 		);
@@ -145,13 +162,14 @@ class AbridgedModal extends Component {
 									id={component.id}
 									label={component.label}
 									color={component.color} />
+									disabled
 							}
-							{component.type === "Text" &&
-								<LongInputDiv
-									name="Text"
+							{component.type === "Queue" &&
+								<QueueDiv
 									id={component.id}
 									label={component.label}
-									color={component.color} />
+									color={component.color}
+									initialState={false} />
 							}
 							{component.type === "Number" &&
 								<NumberDiv
