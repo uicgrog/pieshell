@@ -1,0 +1,16 @@
+// screen session ID
+(!) <screen_id> = pts-0.5678
+
+// total # of processors in system
+(!) <total_procs> = 24
+
+// queue names
+(!) <queue> = batch
+
+// valid walltime limits
+(!) <HH>:<MM>:<SS> = 0:00:00..720:00:00
+
+// time ranges
+(!) <HH> >= 0
+(!) <MM> = 00..59
+(!) <SS> = 00..59

@@ -1,0 +1,21 @@
+// (!) required
+// (D) dependency
+// (X) disabled
+
+// C = center
+// T = top
+// B = bottom
+// L = left
+// R = right
+
+(!) C: πsh {logo image}
+    (!) L: connect(ed to <session>)
+        (X) L: new screen session
+        (X) R: new tmux session
+        (!) B: screen session on <screen_id>
+    (D) R: commands <enabled if connected>
+        (!) T: git
+        (!) B: compilers
+        (!) L: scheduler
+        (!) R: sysadmin
+    (X) B: history

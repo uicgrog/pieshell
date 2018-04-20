@@ -1,0 +1,41 @@
+// all contents in this file will show up in menu, but items
+// with an (X) should be grayed out and disabled
+
+// (!) required
+// (D) dependency
+// (X) disabled
+
+// C = center
+// T = top
+// B = bottom
+// L = left
+// R = right
+
+(X) compilers ... compilers & development
+(X) dir ops. ... directory operations
+(!) file perms. ... file and directory permissions
+    (X) L: chown ... change owner
+    (X) R: chgrp ... change group
+    (!) B: chmod ... change permission modes
+        (!) -R ... [x] recursive 
+        (!) <r|w|x|s><+|-|=><u|g|o> ... [+|-|=| ] read|write|execute|setuid * user|group|other
+            (!) no option should exist for setuid other! (see mockups)
+        (?) ,<+|->t
+            (!) adding would have to allow for comma separation with permissions grid below
+            (!) no space before comma!
+(X) git ... git repository operations
+(!) scheduler (pbs) ... PBS/Torque job scheduler
+    (X) L: qstat ... job status
+    (X) R: qdel ... delete job
+    (!) B: qsub ... submit job
+        (!) -I ... [X] interactive
+        (!) -l procs=<np> ... [x] run time: [HH]:[MM][SS]
+            (!) <np> must be an integer between 1 and <total_procs>
+        (!) -l walltime=<HH>:<MM>:<SS> ... [x] max run time: [HH]:[MM]:[SS]
+            (!) <HH>:<MM>:<SS> must be a duration between 00:00:00 and 720:00:00
+            (?) add leading zeros if missing
+        (!) -q <queue> ... [x] queue: [queue]
+        (?) <submit_script>            ... [x] path to submit script: [submit_script]
+(X) sci. apps ... scientific applications
+(X) sysadmin ... systems administration
+(X) text proc. ... text processing

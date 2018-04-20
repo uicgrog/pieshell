@@ -1,0 +1,102 @@
+// task symbols:
+// <!> = required
+// <?> = optional
+// </> = completed
+// <~> = ongoing
+//
+// task owner labeled with @XY where X and Y are first and last initials
+
+
+<!> pieshell punchlist
+@GC <!> post-evaluation tasks
+ :      <!> check in gr4 branch
+ :      <!> add .sel files
+@AS     <!> merge gr4 into master
+@GC <!> application
+ :      <!> layout @GC
+ :          <!> static mockups (JS+Sass)
+ :              <!> chmod modal
+ :              <!> connect menu
+ :              <!> command "select..." button 
+ :              <!> "Execute" color scheme change
+ :          <!> lower-case consistently unless special exception
+@EH     <!> modal-builder duality @EH
+ :          <!> refer to COMMANDS.sel for required and optional command components
+ :          <!> qsub
+ :              <!> -q <queue> instead of -q queue=<queue>
+ :              <!> max run time is for valid integer ranges (see LIMITS.sel)
+ :              <!> # processors is for valid integer ranges (see LIMITS.sel)
+ :              <!> queue is valid alphanumeric name (see LIMITS.sel)
+ :              <!> command builder paramters should respond to text field
+ :              <!> max time limit shouldn't be checked after an Execute
+ :              <!> make "submit job" modal title single line to match pie wedge
+ :              <?> add function for <submit_script>
+ :          <!> chmod
+@GC             <!> get modal from @GC
+ :                  <?> put checkboxes before recursive and sticky bit
+@EH             <!> symbols for permissions "checkboxes" are "+", "-", "=", or " " (default)
+ :              <!> permissions in modal need to reflect
+ :                  <!> at very least, the scenario requires g+w
+ :              <!> recursive and sticky bit check boxes are "x"
+ :              <?> path... text field is valid path
+ :              <?> make the "path of file or directory:" have some sort of quasi-filesystem navigator
+ :          <!> disable "Execute" when command window is empty
+ :          <!> disable "Execute" if name=value format parameter as invalid/empty value (e.g., "-l walltime=" without valid time)
+ :          <!> pressing (X) on the base command (qsub, chmod, etc.) should close modal
+ :          <?> dynamic colors: use an algorithm to assign colors to command arguments
+ :          <?> better handling of long lines; talk to GC
+@ZH     <!> navigation @ZH
+ :          </> keep blue hover highlight
+ :          <!> make disabled wedges actually disabled
+ :          <!> make "<- Back" button at center functional
+ :          <!> make disabled wedges inactive (no hover)
+ :          <!> place menu labels at center of wedges
+ :          <!> create remaining menus (see MENUS.sel)
+ :          <!> add "select" button in commands menu to change command wedges (thus removing need for "settings" entirely)
+ :              <!> talk to GC about this
+ :          <?> color-code "connect" with yellow, since it is required for operation...?
+ :          <?> animate (PLEASE DO THIS, IT WILL BE AWESOME IF IT WORKS)
+ :          <?> separate module functionality
+ :              <?> separate files for each category and command menu would would ease in management
+ :              <?> discuss with @EH using a common file format for menu and commands
+ :              <?> consult with @GC for file format suggestions
+ :          <?> click-through transparency
+ :          <!> dynamic menus
+ :              <!> complete navigation
+ :              <!> 3-wedge layout
+ :                  <!> needed for "file perms." and "scheduler" menus
+ :              <?> n-wedge layout
+@AS     <!> integration @AS
+ :          <~> merge branch changes into master
+ :          <~> clean up source code
+ :          <?> lint processing
+@GC     <!> stylesheets @GC
+ :          <!> backward-integrate any CSS changes into Sass
+ :          <!> consistent text alignment
+ :          <!> brighten modal-builder color pairs
+ :          <!> suggest long command line formatting tweaks with EH
+ :          <!> place πsh logo at center of root menu
+@WB     <!> unit testing @WB
+ :          <~> iterative testing & feedback
+ :              <~> interface checklist
+ :              <~> scenarios
+ :                  <~> Scenario 1: connect to screen session pts-0.5678.host
+ :                  <~> Scenario 2: build qsub -I -l procs=1 -l walltime=48:00:00 -q batch 
+ :                  <~> Scenario 3: replace git module with file perms. module
+ :                  <~> Scenario 4: build chmod -R g+w ~/group_project
+ :              <~> suggest fixes
+ :              <~> let each owner know what's not working
+@ZH     <?> back-end @ZC @ZH
+ :          <?> Node.js tty access to actual screen session
+@GC <!> documentation @GC @AS @EH
+@AS     <!> project report (Google Docs) @AS @GC
+@EH     <!> presentation (Google Slides) @EH @GC
+@WB <~> content review @WB @GC
+ :      <~> add new tasks to end of this file @WB
+@GC     <~> integrate tasks into task list @GC
+
+
+===
+
+ADD NEW TASKS BELOW (WIL)
+-------------------------
