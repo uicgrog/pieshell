@@ -24,22 +24,25 @@
   left: 78px;
   margin: 0; }
 
-.CheckBoxDiv, .NumberDiv, .TimeDiv, .PathDiv, .TextDiv {
+.CheckBoxDiv, .NumberDiv, .TimeDiv, .PathDiv, .QueueDiv {
   margin: 10px;
   border-radius: 5px; }
-  .CheckBoxDiv div, .NumberDiv div, .TimeDiv div, .PathDiv div, .TextDiv div {
+  .CheckBoxDiv div, .NumberDiv div, .TimeDiv div, .PathDiv div, .QueueDiv div {
     display: inline-block;
     margin: 10px 5px 10px 10px;
     text-align: center;
     vertical-align: middle; }
 
-.PathDiv .Label, .TextDiv .Label {
+.PathDiv .Label {
   margin: 10px 10px 0 10px;
   display: block;
   text-align: left; }
-.PathDiv input, .TextDiv input {
+.PathDiv input {
   margin: 0 10px 10px 10px;
   width: 275px; }
+
+.PathDiv .Label {
+  color: #696969; }
 
 .CheckBox, .CheckBox-Checked {
   width: 20px;
@@ -53,6 +56,14 @@
 
 .TimeDiv input {
   width: 25px;
+  margin: 5px; }
+
+.NumberDiv input {
+  width: 25px;
+  margin: 5px; }
+
+.QueueDiv input {
+  width: 100px;
   margin: 5px; }
 
 .NumberDiv input {

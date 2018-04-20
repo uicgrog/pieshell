@@ -3,7 +3,7 @@
 
 // Variable:
 $size: 256px
-$debug: true
+$debug: false
 
 // ==============
 // Do not change:
@@ -53,9 +53,10 @@ button
 	transition: background-color 0.25s ease-in-out
 
 %wedge-hover
-	background-color: rgba(0,0,0,0.3)
+	background-color: rgba(10,25,225,0.3)
 	@if ($debug)
 		background-color: rgba(10,25,225,0.3)
+//	background-color: rgba(0,0,0,0.3)
 
 #FourWedge
 	&Top, &Right, &Bottom, &Left
@@ -88,6 +89,7 @@ button
 	transform: rotate(315deg)
 	top: 65px
 	left: -25px
+	background-color:	rgba(0,0,0,0.3)
 
 .Pie
 .PieBackground,
