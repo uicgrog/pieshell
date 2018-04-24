@@ -27,8 +27,8 @@
  :              <!> max run time is for valid integer ranges (see LIMITS.sel)
  :              <!> # processors is for valid integer ranges (see LIMITS.sel)
  :              <!> queue is valid alphanumeric name (see LIMITS.sel)
- :              <!> command builder paramters should respond to text field
- :              <!> max time limit shouldn't be checked after an Execute
+ :              <!> command builder parameters should respond to text field
+ :              </> max time limit shouldn't be checked after an Execute
  :              </> make "submit job" modal title single line to match pie wedge
  :              <?> add function for <submit_script>
  :          <!> chmod
@@ -42,7 +42,7 @@
  :              <?> make the "path of file or directory:" have some sort of quasi-filesystem navigator
  :          <!> disable "Execute" when command window is empty
  :          <!> disable "Execute" if name=value format parameter as invalid/empty value (e.g., "-l walltime=" without valid time)
- :          <!> pressing (X) on the base command (qsub, chmod, etc.) should close modal
+ :          </> pressing (X) on the base command (qsub, chmod, etc.) should close modal
  :          <?> dynamic colors: use an algorithm to assign colors to command arguments
  :          <?> better handling of long lines; talk to GC
 @ZH     <!> navigation @ZH

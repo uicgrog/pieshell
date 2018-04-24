@@ -10,9 +10,13 @@ import './stylesheets/css/CommandWindow.css';
 import PropTypes from 'prop-types';
 import Plus from 'mdi-react/PlusIcon.js';
 import CloseOutline from 'mdi-react/CloseOutlineIcon.js';
+import { ToggleAbridgedModal } from './listeners.js';
 
 function CloseCommandArgument(e){
 	e.target.parentElement.style.display = "none";
+	if (e.target.getAttribute("data") === "CommandBase"){
+		ToggleAbridgedModal();
+	}
 }
 
 function Clear(){
@@ -68,7 +72,7 @@ function CommandBase(props){
 	
 	return (
 		<div className="CommandBase" style={{backgroundColor: color}}>
-			<div className="Close" onClick={CloseCommandArgument}/>
+			<div className="Close" data="CommandBase" onClick={CloseCommandArgument}/>
 			<div className="CommandLabel">{command}</div>
 			<CommandArgument color="#a0a0c0" id="interactiveArg" command="-I" />
 			<CommandArgument color="#d0b0b0" id="queueArg" command="-q batch" />

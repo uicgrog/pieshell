@@ -35,6 +35,12 @@ export default function listeners() {
 
     var ExecuteButton = document.getElementById('Execute');
     ExecuteButton.addEventListener('click', () => {
+		//patches: max time limit shouldn't be checked after an Execute
+		var allCheckBoxChecked = document.getElementsByClassName('CheckBox-Checked');
+		for (var i = 0; i < allCheckBoxChecked.length; i++){
+			allCheckBoxChecked[0].className = "CheckBox";
+		}
+		
         ToggleAbridgedModal();
     });
 	
@@ -107,17 +113,14 @@ function ToggleDisplay(object){
 	}
 }
 
-function ToggleAbridgedModal(){
+export function ToggleAbridgedModal(){
 	var PieSliceBottomOption = document.getElementsByClassName('PieSliceBottom')[0].children[0];
-	
-
-	var CommandBase = document.getElementsByClassName("CommandBase")[0];
 
 	if (PieSliceBottomOption.textContent === "submit job"){
 		var AbridgedModal = document.getElementsByClassName('AbridgedModal')[0];
 
 
-	        var CommandWindow = document.getElementsByClassName('CommandWindow')[0];
+	    var CommandWindow = document.getElementsByClassName('CommandWindow')[0];
 		ToggleDisplay(AbridgedModal);
 	}
 }
