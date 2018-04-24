@@ -71,7 +71,7 @@ function CommandBase(props){
 			<div className="Close" onClick={CloseCommandArgument}/>
 			<div className="CommandLabel">{command}</div>
 			<CommandArgument color="#a0a0c0" id="interactiveArg" command="-I" />
-			<CommandArgument color="#d0b0b0" id="queueArg" command="-q queue=batch" />
+			<CommandArgument color="#d0b0b0" id="queueArg" command="-q batch" />
 			<CommandArgument color="#d2d2c0" id="numberArg" command="-l procs=1" />
 			<CommandArgument color="#a8bfb0" id="timeArg" command="-l walltime=48:00:00" />
 		</div>

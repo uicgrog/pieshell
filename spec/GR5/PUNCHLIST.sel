@@ -23,13 +23,13 @@
 @EH     <!> modal-builder duality @EH
  :          <!> refer to COMMANDS.sel for required and optional command components
  :          <!> qsub
- :              <!> -q <queue> instead of -q queue=<queue>
+ :              </> -q <queue> instead of -q queue=<queue>
  :              <!> max run time is for valid integer ranges (see LIMITS.sel)
  :              <!> # processors is for valid integer ranges (see LIMITS.sel)
  :              <!> queue is valid alphanumeric name (see LIMITS.sel)
  :              <!> command builder paramters should respond to text field
  :              <!> max time limit shouldn't be checked after an Execute
- :              <!> make "submit job" modal title single line to match pie wedge
+ :              </> make "submit job" modal title single line to match pie wedge
  :              <?> add function for <submit_script>
  :          <!> chmod
 @GC             <!> get modal from @GC
