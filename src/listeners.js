@@ -84,7 +84,7 @@ export default function listeners() {
 	var QueueInput = document.getElementsByClassName('Queue')[0];
 	QueueInput.addEventListener('input', (e) => {
 		var val = e.target.value;
-		if (val != "batch"){
+		if (val !== "batch"){
 			QueueInput.className = "Queue ErrorInput";
 			DisableExecute();
 		}
@@ -98,7 +98,8 @@ export default function listeners() {
 	var ProcInput = document.getElementById('number').children[2];
 	ProcInput.addEventListener('input', (e) => {
 		var val = parseInt(e.target.value, 10);
-		if (val < 1 || val > 24){
+		console.log(val);
+		if (val < 1 || val > 24 || isNaN(val)){
 			ProcInput.className = "NumberInput ErrorInput";
 			DisableExecute();
 		}
@@ -112,7 +113,7 @@ export default function listeners() {
 	var HourInput = document.getElementById('hours');
 	HourInput.addEventListener('input', (e) => {
 		var val = parseInt(e.target.value, 10);
-		if (val < 0 || val > 720){
+		if (val < 0 || val > 720 || isNaN(val)){
 			HourInput.className = "TimeInput-Hours ErrorInput";
 			DisableExecute();
 		}
@@ -126,7 +127,7 @@ export default function listeners() {
 	var MinInput = document.getElementById('mins');
 	MinInput.addEventListener('input', (e) => {
 		var val = parseInt(e.target.value, 10);
-		if (val < 0 || val > 59){
+		if (val < 0 || val > 59 || isNaN(val)){
 			MinInput.className = "TimeInput-Minutes ErrorInput";
 			DisableExecute();
 		}
@@ -140,7 +141,7 @@ export default function listeners() {
 	var SecInput = document.getElementById('secs');
 	SecInput.addEventListener('input', (e) => {
 		var val = parseInt(e.target.value, 10);
-		if (val < 0 || val > 59){
+		if (val < 0 || val > 59 || isNaN(val)){
 			SecInput.className = "TimeInput-Seconds ErrorInput";
 			DisableExecute();
 		}
@@ -151,15 +152,25 @@ export default function listeners() {
 	});
 }
 
+function CheckErrors(){
+	var errors = document.getElementsByClassName("ErrorInput");
+	
+	if (errors.length === 0){
+		var executeButton = document.getElementById("Execute");
+		executeButton.disabled = "";
+	}
+	else {
+		DisableExecute();
+	}
+}
+
 export function EnableExecute(){
-	var executeButton = document.getElementById("Execute");
-	executeButton.disabled = "";
+	CheckErrors();
 }
 
 export function DisableExecute(){
 	var executeButton = document.getElementById("Execute");
 	executeButton.disabled = "disabled";
-	console.log("disable button");
 }
 
 export function ClearDisplay(object){
