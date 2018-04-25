@@ -37,10 +37,7 @@ export default function listeners() {
     var ExecuteButton = document.getElementById('Execute');
     ExecuteButton.addEventListener('click', () => {
 		//patches: max time limit shouldn't be checked after an Execute
-		var allCheckBoxChecked = document.getElementsByClassName('CheckBox-Checked');
-		for (var i = 0; i < allCheckBoxChecked.length; i++){
-			allCheckBoxChecked[0].className = "CheckBox";
-		}
+		UncheckAllBoxes();
 		
         ToggleAbridgedModal();
     });
@@ -71,7 +68,16 @@ export default function listeners() {
 		console.log(">>> Bottom wedge");
 		
 		// toggle show abridge modal on bottom wedge click
-		ToggleAbridgedModal();
+		var option = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+		if (option.textContent === "submit job"){
+			ClearCommandArgs();
+			ToggleAbridgedModal();
+			UncheckAllBoxes();
+			DefaultQSub();
+		}
+		else if (option.textContent === "chmod"){
+			//todo
+		}
 	});
 	
 	// toggle show abridge modal on abridge modal title click
@@ -84,6 +90,12 @@ export default function listeners() {
 	var QueueInput = document.getElementsByClassName('Queue')[0];
 	QueueInput.addEventListener('input', (e) => {
 		var val = e.target.value;
+		
+		var queueLabel = document.getElementById('queueLabel');
+		var split = queueLabel.textContent.split(" ");
+		var n = split.length;
+		queueLabel.textContent = split[0] + " " + val.toString();
+		
 		if (val !== "batch"){
 			QueueInput.className = "Queue ErrorInput";
 			DisableExecute();
@@ -98,7 +110,12 @@ export default function listeners() {
 	var ProcInput = document.getElementById('number').children[2];
 	ProcInput.addEventListener('input', (e) => {
 		var val = parseInt(e.target.value, 10);
-		console.log(val);
+		
+		var numberLabel = document.getElementById('numberLabel');
+		var split = numberLabel.textContent.split("=");
+		var n = split.length;
+		numberLabel.textContent = split[0] + "=" + val.toString();
+		
 		if (val < 1 || val > 24 || isNaN(val)){
 			ProcInput.className = "NumberInput ErrorInput";
 			DisableExecute();
@@ -113,6 +130,12 @@ export default function listeners() {
 	var HourInput = document.getElementById('hours');
 	HourInput.addEventListener('input', (e) => {
 		var val = parseInt(e.target.value, 10);
+		
+		var timeLabel = document.getElementById('timeLabel');
+		var split = timeLabel.textContent.split(":");
+		var n = split.length;
+		timeLabel.textContent = "-l walltime=" + val.toString() + ":" + split[1] + ":" + split[2];
+		
 		if (val < 0 || val > 720 || isNaN(val)){
 			HourInput.className = "TimeInput-Hours ErrorInput";
 			DisableExecute();
@@ -127,6 +150,12 @@ export default function listeners() {
 	var MinInput = document.getElementById('mins');
 	MinInput.addEventListener('input', (e) => {
 		var val = parseInt(e.target.value, 10);
+		
+		var timeLabel = document.getElementById('timeLabel');
+		var split = timeLabel.textContent.split(":");
+		var n = split.length;
+		timeLabel.textContent = split[0] + ":" + val.toString() + ":" + split[2];
+		
 		if (val < 0 || val > 59 || isNaN(val)){
 			MinInput.className = "TimeInput-Minutes ErrorInput";
 			DisableExecute();
@@ -141,6 +170,12 @@ export default function listeners() {
 	var SecInput = document.getElementById('secs');
 	SecInput.addEventListener('input', (e) => {
 		var val = parseInt(e.target.value, 10);
+		
+		var timeLabel = document.getElementById('timeLabel');
+		var split = timeLabel.textContent.split(":");
+		var n = split.length;
+		timeLabel.textContent = split[0] + ":" + split[1] + ":" + val.toString();
+			
 		if (val < 0 || val > 59 || isNaN(val)){
 			SecInput.className = "TimeInput-Seconds ErrorInput";
 			DisableExecute();
@@ -150,6 +185,42 @@ export default function listeners() {
 			EnableExecute();
 		}
 	});
+}
+
+export function ClearCommandArgs(){	
+	var CommandBase = document.getElementsByClassName("CommandBase")[0];
+	CommandBase.style.display = "none";	
+	
+	var interactive = document.getElementById("interactiveArg");
+	interactive.style.display = "none";
+	
+	var number = document.getElementById("numberArg");
+	number.style.display = "none";
+	
+	var time = document.getElementById("timeArg");
+	time.style.display = "none";
+	
+	var queue = document.getElementById("queueArg");
+	queue.style.display = "none";	
+}
+
+function UncheckAllBoxes(){
+	var allCheckBoxChecked = document.getElementsByClassName('CheckBox-Checked');
+	/*for (var i = 0; i < allCheckBoxChecked.length; i++){
+		allCheckBoxChecked[0].className = "CheckBox";
+	}*/
+	if (allCheckBoxChecked[3] !== undefined) {
+		allCheckBoxChecked[3].className = "CheckBox";
+	}
+	if (allCheckBoxChecked[2] !== undefined) {
+		allCheckBoxChecked[2].className = "CheckBox";
+	}
+	if (allCheckBoxChecked[1] !== undefined) {
+		allCheckBoxChecked[1].className = "CheckBox";
+	}
+	if (allCheckBoxChecked[0] !== undefined) {
+		allCheckBoxChecked[0].className = "CheckBox";
+	}
 }
 
 function CheckErrors(){
@@ -191,9 +262,7 @@ export function ToggleDisplay(object){
 		CommandBase.style.display = "none";
 	}
 }
-
-export function ToggleAbridgedModal(){
-	//defaults
+export function DefaultQSub(){
 	var queue = document.getElementById("queue");
     queue.children[2].value = "batch";
 	var QueueInput = document.getElementsByClassName('Queue')[0];
@@ -214,7 +283,10 @@ export function ToggleAbridgedModal(){
 	MinInput.className = "TimeInput-Minutes";
 	var SecInput = document.getElementById('secs');
 	SecInput.className = "TimeInput-Seconds";
+}
 	
+export function ToggleAbridgedModal(){
+	DefaultQSub();
 	EnableExecute();
 	
 	var PieSliceBottomOption = document.getElementsByClassName('PieSliceBottom')[0].children[0];
