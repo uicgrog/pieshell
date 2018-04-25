@@ -24,9 +24,9 @@
  :          <!> refer to COMMANDS.sel for required and optional command components
  :          <!> qsub
  :              </> -q <queue> instead of -q queue=<queue>
- :              <!> max run time is for valid integer ranges (see LIMITS.sel)
- :              <!> # processors is for valid integer ranges (see LIMITS.sel)
- :              <!> queue is valid alphanumeric name (see LIMITS.sel)
+ :              </> max run time is for valid integer ranges (see LIMITS.sel)
+ :              </> # processors is for valid integer ranges (see LIMITS.sel)
+ :              </> queue is valid alphanumeric name (see LIMITS.sel)
  :              <!> command builder parameters should respond to text field
  :              </> max time limit shouldn't be checked after an Execute
  :              </> make "submit job" modal title single line to match pie wedge

@@ -100,7 +100,7 @@ function NumberDiv(props){
 		<div className="NumberDiv" id={id} style={{backgroundColor: color}}>
 			<div className="CheckBox" onClick={Check}/>
 			<div className="Label">{label}:</div>
-			<input type="text" className="NumberInput" />
+			<input type="text" className="NumberInput" maxLength="2"/>
 		</div>
 	);
 }
@@ -115,9 +115,9 @@ function TimeDiv(props){
 		<div className="TimeDiv" id={id} style={{backgroundColor: color}}>
 			<div className="CheckBox" onClick={Check}/>
 			<div className="Label">{label}:</div>
-			<input type="text" className="TimeInput-Hours" maxLength="2"/>:
-			<input type="text" className="TimeInput-Minutes" maxLength="2"/>:
-			<input type="text" className="TimeInput-Seconds" maxLength="2"/>
+			<input type="text" className="TimeInput-Hours" id="hours" maxLength="3"/>:
+			<input type="text" className="TimeInput-Minutes" id="mins" maxLength="2"/>:
+			<input type="text" className="TimeInput-Seconds" id="secs" maxLength="2"/>
 		</div>
 	);
 }

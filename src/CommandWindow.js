@@ -10,12 +10,13 @@ import './stylesheets/css/CommandWindow.css';
 import PropTypes from 'prop-types';
 import Plus from 'mdi-react/PlusIcon.js';
 import CloseOutline from 'mdi-react/CloseOutlineIcon.js';
-import { ToggleAbridgedModal } from './listeners.js';
+import { ToggleAbridgedModal, EnableExecute } from './listeners.js';
 
 function CloseCommandArgument(e){
 	e.target.parentElement.style.display = "none";
 	if (e.target.getAttribute("data") === "CommandBase"){
 		ToggleAbridgedModal();
+		EnableExecute();
 	}
 }
 
