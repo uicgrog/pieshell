@@ -19,36 +19,40 @@ function CloseCommandArgument(e){
 		ToggleAbridgedModal();
 		EnableExecute();
 	}
+	else{
+		console.log(e.target.getAttribute('data'));
+		var Checkbox = document.getElementById(e.target.getAttribute('data'));
+		Checkbox.className = "CheckBox";
+		
+	}
 }
 
 function CommandArgument(props){
 	let command = props.command;
-	let id = props.id;
 	let color = props.color;
-	let labelID = props.labelID;
 	
 	return(
-		<div className="CommandArgument" id={id} style={{backgroundColor: color}}>
-			<div className="Close" onClick={CloseCommandArgument}/>
-			<div className="CommandLabel" id={labelID}>{command}</div>
+		<div className="CommandArgument" id={props.mykey + "Arg"} style={{backgroundColor: color}}>
+			<div className="Close" onClick={CloseCommandArgument} data={props.mykey + "Checkbox"}/>
+			<div className="CommandLabel" id={props.mykey + "Label"}>{command}</div>
 		</div>
 	);
 }
 
 function CommandBase(props){
 	let command = props.command;
-	let arg =  props.arg;
+	//let arg =  props.arg;
 	let color = props.color;
-	let initialState = props.initialState;
+	//let initialState = props.initialState;
 	
 	return (
 		<div className="CommandBase" style={{backgroundColor: color}}>
 			<div className="Close" data="CommandBase" onClick={CloseCommandArgument}/>
 			<div className="CommandLabel">{command}</div>
-			<CommandArgument color="#a0a0c0" id="interactiveArg" labelID="interactiveLabel" command="-I" />
-			<CommandArgument color="#d0b0b0" id="queueArg" labelID="queueLabel" command="-q batch" />
-			<CommandArgument color="#d2d2c0" id="numberArg" labelID="numberLabel" command="-l procs=1" />
-			<CommandArgument color="#a8bfb0" id="timeArg" labelID="timeLabel" command="-l walltime=48:00:00" />
+			<CommandArgument color="#a0a0c0" mykey="interactive" command="-I" />
+			<CommandArgument color="#d0b0b0" mykey="queue" command="-q batch" />
+			<CommandArgument color="#d2d2c0" mykey="number" command="-l procs=1" />
+			<CommandArgument color="#a8bfb0" mykey="time" command="-l walltime=48:00:00" />
 		</div>
 	);
 }

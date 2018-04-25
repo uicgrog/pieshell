@@ -56,7 +56,7 @@ function CheckBoxDiv(props) {
 	let disabled = props.disabled;
 	return(
 		<div className="CheckBoxDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" onClick={Check}/>
+			<div className="CheckBox" onClick={Check} id={id + "Checkbox"}/>
 			<div className="Label">{label}</div>
 		</div>
 	);
@@ -81,7 +81,7 @@ function QueueDiv(props){
 	
 	return (
 		<div className="QueueDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" onClick={Check}/>
+			<div className="CheckBox" onClick={Check} id={id + "Checkbox"}/>
 			<div className="Label">{label}:</div>
 			<input type="text" className="Queue" />
 		</div>
@@ -98,7 +98,7 @@ function NumberDiv(props){
 	
 	return (
 		<div className="NumberDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" onClick={Check}/>
+			<div className="CheckBox" onClick={Check} id={id + "Checkbox"}/>
 			<div className="Label">{label}:</div>
 			<input type="text" className="NumberInput" maxLength="2"/>
 		</div>
@@ -113,7 +113,7 @@ function TimeDiv(props){
 	
 	return (
 		<div className="TimeDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" onClick={Check}/>
+			<div className="CheckBox" onClick={Check} id={id + "Checkbox"}/>
 			<div className="Label">{label}:</div>
 			<input type="text" className="TimeInput-Hours" id="hours" maxLength="3"/>:
 			<input type="text" className="TimeInput-Minutes" id="mins" maxLength="2"/>:
