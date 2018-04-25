@@ -1,7 +1,7 @@
 export default function listeners() {
 	/*https://appendto.com/2017/01/react-events-101/*/
-	document.addEventListener('load', () => {
-		
+	window.addEventListener('load', () => {
+		DisableExecute();
 	});
 	document.addEventListener('ready', () => {
 		
@@ -14,13 +14,13 @@ export default function listeners() {
 		console.log(e.target);
 		// Here ya guys goooo :D use this as an example of how to add listeners.
 		if(e.target.localName === "html"){
-			console.log(">>> transparent, click-through app area, don't register click");
+			//console.log(">>> transparent, click-through app area, don't register click");
 		}
 		if (e.target.className === "PieCenter"){
 			console.log(">>> user clicked, register click for 3 wedges not 4, 4 handled below code");
 		}
 		if (e.target.className === "Draggable"){
-			console.log(">>> draggable");
+			//console.log(">>> draggable");
 		}
 		if (e.target.className === "CheckBox"){
 			// handled in AbridgedModal.js
@@ -30,16 +30,15 @@ export default function listeners() {
     var ClearButton = document.getElementById('Clear');
     ClearButton.addEventListener('click', () => {
         ToggleAbridgedModal();
-		EnableExecute();
+		DisableExecute();
     });
 	
 
     var ExecuteButton = document.getElementById('Execute');
     ExecuteButton.addEventListener('click', () => {
-		//patches: max time limit shouldn't be checked after an Execute
-		UncheckAllBoxes();
-		
+		UncheckAllBoxes();	//patches: max time limit shouldn't be checked after an Execute
         ToggleAbridgedModal();
+		DisableExecute();
     });
 	
 	var BackButton = document.getElementById('BackButton');
@@ -71,9 +70,12 @@ export default function listeners() {
 		var option = document.getElementsByClassName('PieSliceBottom')[0].children[0];
 		if (option.textContent === "submit job"){
 			ClearCommandArgs();
-			ToggleAbridgedModal();
+			var AMDisplaying = ToggleAbridgedModal();
 			UncheckAllBoxes();
 			DefaultQSub();
+			if (AMDisplaying){
+				DisableExecute();
+			}
 		}
 		else if (option.textContent === "chmod"){
 			//todo
@@ -83,7 +85,9 @@ export default function listeners() {
 	// toggle show abridge modal on abridge modal title click
 	var AbridgedModalTitle = document.getElementsByClassName('AbridgedModalTitle')[0];
 	AbridgedModalTitle.addEventListener('click', () => {
+		console.log("HEREEE", AbridgedModalTitle);
 		ToggleAbridgedModal();
+		DisableExecute();
 	});
 
 	// queue input check
@@ -93,7 +97,6 @@ export default function listeners() {
 		
 		var queueLabel = document.getElementById('queueLabel');
 		var split = queueLabel.textContent.split(" ");
-		var n = split.length;
 		queueLabel.textContent = split[0] + " " + val.toString();
 		
 		if (val !== "batch"){
@@ -113,7 +116,6 @@ export default function listeners() {
 		
 		var numberLabel = document.getElementById('numberLabel');
 		var split = numberLabel.textContent.split("=");
-		var n = split.length;
 		numberLabel.textContent = split[0] + "=" + val.toString();
 		
 		if (val < 1 || val > 24 || isNaN(val)){
@@ -133,7 +135,6 @@ export default function listeners() {
 		
 		var timeLabel = document.getElementById('timeLabel');
 		var split = timeLabel.textContent.split(":");
-		var n = split.length;
 		timeLabel.textContent = "-l walltime=" + val.toString() + ":" + split[1] + ":" + split[2];
 		
 		if (val < 0 || val > 720 || isNaN(val)){
@@ -153,7 +154,6 @@ export default function listeners() {
 		
 		var timeLabel = document.getElementById('timeLabel');
 		var split = timeLabel.textContent.split(":");
-		var n = split.length;
 		timeLabel.textContent = split[0] + ":" + val.toString() + ":" + split[2];
 		
 		if (val < 0 || val > 59 || isNaN(val)){
@@ -173,7 +173,6 @@ export default function listeners() {
 		
 		var timeLabel = document.getElementById('timeLabel');
 		var split = timeLabel.textContent.split(":");
-		var n = split.length;
 		timeLabel.textContent = split[0] + ":" + split[1] + ":" + val.toString();
 			
 		if (val < 0 || val > 59 || isNaN(val)){
@@ -185,6 +184,9 @@ export default function listeners() {
 			EnableExecute();
 		}
 	});
+
+	
+	
 }
 
 export function ClearCommandArgs(){	
@@ -285,6 +287,7 @@ export function DefaultQSub(){
 	SecInput.className = "TimeInput-Seconds";
 }
 	
+
 export function ToggleAbridgedModal(){
 	DefaultQSub();
 	EnableExecute();
@@ -293,7 +296,6 @@ export function ToggleAbridgedModal(){
 
 	if (PieSliceBottomOption.textContent === "submit job"){
 		var AbridgedModal = document.getElementsByClassName('AbridgedModal')[0];
-
 
 	    var CommandWindow = document.getElementsByClassName('CommandWindow')[0];
 		ToggleDisplay(AbridgedModal);

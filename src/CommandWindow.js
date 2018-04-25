@@ -7,17 +7,16 @@ Command Window Event handling:
 
 import React, { Component } from 'react';
 import './stylesheets/css/CommandWindow.css';
-import PropTypes from 'prop-types';
 import Plus from 'mdi-react/PlusIcon.js';
 import CloseOutline from 'mdi-react/CloseOutlineIcon.js';
-import { ToggleAbridgedModal, EnableExecute, ClearCommandArgs } from './listeners.js';
+import { ToggleAbridgedModal, DisableExecute, EnableExecute, ClearCommandArgs } from './listeners.js';
 
 
 function CloseCommandArgument(e){
 	e.target.parentElement.style.display = "none";
 	if (e.target.getAttribute("data") === "CommandBase"){
 		ToggleAbridgedModal();
-		EnableExecute();
+		DisableExecute();
 	}
 	else{
 		console.log(e.target.getAttribute('data'));
