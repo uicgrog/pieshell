@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './stylesheets/css/AbridgedModal.css';
+import './stylesheets/css/AbridgedModalChmod.css';
 import PropTypes from 'prop-types';
 import Plus from 'mdi-react/PlusIcon.js';
 
@@ -50,17 +50,6 @@ function CheckBoxDiv(props) {
 	);
 }
 
-
-{/*
-function PathDiv(props) {
-	return <LongInputDiv name="Path" id={props.id} label={props.label} color={props.color} />;
-};
-
-function QueueDiv(props) {
-	return <CheckBoxInputDiv name="Queue" id={props.id} label={props.label} color={props.color} />;
-}
-*/}
-
 function QueueDiv(props){
 	let id = props.id;
 	let label =  props.label;
@@ -110,7 +99,7 @@ function TimeDiv(props){
 	);
 }
 
-class AbridgedModal extends Component {
+class AbridgedModalChmod extends Component {
 	constructor(props) {
 		super(props);
 		this.name = this.props.name;
@@ -133,46 +122,4 @@ class AbridgedModal extends Component {
 	}
 }
 
-
-{/*{this.components[0].type}
-						{this.components}
-						{this.components.map(function(component, key) {
-							{component.key.type === "CheckBox" && 
-								<CheckBoxDiv
-									id={component.id}
-									label={component.label}
-									color={component.color}
-									initialState={false} />
-							}
-							{component.type === "Path" &&
-								<LongInputDiv
-									name="Path"
-									id={component.id}
-									label={component.label}
-									color={component.color} />
-									disabled
-							}
-							{component.type === "Queue" &&
-								<QueueDiv
-									id={component.id}
-									label={component.label}
-									color={component.color}
-									initialState={false} />
-							}
-							{component.type === "Number" &&
-								<NumberDiv
-									id={component.id}
-									label={component.label}
-									color={component.color}
-									initialState={false} />
-							}
-							{component.type === "Time" &&
-								<TimeDiv
-									id={component.id}
-									label={component.label}
-									color={component.color}
-									initialState={false} />
-							}
-						})}*/}
-
-export default AbridgedModal;
+export default AbridgedModalChmod;
