@@ -59,6 +59,8 @@ export default function listeners() {
 			openConnect();
 		}else if(lastScreen==="scheduler"){
 			openScheduler();
+		}else if(lastScreen==="file perms"){
+			openFilePerms();
 		}
 	});
 	
@@ -66,7 +68,7 @@ export default function listeners() {
 	var FourWedgeTop = document.getElementById('FourWedgeTop');
 	FourWedgeTop.addEventListener('click', () => {
 		console.log(">>> Top wedge (4)");
-		var openFilePerms();
+		openFilePerms();
 	});
 	
     var FourWedgeRight = document.getElementById('FourWedgeRight');
@@ -83,9 +85,9 @@ export default function listeners() {
 	function openFilePerms(){
 
         var draggable = document.getElementsByClassName("draggable");
-        backButtonStack = [];
-        draggable.textContent="home";
-        
+        backButtonStack.push(draggable.textContent);
+        draggable.textContent="File Perms";
+
         var option = document.getElementsByClassName('PieSliceTop')[0].children[0];
         if (option.textContent === "file perms."){   //SELECTING file perms.
             var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
