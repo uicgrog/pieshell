@@ -42,15 +42,12 @@ const test = ["delete job", "job status", "change perms.", " "];
 //ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(<Pie
-<<<<<<< HEAD
 	category={MenuTitles[0]}
 	numSlices={optionList0.length}
 	options={optionList0}
-=======
 	category={MenuTitles[4]}
 	numSlices={optionList4.length}
 	options={test}
->>>>>>> ed
   />, document.getElementById('root'));
 
 /*
