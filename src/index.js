@@ -38,7 +38,6 @@ const optionList3 = ["file perms.", "sysadmin", "compilers", "scheduler"];
 const optionList4 = ["delete job", "job status", "submit job", " "];
 const test = ["delete job", "job status", "change perms.", " "];
 
-
 //ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(<Pie
