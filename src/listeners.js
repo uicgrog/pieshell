@@ -163,12 +163,16 @@ export default function listeners() {
         draggable.textContent="connect";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "new tmux session";
+		disableWedge('Left');
         var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
         pieSliceRight.textContent = "screen session24252-pts-0";
+		enableWedge('Right');
         var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
         pieSliceTop.textContent = "new screen session";
+		disableWedge('Top');
         var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
         pieSliceBottom.textContent = "tmux 0";
+		disableWedge('Bottom');
         connected=true;
 	}
 
