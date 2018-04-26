@@ -56,6 +56,27 @@ export default function listeners() {
     var FourWedgeRight = document.getElementById('FourWedgeRight');
 	FourWedgeRight.addEventListener('click', () => {
 		console.log(">>> Right wedge");
+
+        var option = document.getElementsByClassName('PieSliceRight')[0].children[0];
+        if (option.textContent === "screen session24252-pts-0"){   //SELECTING CONNECTION
+            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+            pieSliceLeft.textContent = "connect";
+            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+            pieSliceRight.textContent = "commands";
+            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+            pieSliceTop.textContent = "layout";
+            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+            pieSliceBottom.textContent = "history";
+        } else if(option.textContent === "commands"){   //SELECTING COMMANDS
+            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+            pieSliceLeft.textContent = "scheduler";
+            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+            pieSliceRight.textContent = "sysadmin";
+            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+            pieSliceTop.textContent = "git";
+            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+            pieSliceBottom.textContent = "compilers";
+        }
 	});
 
     var FourWedgeLeft = document.getElementById('FourWedgeLeft');
@@ -73,6 +94,16 @@ export default function listeners() {
             var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
             pieSliceBottom.textContent = "tmux 0";
 		}
+        else if(option.textContent === "scheduler"){   //SELECTING COMMANDS
+            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+            pieSliceLeft.textContent = "job status";
+            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+            pieSliceRight.textContent = "delete job";
+            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+            pieSliceTop.textContent = "hold job";
+            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+            pieSliceBottom.textContent = "submit job";
+        }
 	});
 
     var FourWedgeBottom = document.getElementById('FourWedgeBottom');
@@ -97,16 +128,6 @@ export default function listeners() {
 			ToggleAbridgedModalChmod();
 			console.log("CHANGE PERMS");
 		}
-        else if (option.textContent === "screen session24252-pts-0"){   //SELECTING CONNECTION
-            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
-            pieSliceLeft.textContent = "connect";
-            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
-            pieSliceRight.textContent = "commands";
-            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
-            pieSliceTop.textContent = "layout";
-            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
-            pieSliceBottom.textContent = "history";
-        }
 	});
 	
 	// toggle show abridge modal on abridge modal title click
