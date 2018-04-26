@@ -1,4 +1,8 @@
+
+export var backButtonStack=[];
+
 export default function listeners() {
+
 	/*https://appendto.com/2017/01/react-events-101/*/
 	window.addEventListener('load', () => {
 		DisableExecute();
@@ -45,14 +49,49 @@ export default function listeners() {
 	
 	var BackButton = document.getElementById('BackButton');
 	BackButton.addEventListener('click', () => {
-		console.log(">>> back button clicked");
+		console.log(backButtonStack);
+		var lastScreen = backButtonStack.pop();
+		if(lastScreen==="commands"){
+            document.getElementById("BackButton").hidden=false;
+			openCommands();
+		}else if(lastScreen==="home"){
+			openHome();
+		}else if(lastScreen==="connect"){
+            document.getElementById("BackButton").hidden=false;
+			openConnect();
+		}else if(lastScreen==="scheduler"){
+            document.getElementById("BackButton").hidden=false;
+			openScheduler();
+		}else if(lastScreen==="file perms"){
+            document.getElementById("BackButton").hidden=false;
+			openFilePerms();
+		}
 	});
 	
 	/*https://codepen.io/anon/pen/bvoavP*/
 	var FourWedgeTop = document.getElementById('FourWedgeTop');
 	FourWedgeTop.addEventListener('click', () => {
 		console.log(">>> Top wedge (4)");
+		openFilePerms();
+	});
+	
+    var FourWedgeRight = document.getElementById('FourWedgeRight');
+	FourWedgeRight.addEventListener('click', () => {
+		console.log(">>> Right wedge");
 
+        var option = document.getElementsByClassName('PieSliceRight')[0].children[0];
+        if (option.textContent === "screen session24252-pts-0"){   //SELECTING CONNECTION
+			openHome();
+        } else if(option.textContent === "commands"){   //SELECTING COMMANDS
+			openCommands();
+        }
+	});
+	function openFilePerms(){
+
+        var draggable = document.getElementsByClassName("draggable");
+        backButtonStack.push(draggable.textContent);
+        draggable.textContent="file perms";
+        document.getElementById("BackButton").hidden=false;
         var option = document.getElementsByClassName('PieSliceTop')[0].children[0];
         if (option.textContent === "file perms."){   //SELECTING file perms.
             var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
@@ -64,35 +103,40 @@ export default function listeners() {
             var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
             pieSliceBottom.textContent = "change perms.";
         }
-	});
-	
-    var FourWedgeRight = document.getElementById('FourWedgeRight');
-	FourWedgeRight.addEventListener('click', () => {
-		console.log(">>> Right wedge");
-
-        var option = document.getElementsByClassName('PieSliceRight')[0].children[0];
-        if (option.textContent === "screen session24252-pts-0"){   //SELECTING CONNECTION
-            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
-            pieSliceLeft.textContent = "connect";
-            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
-            pieSliceRight.textContent = "commands";
-            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
-            pieSliceTop.textContent = "layout";
-            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
-            pieSliceBottom.textContent = "history";
-        } else if(option.textContent === "commands"){   //SELECTING COMMANDS
-            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
-            pieSliceLeft.textContent = "scheduler";
-            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
-            pieSliceRight.textContent = "sysadmin";
-            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
-            pieSliceTop.textContent = "file perms.";
-            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
-            pieSliceBottom.textContent = "compilers";
-        }
-	});
-
+	}
+	function openHome(){
+        document.getElementById("BackButton").hidden=true;
+		var draggable = document.getElementsByClassName("draggable");
+        backButtonStack = [];
+        draggable.textContent="home";
+        var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+        pieSliceLeft.textContent = "connect";
+        var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+        pieSliceRight.textContent = "commands";
+        var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+        pieSliceTop.textContent = "layout";
+        var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+        pieSliceBottom.textContent = "history";
+	}
+	function openCommands(){
+        document.getElementById("BackButton").hidden=false;
+        var draggable = document.getElementsByClassName("draggable");
+        backButtonStack.push("home");
+        console.log(backButtonStack);
+        draggable.textContent="commands";
+        var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+        pieSliceLeft.textContent = "scheduler";
+        var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+        pieSliceRight.textContent = "sysadmin";
+        var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+        pieSliceTop.textContent = "file perms.";
+        var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+        pieSliceBottom.textContent = "compilers";
+	}
 	function openConnect(){
+        var draggable = document.getElementsByClassName("draggable");
+        backButtonStack.push("home");
+        draggable.textContent="connect";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "new tmux session";
         var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
@@ -104,6 +148,10 @@ export default function listeners() {
 	}
 
 	function openScheduler(){
+        document.getElementById("BackButton").hidden=false;
+        var draggable = document.getElementsByClassName("draggable");
+        backButtonStack.push(draggable.textContent);
+        draggable.textContent="scheduler";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "job status";
         var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
@@ -116,12 +164,15 @@ export default function listeners() {
     var FourWedgeLeft = document.getElementById('FourWedgeLeft');
 	FourWedgeLeft.addEventListener('click', () => {
 		console.log(">>> Left wedge");
+		var center = document.getElementsByClassName("draggable");
 
         var option = document.getElementsByClassName('PieSliceLeft')[0].children[0];
 		if (option.textContent === "connect"){    //CLICKING CONNECT
+            document.getElementById("BackButton").hidden=false;
             openConnect();
 		}
         else if(option.textContent === "scheduler"){   //SELECTING COMMANDS
+            document.getElementById("BackButton").hidden=false;
             openScheduler();
         }
 	});
@@ -151,9 +202,11 @@ export default function listeners() {
 		// toggle show abridge modal on bottom wedge click
 		var option = document.getElementsByClassName('PieSliceBottom')[0].children[0];
 		if (option.textContent === "submit job"){
+            document.getElementById("BackButton").hidden=false;
             openSubmitJob();
 		}
 		else if (option.textContent === "change perms."){
+            document.getElementById("BackButton").hidden=false;
             openChangePerms();
 		}
 	});
@@ -303,7 +356,7 @@ export default function listeners() {
 			DisableExecute();
 		}
 	});
-	
+    backButtonStack=[];
 }
 
 
