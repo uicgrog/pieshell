@@ -1,7 +1,11 @@
 
 export var backButtonStack=[];
-
+export var connected = false;
 export default function listeners() {
+
+    disableWedge("Right");
+    disableWedge("Top");
+    disableWedge("Bottom");
 
 	/*https://appendto.com/2017/01/react-events-101/*/
 	window.addEventListener('load', () => {
@@ -54,6 +58,7 @@ export default function listeners() {
 		if(lastScreen==="commands"){
             document.getElementById("BackButton").hidden=false;
 			openCommands();
+
 		}else if(lastScreen==="home"){
 			openHome();
 		}else if(lastScreen==="connect"){
@@ -120,6 +125,9 @@ export default function listeners() {
         pieSliceBottom.textContent = "history";
 	}
 	function openCommands(){
+        if(connected == false){
+			return;
+        }
         document.getElementById("BackButton").hidden=false;
         var draggable = document.getElementsByClassName("draggable");
         backButtonStack.push("home");
@@ -135,6 +143,9 @@ export default function listeners() {
         pieSliceBottom.textContent = "compilers";
 	}
 	function openConnect(){
+		enableWedge("Top");
+		enableWedge("Bottom");
+		enableWedge("Right");
         var draggable = document.getElementsByClassName("draggable");
         backButtonStack.push("home");
         draggable.textContent="connect";
@@ -146,6 +157,7 @@ export default function listeners() {
         pieSliceTop.textContent = "new screen session";
         var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
         pieSliceBottom.textContent = "tmux 0";
+        connected=true;
 	}
 
 	function openScheduler(){
@@ -211,6 +223,23 @@ export default function listeners() {
             openChangePerms();
 		}
 	});
+
+	function disableWedge(wedgePos){
+		console.log("disable "+wedgePos);
+		var wedge = document.getElementById("FourWedge" + wedgePos).className+=" disabled";
+	}
+	function enableWedge(wedgePos){
+        var wedge = document.getElementById("FourWedge"+wedgePos);
+        var className = wedge.className;
+        var classArray = className.split(' ');
+		var newClass = []
+        for(var name in classArray){
+        	if(name!="disabled"){
+        		newClass.push(name);
+			}
+		}
+		wedge.className= newClass.join(' ');
+	}
 	
 	// toggle show abridge modal on abridge modal title click
 	var AbridgedModalTitle = document.getElementsByClassName('AbridgedModalTitle')[0];
