@@ -21,7 +21,9 @@ function CloseCommandArgument(e){
 	else{
 		console.log(e.target.getAttribute('data'));
 		var Checkbox = document.getElementById(e.target.getAttribute('data'));
-		Checkbox.className = "CheckBox";
+		if (Checkbox !== null){
+			Checkbox.className = "CheckBox";
+		}
 		
 	}
 }
@@ -32,7 +34,7 @@ function CommandArgument(props){
 	
 	return(
 		<div className="CommandArgument" id={props.mykey + "Arg"} style={{backgroundColor: color}}>
-			<div className="Close" onClick={CloseCommandArgument} data={props.mykey + "Checkbox"}/>
+			<div className="Close" onClick={CloseCommandArgument} data={props.mykey}/>
 			<div className="CommandLabel" id={props.mykey + "Label"}>{command}</div>
 		</div>
 	);
@@ -73,6 +75,19 @@ class CommandWindow extends Component {
 				</div>
 				<div className="CommandBox">
 					<CommandBase command="qsub" color="#d0d0d0" arg={qsubArgumentList} />
+					
+					{/* Chmod command base stuff */}
+					<div className="CommandBaseChmod" style={{backgroundColor: "#d0d0d0"}}>
+						<div className="Close" data="CommandBase" onClick={CloseCommandArgument}/>
+						<div className="CommandLabel">{"chmod"}</div>
+						<div className="CommandArgument" id="recursiveArg" style={{backgroundColor: "red"}}>
+							<div className="Close" onClick={CloseCommandArgument} data="recursiveCheckbox"/>
+							<div className="CommandLabel" id="recursiveLabel">{"-R"}</div>
+						</div>
+						
+						<CommandArgument color="red" mykey="GW" command="g+w" />
+						<CommandArgument color="red" mykey="file" command="~/group_project" />
+					</div>
 				</div>
 				<div className="CommandButtonContainer">
 					<button className="CommandButton" id="Clear" onClick={ClearCommandArgs}>Clear</button>

@@ -36,6 +36,7 @@ const optionList1 = ["new tmux session", "screen session24252-pts-0", "new scree
 const optionList2 = optionList0;
 const optionList3 = ["file perms.", "sysadmin", "compilers", "scheduler"];
 const optionList4 = ["delete job", "job status", "submit job", " "];
+const test = ["delete job", "job status", "change perms.", " "];
 
 
 //ReactDOM.render(<App />, document.getElementById('root'));
@@ -43,7 +44,7 @@ const optionList4 = ["delete job", "job status", "submit job", " "];
 ReactDOM.render(<Pie
 	category={MenuTitles[4]}
 	numSlices={optionList4.length}
-	options={optionList4}
+	options={test}
   />, document.getElementById('root'));
 
 /*

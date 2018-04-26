@@ -6,6 +6,7 @@ import './stylesheets/css/PieShell.css';
 import PropTypes from 'prop-types';
 import ArrowLeft from 'mdi-react/ArrowLeftIcon.js';
 import AbridgedModal from './AbridgedModal';
+import AbridgedModalChmod from './AbridgedModalChmod';
 import CommandWindow from './CommandWindow';
 
 const sliceQuarters = ["Top", "Right", "Bottom", "Left"];
@@ -98,6 +99,7 @@ class Pie extends Component {
 					options={this.options}
 				/>
 				<AbridgedModal name="submit job" />
+				<AbridgedModalChmod name="change perms." />
 				<CommandWindow />
 			</div>
 		);
