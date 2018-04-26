@@ -60,6 +60,18 @@ export default function listeners() {
     var FourWedgeLeft = document.getElementById('FourWedgeLeft');
 	FourWedgeLeft.addEventListener('click', () => {
 		console.log(">>> Left wedge");
+
+        var option = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+		if (option.textContent === "connect"){
+            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+            pieSliceLeft.textContent = "new tmux session";
+            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+            pieSliceRight.textContent = "new screen session";
+            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+            pieSliceTop.textContent = "";
+            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+            pieSliceBottom.textContent = "screen session24252-pts-0";
+		}
 	});
 
     var FourWedgeBottom = document.getElementById('FourWedgeBottom');

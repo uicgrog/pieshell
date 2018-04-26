@@ -41,9 +41,9 @@ const optionList4 = ["delete job", "job status", "submit job", " "];
 //ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(<Pie
-	category={MenuTitles[4]}
-	numSlices={optionList4.length}
-	options={optionList4}
+	category={MenuTitles[0]}
+	numSlices={optionList0.length}
+	options={optionList0}
   />, document.getElementById('root'));
 
 /*
