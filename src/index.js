@@ -9,11 +9,11 @@ import CommandWindow from './CommandWindow';
 
 /*
 === Temporary notes ===
-Wedge Orderings!: 
+Wedge Orderings!:
 	4's	=	Top Right Bottom Left / N E S W
 	3's =	Right Bottom Left / E S W
 
-	
+
 qsub scenario:
 	Menu Title		Action selects..Name of Wedge
 	(Category)						(Option)
@@ -24,8 +24,8 @@ qsub scenario:
 4	scheduler		left			submit job
 << abridge options for submit job>>
 	... ... ... don't know what to do here at the moment
-	
-	
+
+
 */
 // retrieve info from json in future
 //					0			1		   2		   3		   4
@@ -41,10 +41,10 @@ const test = ["delete job", "job status", "change perms.", " "];
 //ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(<Pie
-	category={MenuTitles[0]}
-	numSlices={optionList0.length}
-	options={optionList0}
-  />, document.getElementById('root'));
+    category={MenuTitles[0]}
+    numSlices={optionList0.length}
+    options={optionList0}
+/>, document.getElementById('root'));
 
 /*
 const componentsList = [
@@ -64,3 +64,8 @@ ReactDOM.render(<CommandWindow />, document.getElementById('root'));
 */
 registerServiceWorker();
 listeners();
+
+var FourWedgeRight = document.getElementById("FourWedgeRight");
+FourWedgeRight.setAttribute("disabled","true");
+var FourWedgeBottom = document.getElementById("FourWedgeBottom");
+FourWedgeBottom.setAttribute("disabled","true");
