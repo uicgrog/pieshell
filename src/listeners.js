@@ -2,7 +2,7 @@
 export var backButtonStack=[];
 export var connected = false;
 export default function listeners() {
-
+    document.getElementById("BackButton").hidden=true;
     disableWedge("Right");
     disableWedge("Top");
     disableWedge("Bottom");
