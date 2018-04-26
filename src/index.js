@@ -44,7 +44,7 @@ const test = ["delete job", "job status", "change perms.", " "];
 ReactDOM.render(<Pie
 	category={MenuTitles[4]}
 	numSlices={optionList4.length}
-	options={test}
+	options={optionList4}
   />, document.getElementById('root'));
 
 /*
