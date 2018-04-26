@@ -7,73 +7,51 @@ Command Window Event handling:
 
 import React, { Component } from 'react';
 import './stylesheets/css/CommandWindow.css';
-import PropTypes from 'prop-types';
 import Plus from 'mdi-react/PlusIcon.js';
 import CloseOutline from 'mdi-react/CloseOutlineIcon.js';
+import { ToggleAbridgedModal, DisableExecute, EnableExecute, ClearCommandArgs } from './listeners.js';
+
 
 function CloseCommandArgument(e){
 	e.target.parentElement.style.display = "none";
-}
-
-function Clear(){
-	var AbridgedModal = document.getElementsByClassName('AbridgedModal')[0];
-	AbridgedModal.style.display = "none";	
-
-	var CommandBase = document.getElementsByClassName("CommandBase")[0];
-	CommandBase.style.display = "none";	
-	
-	var interactive = document.getElementById("interactiveArg");
-	interactive.style.display = "none";
-	
-	var number = document.getElementById("numberArg");
-	number.style.display = "none";
-	
-	var time = document.getElementById("timeArg");
-	time.style.display = "none";
-	
-	var queue = document.getElementById("queueArg");
-	queue.style.display = "none";
-	
-	var CheckedBoxes = document.getElementsByClassName("CheckBox-Checked");
-	if(CheckedBoxes[0] != undefined){
-		CheckedBoxes[0].className = "CheckBox";
+	if (e.target.getAttribute("data") === "CommandBase"){
+		ToggleAbridgedModal();
+		DisableExecute();
 	}
-	if(CheckedBoxes[0] != undefined){
-		CheckedBoxes[0].className = "CheckBox";
+	else{
+		console.log(e.target.getAttribute('data'));
+		var Checkbox = document.getElementById(e.target.getAttribute('data'));
+		Checkbox.className = "CheckBox";
+		
 	}
-	if(CheckedBoxes[0] != undefined){
-		CheckedBoxes[0].className = "CheckBox";
-	}
-	
 }
 
 function CommandArgument(props){
 	let command = props.command;
-	let id = props.id;
 	let color = props.color;
 	
 	return(
-		<div className="CommandArgument" id={id} style={{backgroundColor: color}}>
-			<div className="Close" onClick={CloseCommandArgument}/>
-			<div className="CommandLabel">{command}</div>
+		<div className="CommandArgument" id={props.mykey + "Arg"} style={{backgroundColor: color}}>
+			<div className="Close" onClick={CloseCommandArgument} data={props.mykey + "Checkbox"}/>
+			<div className="CommandLabel" id={props.mykey + "Label"}>{command}</div>
 		</div>
 	);
 }
 
 function CommandBase(props){
 	let command = props.command;
-	let arg =  props.arg;
+	//let arg =  props.arg;
 	let color = props.color;
-	let initialState = props.initialState;
+	//let initialState = props.initialState;
 	
 	return (
 		<div className="CommandBase" style={{backgroundColor: color}}>
-			<div className="Close" onClick={CloseCommandArgument}/>
+			<div className="Close" data="CommandBase" onClick={CloseCommandArgument}/>
 			<div className="CommandLabel">{command}</div>
-			<CommandArgument color="#a0a0c0" id="interactiveArg" command="-I" />
-			<CommandArgument color="#d0b0b0" id="queueArg" command="-q queue=batch" />
-			<CommandArgument color="#d2d2c0" id="numberArg" command="-l procs=1" />
-			<CommandArgument color="#a8bfb0" id="timeArg" command="-l walltime=48:00:00" />
+			<CommandArgument color="#a0a0c0" mykey="interactive" command="-I" />
+			<CommandArgument color="#d0b0b0" mykey="queue" command="-q batch" />
+			<CommandArgument color="#d2d2c0" mykey="number" command="-l procs=1" />
+			<CommandArgument color="#a8bfb0" mykey="time" command="-l walltime=48:00:00" />
 		</div>
 	);
 }
@@ -97,10 +75,10 @@ class CommandWindow extends Component {
 					<CommandBase command="qsub" color="#d0d0d0" arg={qsubArgumentList} />
 				</div>
 				<div className="CommandButtonContainer">
-					<button className="CommandButton" id="Clear" onClick={Clear}>Clear</button>
+					<button className="CommandButton" id="Clear" onClick={ClearCommandArgs}>Clear</button>
 					<button className="CommandButton" id="Explore" disabled>Explore...</button>
 					<button className="CommandButton" id="Macro" disabled>Macro...</button>
-					<button className="CommandButton" id="Execute" onClick={Clear}>Execute</button>
+					<button className="CommandButton" id="Execute" onClick={ClearCommandArgs}>Execute</button>
 				</div>
 			</div>
 		);
