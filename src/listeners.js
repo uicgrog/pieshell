@@ -51,6 +51,18 @@ export default function listeners() {
 	var FourWedgeTop = document.getElementById('FourWedgeTop');
 	FourWedgeTop.addEventListener('click', () => {
 		console.log(">>> Top wedge (4)");
+
+        var option = document.getElementsByClassName('PieSliceTop')[0].children[0];
+        if (option.textContent === "file perms."){   //SELECTING file perms.
+            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+            pieSliceLeft.textContent = "change owner";
+            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+            pieSliceRight.textContent = "change group";
+            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+            pieSliceTop.textContent = "umask";
+            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+            pieSliceBottom.textContent = "change perms.";
+        }
 	});
 	
     var FourWedgeRight = document.getElementById('FourWedgeRight');
@@ -73,7 +85,7 @@ export default function listeners() {
             var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
             pieSliceRight.textContent = "sysadmin";
             var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
-            pieSliceTop.textContent = "git";
+            pieSliceTop.textContent = "file perms.";
             var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
             pieSliceBottom.textContent = "compilers";
         }
