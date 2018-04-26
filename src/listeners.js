@@ -101,12 +101,16 @@ export default function listeners() {
         if (option.textContent === "file perms."){   //SELECTING file perms.
             var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
             pieSliceLeft.textContent = "change owner";
+			disableWedge('Left');
             var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
             pieSliceRight.textContent = "change group";
+			disableWedge('Right');
             var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
             pieSliceTop.textContent = "umask";
+			disableWedge('Top');
             var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
             pieSliceBottom.textContent = "change perms.";
+			enableWedge('Bottom');
         }
 	}
 	function openHome(){
@@ -117,12 +121,16 @@ export default function listeners() {
 		document.getElementsByClassName('PieCenter')[0].style.backgroundColor = 'Lime';
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "connect";
+		enableWedge('Left');
         var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
         pieSliceRight.textContent = "commands";
+		enableWedge('Right');
         var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
         pieSliceTop.textContent = "layout";
+		disableWedge('Top');
         var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
         pieSliceBottom.textContent = "history";
+		disableWedge('Bottom');
 	}
 	function openCommands(){
         if(connected == false){
@@ -135,12 +143,16 @@ export default function listeners() {
         draggable.textContent="commands";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "scheduler";
+		enableWedge('Left');
         var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
         pieSliceRight.textContent = "sysadmin";
+		disableWedge('Right');
         var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
         pieSliceTop.textContent = "file perms.";
+		enableWedge('Top');
         var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
         pieSliceBottom.textContent = "compilers";
+		disableWedge('Bottom');
 	}
 	function openConnect(){
 		enableWedge("Top");
@@ -167,12 +179,16 @@ export default function listeners() {
         draggable.textContent="scheduler";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "job status";
+		disableWedge('Left');
         var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
         pieSliceRight.textContent = "delete job";
+		disableWedge('Right');
         var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
         pieSliceTop.textContent = "hold job";
+		disableWedge('Top');
         var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
         pieSliceBottom.textContent = "submit job";
+		enableWedge('Bottom');
 	}
     var FourWedgeLeft = document.getElementById('FourWedgeLeft');
 	FourWedgeLeft.addEventListener('click', () => {

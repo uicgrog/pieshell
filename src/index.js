@@ -64,10 +64,3 @@ ReactDOM.render(<CommandWindow />, document.getElementById('root'));
 */
 registerServiceWorker();
 listeners();
-
-var FourWedgeRight = document.getElementById("FourWedgeRight");
-FourWedgeRight.setAttribute("disabled","true");
-FourWedgeRight.className += "disabled";
-var FourWedgeBottom = document.getElementById("FourWedgeBottom");
-FourWedgeBottom.setAttribute("disabled","true");
-FourWedgeBottom.className += "disabled";
