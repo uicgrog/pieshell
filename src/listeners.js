@@ -66,18 +66,7 @@ export default function listeners() {
 	var FourWedgeTop = document.getElementById('FourWedgeTop');
 	FourWedgeTop.addEventListener('click', () => {
 		console.log(">>> Top wedge (4)");
-
-        var option = document.getElementsByClassName('PieSliceTop')[0].children[0];
-        if (option.textContent === "file perms."){   //SELECTING file perms.
-            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
-            pieSliceLeft.textContent = "change owner";
-            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
-            pieSliceRight.textContent = "change group";
-            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
-            pieSliceTop.textContent = "umask";
-            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
-            pieSliceBottom.textContent = "change perms.";
-        }
+		var openFilePerms();
 	});
 	
     var FourWedgeRight = document.getElementById('FourWedgeRight');
@@ -91,7 +80,24 @@ export default function listeners() {
 			openCommands();
         }
 	});
+	function openFilePerms(){
 
+        var draggable = document.getElementsByClassName("draggable");
+        backButtonStack = [];
+        draggable.textContent="home";
+        
+        var option = document.getElementsByClassName('PieSliceTop')[0].children[0];
+        if (option.textContent === "file perms."){   //SELECTING file perms.
+            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+            pieSliceLeft.textContent = "change owner";
+            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+            pieSliceRight.textContent = "change group";
+            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+            pieSliceTop.textContent = "umask";
+            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+            pieSliceBottom.textContent = "change perms.";
+        }
+	}
 	function openHome(){
 		var draggable = document.getElementsByClassName("draggable");
         backButtonStack = [];
@@ -108,6 +114,7 @@ export default function listeners() {
 	function openCommands(){
         var draggable = document.getElementsByClassName("draggable");
         backButtonStack.push(draggable.textContent);
+        console.log(backButtonStack);
         draggable.textContent="commands";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "scheduler";
