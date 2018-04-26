@@ -135,7 +135,7 @@ export default function listeners() {
 	}
 	function openConnect(){
         var draggable = document.getElementsByClassName("draggable");
-        backButtonStack.push(draggable.textContent);
+        backButtonStack.push("home");
         draggable.textContent="connect";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "new tmux session";
@@ -151,7 +151,7 @@ export default function listeners() {
         document.getElementById("BackButton").hidden=false;
         var draggable = document.getElementsByClassName("draggable");
         backButtonStack.push(draggable.textContent);
-        draggable.textContent="connect";
+        draggable.textContent="scheduler";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "job status";
         var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
