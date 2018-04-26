@@ -226,9 +226,11 @@ export default function listeners() {
 		var GWArg = document.getElementById('GWArg');
 		if (GWArg.style.display !== "inline-block"){
 			GWArg.style.display = "inline-block";
+			EnableExecute();
 		}
 		else{
 			GWArg.style.display = "none";
+			DisableExecute();
 		}
 	});
 	
