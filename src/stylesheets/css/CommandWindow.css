@@ -41,21 +41,21 @@
   margin: 0 6px 0 0;
   color: black;
 }
-.CommandBase {
+.CommandBase, .CommandBaseChmod {
   padding: 6px;
   display: none;
 }
-.CommandBase, .CommandArgument {
+.CommandBase, .CommandArgument, .CommandBaseChmod {
   margin: 0 5px 0 0;
   border-radius: 10px;
   font-family: "Hack";
   font-weight: bold;
 }
-.CommandBase div, .CommandArgument div {
+.CommandBase div, .CommandArgument div, .CommandBaseChmod div {
   text-align: center;
   vertical-align: middle;
 }
-.CommandBase .Close, .CommandBase .CommandLabel, .CommandArgument .Close, .CommandArgument .CommandLabel {
+.CommandBase .Close, .CommandBase .CommandLabel, .CommandArgument .Close, .CommandArgument .CommandLabel, .CommandBaseChmod .Close, .CommandBaseChmod .CommandLabel {
   display: inline-block;
 }
 .CommandArgument {

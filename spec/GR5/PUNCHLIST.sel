@@ -36,8 +36,8 @@
  :                  <?> put checkboxes before recursive and sticky bit
 @EH             <!> symbols for permissions "checkboxes" are "+", "-", "=", or " " (default)
  :              <!> permissions in modal need to reflect
- :                  <!> at very least, the scenario requires g+w
- :              <!> recursive and sticky bit check boxes are "x"
+ :                  </> at very least, the scenario requires g+w
+ :              </> recursive and sticky bit check boxes are "x"
  :              <?> path... text field is valid path
  :              <?> make the "path of file or directory:" have some sort of quasi-filesystem navigator
  :          </> disable "Execute" when command window is empty

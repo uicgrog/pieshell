@@ -29,7 +29,8 @@ export default function listeners() {
 
     var ClearButton = document.getElementById('Clear');
     ClearButton.addEventListener('click', () => {
-        ToggleAbridgedModal();
+		HideAbridgedModal();
+		HideAbridgedModalChmod();
 		DisableExecute();
     });
 	
@@ -89,16 +90,26 @@ export default function listeners() {
 				DisableExecute();
 			}
 		}
-		else if (option.textContent === "chmod"){
-			//todo
+		else if (option.textContent === "change perms."){
+			ClearCommandArgsChmod();
+			DefaultChmod();
+			UncheckAllBoxesChmod();
+			ToggleAbridgedModalChmod();
+			console.log("CHANGE PERMS");
 		}
 	});
 	
 	// toggle show abridge modal on abridge modal title click
 	var AbridgedModalTitle = document.getElementsByClassName('AbridgedModalTitle')[0];
 	AbridgedModalTitle.addEventListener('click', () => {
-		console.log("HEREEE", AbridgedModalTitle);
 		ToggleAbridgedModal();
+		DisableExecute();
+	});
+
+	// toggle show abridge modal <<CHMODD>> on abridge modal title click
+	var AbridgedModalChmodTitle = document.getElementsByClassName('AbridgedModalChmodTitle')[0];
+	AbridgedModalChmodTitle.addEventListener('click', () => {
+		ToggleAbridgedModalChmod();
 		DisableExecute();
 	});
 
@@ -197,9 +208,44 @@ export default function listeners() {
 		}
 	});
 
-	
+	// "~/group_project" input listener
+	var FileInput = document.getElementsByClassName('FileInput')[0];
+	FileInput.addEventListener('input', (e) => {
+		var fileArg = document.getElementById('fileArg');
+		fileArg.style.display = "inline-block";
+
+		var val = e.target.value;
+
+		var fileLabel = document.getElementById('fileLabel');
+		fileLabel.textContent = val.toString();
+
+		if (val !== "~/group_project"){
+			FileInput.className = "FileInput ErrorInput";
+			DisableExecute();
+			if (val === ""){
+				document.getElementById('fileArg').style.display = "none";
+			}
+		}
+		else {
+			FileInput.className = "FileInput";
+			EnableExecute();
+		}
+	});
+
+	// G+W
+	var GW = document.getElementById('GW');
+	GW.addEventListener('click', (e) => {
+		var GWArg = document.getElementById('GWArg');
+		if (GWArg.style.display !== "inline-block"){
+			GWArg.style.display = "inline-block";
+		}
+		else{
+			GWArg.style.display = "none";
+		}
+	});
 	
 }
+
 
 export function ClearCommandArgs(){	
 	var CommandBase = document.getElementsByClassName("CommandBase")[0];
@@ -215,8 +261,23 @@ export function ClearCommandArgs(){
 	time.style.display = "none";
 	
 	var queue = document.getElementById("queueArg");
-	queue.style.display = "none";	
+	queue.style.display = "none";
 }
+
+export function ClearCommandArgsChmod(){
+	var CommandBase = document.getElementsByClassName("CommandBaseChmod")[0];
+	CommandBase.style.display = "none";
+
+	var recursive = document.getElementById("recursiveArg");
+	recursive.style.display = "none";
+
+	var GW = document.getElementById("GWArg");
+	GW.style.display = "none";
+
+	var file = document.getElementById("fileArg");
+	file.style.display = "none";
+}
+
 
 function UncheckAllBoxes(){
 	var allCheckBoxChecked = document.getElementsByClassName('CheckBox-Checked');
@@ -236,6 +297,10 @@ function UncheckAllBoxes(){
 		allCheckBoxChecked[0].className = "CheckBox";
 	}
 }
+
+function UncheckAllBoxesChmod(){
+	// todo maybe?
+};
 
 function CheckErrors(){
 	var errors = document.getElementsByClassName("ErrorInput");
@@ -276,16 +341,21 @@ export function ToggleDisplay(object){
 		CommandBase.style.display = "none";
 	}
 }
+
 export function DefaultQSub(){
 	var queue = document.getElementById("queue");
     queue.children[2].value = "batch";
 	var QueueInput = document.getElementsByClassName('Queue')[0];
 	QueueInput.className = "Queue";
+	var QueueArg = document.getElementById('queueArg');
+	QueueArg.value = "-q batch";
 
     var number = document.getElementById("number");
     number.children[2].value = "1";
 	var ProcInput = document.getElementById('number').children[2];
 	ProcInput.className = "NumberInput";
+	var NumberArg = document.getElementById('numberArg');
+	NumberArg.value = "-l procs=1";
 
     var time = document.getElementById("time");
     time.children[2].value = "48";
@@ -297,8 +367,45 @@ export function DefaultQSub(){
 	MinInput.className = "TimeInput-Minutes";
 	var SecInput = document.getElementById('secs');
 	SecInput.className = "TimeInput-Seconds";
+	var TimeArg = document.getElementById('timeArg');
+	TimeArg.value = "-l walltime=48:00:00";
+
 }
+
+export function DefaultChmod(){
+	document.getElementsByClassName('FileInput')[0].value = "";
+	document.getElementById('recursiveCheckbox').className = "CheckBox";
+	document.getElementById('GW').className = "PlusBox";
+	document.getElementById('stickyCheckbox').className = "CheckBox";
+
+
+};
+
+export function ToggleDisplayChmod(object){
+	var displayRule = object.style.display;
 	
+	var CommandBase = document.getElementsByClassName("CommandBaseChmod")[0];
+
+	if (displayRule === "" || displayRule === "none"){
+		object.style.display = "block";
+		CommandBase.style.display = "inline-block";
+	}
+	else if (displayRule === "block"){
+		object.style.display = "none";
+		CommandBase.style.display = "none";
+	}
+}
+
+export function ToggleAbridgedModalChmod(){
+	var PieSliceBottomOption = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+
+	if (PieSliceBottomOption.textContent === "change perms."){
+		var AbridgedModal = document.getElementsByClassName('AbridgedModalChmod')[0];
+
+	    var CommandWindow = document.getElementsByClassName('CommandWindow')[0];
+		ToggleDisplayChmod(AbridgedModal);
+	}
+};
 
 export function ToggleAbridgedModal(){
 	DefaultQSub();
@@ -313,5 +420,19 @@ export function ToggleAbridgedModal(){
 		ToggleDisplay(AbridgedModal);
 	}
 }
+
+
+export function HideAbridgedModal(){
+	var CommandBase = document.getElementsByClassName("CommandBase")[0];
+	var AbridgedModal = document.getElementsByClassName('AbridgedModal')[0];
+	AbridgedModal.style.display = "none";
+	CommandBase.style.display = "none";
+};
+export function HideAbridgedModalChmod(){
+	var CommandBase = document.getElementsByClassName("CommandBaseChmod")[0];
+	var AbridgedModal = document.getElementsByClassName('AbridgedModalChmod')[0];
+	AbridgedModal.style.display = "none";
+	CommandBase.style.display = "none";
+};
 
 

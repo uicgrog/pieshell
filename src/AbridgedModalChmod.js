@@ -1,102 +1,52 @@
 import React, { Component } from 'react';
-import './stylesheets/css/AbridgedModalChmod.css';
+import './stylesheets/css/AbridgedModal.css';
 import PropTypes from 'prop-types';
 import Plus from 'mdi-react/PlusIcon.js';
+import AlertOutline from 'mdi-react/AlertOutlineIcon.js';
 
 
 function Check(e){
 	if (e.target.className === "CheckBox"){
-		var CommandBase = document.getElementsByClassName("CommandBase")[0];
+		var CommandBase = document.getElementsByClassName("CommandBaseChmod")[0];
 		CommandBase.style.display = "inline-block";
 		
 		e.target.className = "CheckBox-Checked";
 		var argDivID = e.target.parentElement.id + "Arg";
 		var argDiv = document.getElementById(argDivID);
-		argDiv.style.display = "inline-block";
+		if (argDiv !== null){
+			argDiv.style.display = "inline-block";
+		}
 	}
 	else{
 		e.target.className = "CheckBox";
 		var argDivID = e.target.parentElement.id + "Arg";
 		var argDiv = document.getElementById(argDivID);
-		argDiv.style.display = "none";
+		if (argDiv !== null){
+			argDiv.style.display = "none";
+		}
 	}
 }
 
-function LongInputDiv(props) {
-	let id = props.id;
-	let name = props.name;
-	let label =  props.label;
-	let color = props.color;
-	let disabled = props.disabled;
-	return(
-		<div className={name + "Div"} id={id} style={{backgroundColor: color}}>
-			<div className="Label">{label}:</div>
-			<input type="text" className={name + "Input"} disabled={disabled}/>
-		</div>
-	);
-}
+function CheckPlus(e){
+	if (e.target.className === "PlusBox"){
+		var CommandBase = document.getElementsByClassName("CommandBaseChmod")[0];
+		CommandBase.style.display = "inline-block";
 
-function CheckBoxDiv(props) {
-	let id = props.id;
-	let name = props.name;
-	let label =  props.label;
-	let color = props.color;
-	let disabled = props.disabled;
-	return(
-		<div className="CheckBoxDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" onClick={Check} id={id + "Checkbox"}/>
-			<div className="Label">{label}</div>
-		</div>
-	);
-}
-
-function QueueDiv(props){
-	let id = props.id;
-	let label =  props.label;
-	let color = props.color;
-	let initialState = props.initialState;
-	
-	return (
-		<div className="QueueDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" onClick={Check} id={id + "Checkbox"}/>
-			<div className="Label">{label}:</div>
-			<input type="text" className="Queue" />
-		</div>
-	);
-}
-
-function NumberDiv(props){
-	let id = props.id;
-	let label =  props.label;
-	let color = props.color;
-	let initialState = props.initialState;
-	let numberRangeStart = props.numberRangeStart;
-	let numberRangeEnd = props.numberRangeEnd;
-	
-	return (
-		<div className="NumberDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" onClick={Check} id={id + "Checkbox"}/>
-			<div className="Label">{label}:</div>
-			<input type="text" className="NumberInput" maxLength="2"/>
-		</div>
-	);
-}
-
-function TimeDiv(props){
-	let id = props.id;
-	let label =  props.label;
-	let color = props.color;
-	let initialState = props.initialState;
-	
-	return (
-		<div className="TimeDiv" id={id} style={{backgroundColor: color}}>
-			<div className="CheckBox" onClick={Check} id={id + "Checkbox"}/>
-			<div className="Label">{label}:</div>
-			<input type="text" className="TimeInput-Hours" id="hours" maxLength="3"/>:
-			<input type="text" className="TimeInput-Minutes" id="mins" maxLength="2"/>:
-			<input type="text" className="TimeInput-Seconds" id="secs" maxLength="2"/>
-		</div>
-	);
+		e.target.className = "PlusBox-Checked";
+		var argDivID = e.target.parentElement.id + "Arg";
+		var argDiv = document.getElementById(argDivID);
+		if (argDiv !== null){
+			argDiv.style.display = "inline-block";
+		}
+	}
+	else{
+		e.target.className = "PlusBox";
+		var argDivID = e.target.parentElement.id + "Arg";
+		var argDiv = document.getElementById(argDivID);
+		if (argDiv !== null){
+			argDiv.style.display = "none";
+		}
+	}
 }
 
 class AbridgedModalChmod extends Component {
@@ -108,14 +58,61 @@ class AbridgedModalChmod extends Component {
 	
 	render(){
 		return (
-			<div className="AbridgedModal">
-				<div className="AbridgedModalTitle"><div>{this.name}</div></div>
-				<div className="AbridgedComponents">
-					<CheckBoxDiv id="interactive" label="interactive" color="#a0a0c0" initialState={false} />
-					<LongInputDiv name="Path" id="path" label="path to submit script" color="#c0a0c0" disabled />
-					<QueueDiv id="queue" label="queue" color="#c0a0a0" initialState={false}/>
-					<NumberDiv id="number" label="# processors" color="#c0c0a0" initialState={false} numberRangeStart={1} numberRangeEnd={16}/>
-					<TimeDiv id="time" label="max run time" color="#a0c0a0" initialState={false} />
+			<div className="AbridgedModalChmod">
+				<div className="AbridgedModalChmodTitle"><div>{this.name}</div></div>
+				<div className="AbridgedChmodComponents">
+					<div className="FileDiv" id="file" style={{backgroundColor: "red"}}>
+						<div className="Label"><AlertOutline color="#fff" size="16"/>{" name of file or directory"}:</div>
+						<input type="text" className={"FileInput"}/>
+					</div>
+
+					<div className="CheckBoxDiv" id="recursive" style={{backgroundColor: "blue"}}>
+						<div className="CheckBox" onClick={Check} id="recursiveCheckbox"/>
+						<div className="Label">{"recursive"}</div>
+					</div>
+
+					<div id="PermissionsDiv">
+						<table id="PermissionsTable">
+							<tr>
+								<td><div className="Label">{"permissions:"}</div></td>
+								<td><div className="DiagonalLabel">{"read"}</div></td>
+								<td><div className="DiagonalLabel">{"write"}</div></td>
+								<td><div className="DiagonalLabel">{"execute"}</div></td>
+								<td><div className="DiagonalLabel">{"setuid"}</div></td>
+							</tr>
+							<tr>
+								<td><div className="HorizontalLabel">{"owner"}</div></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+							</tr>
+							<tr>
+								<td><div className="HorizontalLabel">{"group"}</div></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+								<td><div className="PlusBox" onClick={CheckPlus} id="GW"/></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+							</tr>
+							<tr>
+								<td><div className="HorizontalLabel">{"world"}</div></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+								<td><div className="PlusBox" onClick={CheckPlus}/></td>
+							</tr>
+						</table>
+
+
+
+
+
+
+					</div>
+
+					<div className="CheckBoxDiv" id="sticky" style={{backgroundColor: "pink"}}>
+						<div className="CheckBox" onClick={Check} id="stickyCheckbox"/>
+						<div className="Label">{"sticky bit"}</div>
+					</div>
 				</div>
 			</div>
 		);

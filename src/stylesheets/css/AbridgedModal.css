@@ -1,8 +1,8 @@
-.AbridgedModal {
+.AbridgedModal, .AbridgedModalChmod {
   display: none;
 }
 
-.AbridgedModalTitle {
+.AbridgedModalTitle, .AbridgedModalChmodTitle {
   position: fixed;
   background-color: black;
   color: white;
@@ -15,11 +15,16 @@
   text-align: center;
   vertical-align: middle;
 }
-.AbridgedModalTitle div {
+.AbridgedModalTitle div, .AbridgedModalChmodTitle div {
   margin: 15px 10px;
 }
 
-.AbridgedComponents {
+.AbridgedModalChmodTitle div {
+  margin: 10px;
+  line-height: 100%;
+}
+
+.AbridgedComponents, .AbridgedChmodComponents {
   position: fixed;
   border: 5px solid black;
   background-color: white;
@@ -28,32 +33,29 @@
   margin: 0;
 }
 
-.CheckBoxDiv, .NumberDiv, .TimeDiv, .PathDiv, .QueueDiv {
+.CheckBoxDiv, .NumberDiv, .TimeDiv, .PathDiv, .QueueDiv, .FileDiv, #PermissionsDiv {
   margin: 10px;
   border-radius: 5px;
 }
-.CheckBoxDiv div, .NumberDiv div, .TimeDiv div, .PathDiv div, .QueueDiv div {
+.CheckBoxDiv div, .NumberDiv div, .TimeDiv div, .PathDiv div, .QueueDiv div, .FileDiv div, #PermissionsDiv div {
   display: inline-block;
   margin: 10px 5px 10px 10px;
   text-align: center;
   vertical-align: middle;
 }
 
-.PathDiv .Label {
+.PathDiv .Label, .FileDiv .Label {
   margin: 10px 10px 0 10px;
+  padding: 2px 0 0 0;
   display: block;
   text-align: left;
 }
-.PathDiv input {
+.PathDiv input, .FileDiv input {
   margin: 0 10px 10px 10px;
-  width: 275px;
+  width: 315px;
 }
 
-.PathDiv .Label {
-  color: #696969;
-}
-
-.CheckBox, .CheckBox-Checked {
+.CheckBox, .CheckBox-Checked, .PlusBox-Checked, .PlusBox {
   width: 20px;
   height: 20px;
   border: 2px solid black;
@@ -61,8 +63,12 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-.CheckBox-Checked {
+.CheckBox-Checked, .PlusBox-Checked {
   background-image: url("../../images/close.png");
+}
+
+.PlusBox-Checked {
+  background-image: url("../../images/plus.png");
 }
 
 .TimeDiv input {
@@ -76,7 +82,7 @@
 }
 
 .QueueDiv input {
-  width: 100px;
+  width: 150px;
   margin: 5px;
 }
 
@@ -87,4 +93,31 @@
 
 .ErrorInput {
   box-shadow: 0 0 10px red;
+}
+
+#PermissionsDiv {
+  padding: 10px 0 0 10px;
+  background-color: lightgreen;
+}
+#PermissionsDiv .Label {
+  font-weight: bold;
+  margin: 5px 0 0;
+}
+
+.HorizontalLabel {
+  float: right;
+}
+
+.DiagonalLabel {
+  transform: rotate(-45deg);
+}
+
+td {
+  margin: 0;
+  padding: 0;
+}
+
+td:nth-child(5) {
+  position: relative;
+  left: -20px;
 }
