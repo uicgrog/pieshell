@@ -76,7 +76,7 @@ button {
 #FourWedgeTop, #FourWedgeRight, #FourWedgeBottom, #FourWedgeLeft {
   transition: background-color 0.25s ease-in-out; }
 
-#FourWedgeTop:hover, #FourWedgeRight:hover, #FourWedgeBottom:hover, #FourWedgeLeft:hover {
+#FourWedgeTop:not([disabled]):hover, #FourWedgeRight:not([disabled]):hover, #FourWedgeBottom:not([disabled]):hover, #FourWedgeLeft:not([disabled]):hover {
   background-color: rgba(10, 25, 225, 0.3); }
 
 #FourWedgeTop, #FourWedgeRight, #FourWedgeBottom, #FourWedgeLeft {
