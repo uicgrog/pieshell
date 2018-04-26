@@ -105,8 +105,7 @@ button {
 #FourWedgeLeft {
   transform: rotate(315deg);
   top: 65px;
-  left: -25px;
-  background-color: rgba(0, 0, 0, 0.3); }
+  left: -25px; }
 
 .PieBackground,
 .PieCenter,
