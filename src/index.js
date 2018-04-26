@@ -29,7 +29,7 @@ qsub scenario:
 */
 // retrieve info from json in future
 //					0			1		   2		   3		   4
-const MenuTitles = ["πsh logo", "connect", "πsh logo", "commands", "scheduler"];
+const MenuTitles = ["", "connect", "πsh logo", "commands", "scheduler"];
 
 const optionList0 = ["layout", "commands", "history", "connect"];
 const optionList1 = ["new tmux session", "screen session24252-pts-0", "new screen session", " "];

@@ -109,6 +109,7 @@ export default function listeners() {
 		var draggable = document.getElementsByClassName("draggable");
         backButtonStack = [];
         draggable.textContent="home";
+		document.getElementsByClassName('PieCenter')[0].style.backgroundColor = 'Lime';
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
         pieSliceLeft.textContent = "connect";
         var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];

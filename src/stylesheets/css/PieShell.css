@@ -135,13 +135,19 @@ button {
   left: 0;
   color: black; }
 
+.disabled {
+  background-color: rgba(25, 25, 25, 0.7) !important;
+  background-repeat: no-repeat;
+  background-size: contain; }
+
 .PieBackground {
   box-shadow: rgba(70, 70, 70, 0.5) 0px 5px 8px; }
 
 .PieCenter {
   color: white;
   position: fixed;
-  background-color: black;
+  background-image: url("../../assets/logos/logo-clear.png");
+  background-color: DarkOliveGreen;
   border-radius: 100%;
   width: 85.3333333333px;
   height: 85.3333333333px;
@@ -211,6 +217,7 @@ button {
 
 .BackButton {
   z-index: 12;
+  background-color: black;
   font-size: 12px;
   position: fixed;
   top: 145.3333333333px;
