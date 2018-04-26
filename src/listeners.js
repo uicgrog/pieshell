@@ -63,15 +63,15 @@ export default function listeners() {
 		console.log(">>> Left wedge");
 
         var option = document.getElementsByClassName('PieSliceLeft')[0].children[0];
-		if (option.textContent === "connect"){
+		if (option.textContent === "connect"){    //CLICKING CONNECT
             var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
             pieSliceLeft.textContent = "new tmux session";
             var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
-            pieSliceRight.textContent = "new screen session";
+            pieSliceRight.textContent = "screen session24252-pts-0";
             var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
-            pieSliceTop.textContent = "";
+            pieSliceTop.textContent = "new screen session";
             var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
-            pieSliceBottom.textContent = "screen session24252-pts-0";
+            pieSliceBottom.textContent = "tmux 0";
 		}
 	});
 
@@ -97,6 +97,16 @@ export default function listeners() {
 			ToggleAbridgedModalChmod();
 			console.log("CHANGE PERMS");
 		}
+        else if (option.textContent === "screen session24252-pts-0"){   //SELECTING CONNECTION
+            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+            pieSliceLeft.textContent = "connect";
+            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+            pieSliceRight.textContent = "commands";
+            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+            pieSliceTop.textContent = "layout";
+            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+            pieSliceBottom.textContent = "history";
+        }
 	});
 	
 	// toggle show abridge modal on abridge modal title click

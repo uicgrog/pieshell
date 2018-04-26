@@ -31,7 +31,7 @@ qsub scenario:
 //					0			1		   2		   3		   4
 const MenuTitles = ["πsh logo", "connect", "πsh logo", "commands", "scheduler"];
 
-const optionList0 = ["history", "commands", "settings", "connect"];
+const optionList0 = ["layout", "commands", "history", "connect"];
 const optionList1 = ["new tmux session", "screen session24252-pts-0", "new screen session", " "];
 const optionList2 = optionList0;
 const optionList3 = ["file perms.", "sysadmin", "compilers", "scheduler"];
@@ -47,7 +47,6 @@ ReactDOM.render(<Pie
 	options={optionList0}
 	category={MenuTitles[4]}
 	numSlices={optionList4.length}
-	options={test}
   />, document.getElementById('root'));
 
 /*
