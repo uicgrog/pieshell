@@ -31,6 +31,7 @@ export default function listeners() {
     ClearButton.addEventListener('click', () => {
 		HideAbridgedModal();
 		HideAbridgedModalChmod();
+		DefaultQSub();
 		DisableExecute();
     });
 	
@@ -406,15 +407,15 @@ export function DefaultQSub(){
     queue.children[2].value = "batch";
 	var QueueInput = document.getElementsByClassName('Queue')[0];
 	QueueInput.className = "Queue";
-	var QueueArg = document.getElementById('queueArg');
-	QueueArg.value = "-q batch";
+	var QueueLabel = document.getElementById('queueLabel');
+	QueueLabel.textContent = "-q batch";
 
     var number = document.getElementById("number");
     number.children[2].value = "1";
 	var ProcInput = document.getElementById('number').children[2];
 	ProcInput.className = "NumberInput";
-	var NumberArg = document.getElementById('numberArg');
-	NumberArg.value = "-l procs=1";
+	var NumberLabel = document.getElementById('numberLabel');
+	NumberLabel.textContent = "-l procs=1";
 
     var time = document.getElementById("time");
     time.children[2].value = "48";
@@ -428,6 +429,9 @@ export function DefaultQSub(){
 	SecInput.className = "TimeInput-Seconds";
 	var TimeArg = document.getElementById('timeArg');
 	TimeArg.value = "-l walltime=48:00:00";
+
+	var TimeLabel = document.getElementById('timeLabel');
+	TimeLabel.textContent = "-l walltime=48:00:00";
 
 }
 

@@ -45,8 +45,6 @@ ReactDOM.render(<Pie
 	category={MenuTitles[0]}
 	numSlices={optionList0.length}
 	options={optionList0}
-	category={MenuTitles[4]}
-	numSlices={optionList4.length}
   />, document.getElementById('root'));
 
 /*
