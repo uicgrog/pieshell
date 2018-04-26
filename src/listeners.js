@@ -1,5 +1,5 @@
 
-export var backButtonStack=["home"];
+export var backButtonStack=[];
 
 export default function listeners() {
 
@@ -51,15 +51,19 @@ export default function listeners() {
 	BackButton.addEventListener('click', () => {
 		console.log(backButtonStack);
 		var lastScreen = backButtonStack.pop();
-		if(lastScreen==="command"){
+		if(lastScreen==="commands"){
+            document.getElementById("BackButton").hidden=false;
 			openCommands();
 		}else if(lastScreen==="home"){
 			openHome();
 		}else if(lastScreen==="connect"){
+            document.getElementById("BackButton").hidden=false;
 			openConnect();
 		}else if(lastScreen==="scheduler"){
+            document.getElementById("BackButton").hidden=false;
 			openScheduler();
 		}else if(lastScreen==="file perms"){
+            document.getElementById("BackButton").hidden=false;
 			openFilePerms();
 		}
 	});
@@ -86,8 +90,8 @@ export default function listeners() {
 
         var draggable = document.getElementsByClassName("draggable");
         backButtonStack.push(draggable.textContent);
-        draggable.textContent="File Perms";
-
+        draggable.textContent="file perms";
+        document.getElementById("BackButton").hidden=false;
         var option = document.getElementsByClassName('PieSliceTop')[0].children[0];
         if (option.textContent === "file perms."){   //SELECTING file perms.
             var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
@@ -101,6 +105,7 @@ export default function listeners() {
         }
 	}
 	function openHome(){
+        document.getElementById("BackButton").hidden=true;
 		var draggable = document.getElementsByClassName("draggable");
         backButtonStack = [];
         draggable.textContent="home";
@@ -114,8 +119,9 @@ export default function listeners() {
         pieSliceBottom.textContent = "history";
 	}
 	function openCommands(){
+        document.getElementById("BackButton").hidden=false;
         var draggable = document.getElementsByClassName("draggable");
-        backButtonStack.push(draggable.textContent);
+        backButtonStack.push("home");
         console.log(backButtonStack);
         draggable.textContent="commands";
         var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
@@ -142,6 +148,7 @@ export default function listeners() {
 	}
 
 	function openScheduler(){
+        document.getElementById("BackButton").hidden=false;
         var draggable = document.getElementsByClassName("draggable");
         backButtonStack.push(draggable.textContent);
         draggable.textContent="connect";
@@ -158,13 +165,14 @@ export default function listeners() {
 	FourWedgeLeft.addEventListener('click', () => {
 		console.log(">>> Left wedge");
 		var center = document.getElementsByClassName("draggable");
-        //backButtonStack.push(center[0])
+
         var option = document.getElementsByClassName('PieSliceLeft')[0].children[0];
 		if (option.textContent === "connect"){    //CLICKING CONNECT
-
+            document.getElementById("BackButton").hidden=false;
             openConnect();
 		}
         else if(option.textContent === "scheduler"){   //SELECTING COMMANDS
+            document.getElementById("BackButton").hidden=false;
             openScheduler();
         }
 	});
@@ -194,9 +202,11 @@ export default function listeners() {
 		// toggle show abridge modal on bottom wedge click
 		var option = document.getElementsByClassName('PieSliceBottom')[0].children[0];
 		if (option.textContent === "submit job"){
+            document.getElementById("BackButton").hidden=false;
             openSubmitJob();
 		}
 		else if (option.textContent === "change perms."){
+            document.getElementById("BackButton").hidden=false;
             openChangePerms();
 		}
 	});
@@ -346,7 +356,7 @@ export default function listeners() {
 			DisableExecute();
 		}
 	});
-	
+    backButtonStack=[];
 }
 
 
