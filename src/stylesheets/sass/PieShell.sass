@@ -16,8 +16,12 @@ $fontSize: $size/16
 	src: url('fonts/Hack/Hack-Bold.ttf')
 	
 @font-face
-	font-family: 'Theinhardt'
+	font-family: 'Theinhard-Medium'
 	src: url('fonts/Theinhardt/Theinhardt-Medium.otf')
+
+@font-face
+	font-family: 'Theinhard-Black'
+	src: url('fonts/Theinhardt/Theinhardt-Black.otf')
 	
 .test
 	position: relative
@@ -31,7 +35,7 @@ body
 	font:
 		size: $fontSize
 		weight: normal
-		family: 'Theinhardt'
+		family: 'Theinhard-Medium'
 	padding: 0
 	margin: 0
 	
@@ -39,7 +43,7 @@ button
 	-webkit-app-region: no-drag
 	color: white
 	font:
-		family: 'Theinhardt'
+		family: 'Theinhard-Medium'
 	border:
 		radius: $fontSize
 	background:
@@ -128,6 +132,7 @@ button
 	color: white
 	position: fixed
 	background-color: black
+	family: 'Theinhard-Medium'
 	border-radius: 100%
 	width: $size/3
 	height: $size/3

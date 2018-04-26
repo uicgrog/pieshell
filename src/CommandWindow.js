@@ -48,10 +48,10 @@ function CommandBase(props){
 		<div className="CommandBase" style={{backgroundColor: color}}>
 			<div className="Close" data="CommandBase" onClick={CloseCommandArgument}/>
 			<div className="CommandLabel">{command}</div>
-			<CommandArgument color="#a0a0c0" mykey="interactive" command="-I" />
-			<CommandArgument color="#d0b0b0" mykey="queue" command="-q batch" />
-			<CommandArgument color="#d2d2c0" mykey="number" command="-l procs=1" />
-			<CommandArgument color="#a8bfb0" mykey="time" command="-l walltime=48:00:00" />
+			<CommandArgument color="#4451A3" mykey="interactive" command="-I" />
+			<CommandArgument color="#98CC70" mykey="number" command="-l procs=1" />
+			<CommandArgument color="#FAF185" mykey="time" command="-l walltime=48:00:00" />
+			<CommandArgument color="#F37E80" mykey="queue" command="-q batch" />
 		</div>
 	);
 }
