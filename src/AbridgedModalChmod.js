@@ -3,6 +3,7 @@ import './stylesheets/css/AbridgedModal.css';
 import PropTypes from 'prop-types';
 import Plus from 'mdi-react/PlusIcon.js';
 import AlertOutline from 'mdi-react/AlertOutlineIcon.js';
+import { EnableExecute, DisableExecute } from './listeners.js';
 
 
 function Check(e){
@@ -15,6 +16,7 @@ function Check(e){
 		var argDiv = document.getElementById(argDivID);
 		if (argDiv !== null){
 			argDiv.style.display = "inline-block";
+			EnableExecute();
 		}
 	}
 	else{
@@ -23,6 +25,7 @@ function Check(e){
 		var argDiv = document.getElementById(argDivID);
 		if (argDiv !== null){
 			argDiv.style.display = "none";
+			DisableExecute();
 		}
 	}
 }
@@ -37,6 +40,7 @@ function CheckPlus(e){
 		var argDiv = document.getElementById(argDivID);
 		if (argDiv !== null){
 			argDiv.style.display = "inline-block";
+			EnableExecute();
 		}
 	}
 	else{
@@ -45,6 +49,7 @@ function CheckPlus(e){
 		var argDiv = document.getElementById(argDivID);
 		if (argDiv !== null){
 			argDiv.style.display = "none";
+			DisableExecute();
 		}
 	}
 }
