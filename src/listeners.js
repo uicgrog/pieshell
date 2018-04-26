@@ -79,33 +79,58 @@ export default function listeners() {
         }
 	});
 
+	function openConnect(){
+        var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+        pieSliceLeft.textContent = "new tmux session";
+        var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+        pieSliceRight.textContent = "screen session24252-pts-0";
+        var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+        pieSliceTop.textContent = "new screen session";
+        var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+        pieSliceBottom.textContent = "tmux 0";
+	}
+
+	function openScheduler(){
+        var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
+        pieSliceLeft.textContent = "job status";
+        var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
+        pieSliceRight.textContent = "delete job";
+        var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
+        pieSliceTop.textContent = "hold job";
+        var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
+        pieSliceBottom.textContent = "submit job";
+	}
     var FourWedgeLeft = document.getElementById('FourWedgeLeft');
 	FourWedgeLeft.addEventListener('click', () => {
 		console.log(">>> Left wedge");
 
         var option = document.getElementsByClassName('PieSliceLeft')[0].children[0];
 		if (option.textContent === "connect"){    //CLICKING CONNECT
-            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
-            pieSliceLeft.textContent = "new tmux session";
-            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
-            pieSliceRight.textContent = "screen session24252-pts-0";
-            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
-            pieSliceTop.textContent = "new screen session";
-            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
-            pieSliceBottom.textContent = "tmux 0";
+            openConnect();
 		}
         else if(option.textContent === "scheduler"){   //SELECTING COMMANDS
-            var pieSliceLeft = document.getElementsByClassName('PieSliceLeft')[0].children[0];
-            pieSliceLeft.textContent = "job status";
-            var pieSliceRight = document.getElementsByClassName('PieSliceRight')[0].children[0];
-            pieSliceRight.textContent = "delete job";
-            var pieSliceTop = document.getElementsByClassName('PieSliceTop')[0].children[0];
-            pieSliceTop.textContent = "hold job";
-            var pieSliceBottom = document.getElementsByClassName('PieSliceBottom')[0].children[0];
-            pieSliceBottom.textContent = "submit job";
+            openScheduler();
         }
 	});
 
+
+	function openSubmitJob(){
+        ClearCommandArgs();
+        var AMDisplaying = ToggleAbridgedModal();
+        UncheckAllBoxes();
+        DefaultQSub();
+        if (AMDisplaying){
+            DisableExecute();
+        }
+	}
+
+	function openChangePerms(){
+        ClearCommandArgsChmod();
+        DefaultChmod();
+        UncheckAllBoxesChmod();
+        ToggleAbridgedModalChmod();
+        console.log("CHANGE PERMS");
+	}
     var FourWedgeBottom = document.getElementById('FourWedgeBottom');
 	FourWedgeBottom.addEventListener('click', () => {
 		console.log(">>> Bottom wedge");
@@ -113,20 +138,10 @@ export default function listeners() {
 		// toggle show abridge modal on bottom wedge click
 		var option = document.getElementsByClassName('PieSliceBottom')[0].children[0];
 		if (option.textContent === "submit job"){
-			ClearCommandArgs();
-			var AMDisplaying = ToggleAbridgedModal();
-			UncheckAllBoxes();
-			DefaultQSub();
-			if (AMDisplaying){
-				DisableExecute();
-			}
+            openSubmitJob();
 		}
 		else if (option.textContent === "change perms."){
-			ClearCommandArgsChmod();
-			DefaultChmod();
-			UncheckAllBoxesChmod();
-			ToggleAbridgedModalChmod();
-			console.log("CHANGE PERMS");
+            openChangePerms();
 		}
 	});
 	
@@ -162,7 +177,6 @@ export default function listeners() {
 			EnableExecute();
 		}
 	});
-	
 	// # of processor input check
 	var ProcInput = document.getElementById('number').children[2];
 	ProcInput.addEventListener('input', (e) => {
@@ -468,4 +482,8 @@ export function HideAbridgedModalChmod(){
 	CommandBase.style.display = "none";
 };
 
+function resetToDefault() {
+
+
+}
 
