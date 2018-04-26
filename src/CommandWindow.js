@@ -50,10 +50,10 @@ function CommandBase(props){
 		<div className="CommandBase" style={{backgroundColor: color}}>
 			<div className="Close" data="CommandBase" onClick={CloseCommandArgument}/>
 			<div className="CommandLabel">{command}</div>
-			<CommandArgument color="#a0a0c0" mykey="interactive" command="-I" />
-			<CommandArgument color="#d0b0b0" mykey="queue" command="-q batch" />
-			<CommandArgument color="#d2d2c0" mykey="number" command="-l procs=1" />
-			<CommandArgument color="#a8bfb0" mykey="time" command="-l walltime=48:00:00" />
+			<CommandArgument color="#80c0c0" mykey="interactive" command="-I" />
+			<CommandArgument color="#80c080" mykey="queue" command="-q batch" />
+			<CommandArgument color="#c0c080" mykey="number" command="-l procs=1" />
+			<CommandArgument color="#c08080" mykey="time" command="-l walltime=48:00:00" />
 		</div>
 	);
 }
@@ -80,13 +80,13 @@ class CommandWindow extends Component {
 					<div className="CommandBaseChmod" style={{backgroundColor: "#d0d0d0"}}>
 						<div className="Close" data="CommandBase" onClick={CloseCommandArgument}/>
 						<div className="CommandLabel">{"chmod"}</div>
-						<div className="CommandArgument" id="recursiveArg" style={{backgroundColor: "red"}}>
+						<div className="CommandArgument" id="recursiveArg" style={{backgroundColor: "#80c080"}}>
 							<div className="Close" onClick={CloseCommandArgument} data="recursiveCheckbox"/>
 							<div className="CommandLabel" id="recursiveLabel">{"-R"}</div>
 						</div>
 
-						<CommandArgument color="red" mykey="GW" command="g+w" />
-						<CommandArgument color="red" mykey="file" command="~/group_project" />
+						<CommandArgument color="#c0c080" mykey="GW" command="g+w" />
+						<CommandArgument color="#80c0c0" mykey="file" command="~/group_project" />
 					</div>
 				</div>
 				<div className="CommandButtonContainer">

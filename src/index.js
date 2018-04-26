@@ -32,7 +32,7 @@ qsub scenario:
 const MenuTitles = ["", "connect", "πsh logo", "commands", "scheduler"];
 
 const optionList0 = ["layout", "commands", "history", "connect"];
-const optionList1 = ["new tmux session", "screen session24252-pts-0", "new screen session", " "];
+const optionList1 = ["new tmux session", "screen 242.pts-0", "new screen session", " "];
 const optionList2 = optionList0;
 const optionList3 = ["file perms.", "sysadmin", "compilers", "scheduler"];
 const optionList4 = ["delete job", "job status", "submit job", " "];

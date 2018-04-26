@@ -66,12 +66,12 @@ class AbridgedModalChmod extends Component {
 			<div className="AbridgedModalChmod">
 				<div className="AbridgedModalChmodTitle"><div>{this.name}</div></div>
 				<div className="AbridgedChmodComponents">
-					<div className="FileDiv" id="file" style={{backgroundColor: "red"}}>
+					<div className="FileDiv" id="file" style={{backgroundColor: "#80c0c0"}}>
 						<div className="Label"><AlertOutline color="#fff" size="16"/>{" name of file or directory"}:</div>
 						<input type="text" className={"FileInput"}/>
 					</div>
 
-					<div className="CheckBoxDiv" id="recursive" style={{backgroundColor: "blue"}}>
+					<div className="CheckBoxDiv" id="recursive" style={{backgroundColor: "#80c080"}}>
 						<div className="CheckBox" onClick={Check} id="recursiveCheckbox"/>
 						<div className="Label">{"recursive"}</div>
 					</div>
@@ -114,7 +114,7 @@ class AbridgedModalChmod extends Component {
 
 					</div>
 
-					<div className="CheckBoxDiv" id="sticky" style={{backgroundColor: "pink"}}>
+					<div className="CheckBoxDiv" id="sticky" style={{backgroundColor: "#c08080"}}>
 						<div className="CheckBox" onClick={Check} id="stickyCheckbox"/>
 						<div className="Label">{"sticky bit"}</div>
 					</div>

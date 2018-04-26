@@ -122,10 +122,10 @@ class AbridgedModal extends Component {
 			<div className="AbridgedModal">
 				<div className="AbridgedModalTitle"><div>{this.name}</div></div>
 				<div className="AbridgedComponents">
-					<CheckBoxDiv id="interactive" label="interactive" color="#a0a0c0" initialState={false} />
-					<QueueDiv id="queue" label="queue" color="#c0a0a0" initialState={false}/>
-					<NumberDiv id="number" label="# processors" color="#c0c0a0" initialState={false} numberRangeStart={1} numberRangeEnd={16}/>
-					<TimeDiv id="time" label="max run time" color="#a0c0a0" initialState={false} />
+					<CheckBoxDiv id="interactive" label="interactive" color="#80c0c0" initialState={false} />
+					<QueueDiv id="queue" label="queue" color="#80c080" initialState={false}/>
+					<NumberDiv id="number" label="# processors" color="#c0c080" initialState={false} numberRangeStart={1} numberRangeEnd={16}/>
+					<TimeDiv id="time" label="max run time" color="#c08080" initialState={false} />
 				</div>
 			</div>
 		);
