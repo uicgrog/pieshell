@@ -380,7 +380,8 @@ export default function listeners() {
 		var fileLabel = document.getElementById('fileLabel');
 		fileLabel.textContent = val.toString();
 
-		if (val !== "~/group_project"){
+		//if (val !== "~/group_project"){
+		if (val === ""){
 			FileInput.className = "FileInput ErrorInput";
 			DisableExecute();
 			if (val === ""){
