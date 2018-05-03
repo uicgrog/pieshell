@@ -20,7 +20,7 @@ function CloseCommandArgument(e){
 	}
 	else{
 		console.log(e.target.getAttribute('data'));
-		var Checkbox = document.getElementById(e.target.getAttribute('data'));
+		var Checkbox = document.getElementById(e.target.getAttribute('data' + 'Checkbox'));
 		if (Checkbox !== null){
 			Checkbox.className = "CheckBox";
 		}
