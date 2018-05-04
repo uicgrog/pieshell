@@ -43,10 +43,6 @@ function PieBuild(props) {
 			<div className="PieCenter">
 			<div className="Draggable" />
 			<div className="Category">{category}</div>
-				<button className="BackButton" id="BackButton">
-					<ArrowLeft color="#fff" size="12"/>
-					<div>Back</div>
-				</button>
 			</div>
 		</div>
 	);

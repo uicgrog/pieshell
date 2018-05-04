@@ -142,6 +142,18 @@ button
 	top: $size/2 - $size/6
 	left: $size/2 - $size/6
 	z-index: 10
+
+.PieCenterBack
+	color: white
+	position: fixed
+	background-image: url('../../assets/logos/arrow-clear.png')
+	background-color: DarkOliveGreen
+	border-radius: 100%
+	width: $size/3
+	height: $size/3
+	top: $size/2 - $size/6
+	left: $size/2 - $size/6
+	z-index: 10
 	
 .PieSliceTop .Option
 	width: $size/3 + 10px
@@ -210,21 +222,3 @@ button
 	text-align: center
 	//margin: ($size/6 - $fontsize/4*3) 0
 	margin: 0
-	
-.BackButton
-	z-index: 12
-	background-color: black
-	font-size: $fontSize - 4px	//update expression to be relative to size
-	position: fixed
-	top: $size/3 + 60px		//update expression to be relative to size
-	left: $size/3 + 18px	//update expression to be relative to size
-	//margin: 53px 0		//update expression to be relative to size
-	padding: 0 4px			//update expression to be relative to size
-	svg
-		position: relative
-		top: 2px			//update expression to be relative to size
-		left: -3px			//update expression to be relative to size
-	div
-		position: relative
-		display: inline
-		top: -1.5px			//update expression to be relative to size

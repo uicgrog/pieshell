@@ -154,6 +154,18 @@ button {
   left: 85.3333333333px;
   z-index: 10; }
 
+.PieCenterBack {
+  color: white;
+  position: fixed;
+  background-image: url("../../assets/logos/arrow-clear.png");
+  background-color: DarkOliveGreen;
+  border-radius: 100%;
+  width: 85.3333333333px;
+  height: 85.3333333333px;
+  top: 85.3333333333px;
+  left: 85.3333333333px;
+  z-index: 10; }
+
 .PieSliceTop .Option {
   width: 95.3333333333px;
   top: 14.2222222222px;
@@ -213,22 +225,5 @@ button {
   position: fixed;
   text-align: center;
   margin: 0; }
-
-.BackButton {
-  z-index: 12;
-  background-color: black;
-  font-size: 12px;
-  position: fixed;
-  top: 145.3333333333px;
-  left: 103.3333333333px;
-  padding: 0 4px; }
-  .BackButton svg {
-    position: relative;
-    top: 2px;
-    left: -3px; }
-  .BackButton div {
-    position: relative;
-    display: inline;
-    top: -1.5px; }
 
 /*# sourceMappingURL=PieShell.css.map */
